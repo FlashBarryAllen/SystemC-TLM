@@ -1,4 +1,5 @@
 #include "test.h"
+#include "top.h"
 #include "gtest/gtest.h"
 
 using ::testing::EmptyTestEventListener;
@@ -14,11 +15,13 @@ int main(int argc, char* argv[])
     InitGoogleTest(&argc, argv);
 
     ::test_main();
-
     ycl::test_main();
-
     test::test_main();
 
+    // tlm test
+    top srv_top("srv_top");
+    sc_start(20, sc_core::SC_NS);
+    std::cout << "done" << std::endl;
 
     return 0;
 }
