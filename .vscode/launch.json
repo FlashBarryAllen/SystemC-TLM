@@ -11,7 +11,7 @@
             "program": "${workspaceFolder}/build/my_stl",
             "args": [""],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/testcase/01",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",

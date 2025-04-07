@@ -10,7 +10,7 @@ using ::testing::TestInfo;
 using ::testing::TestPartResult;
 using ::testing::UnitTest;
 
-int main(int argc, char* argv[])
+int sc_main(int argc, char* argv[])
 {
     InitGoogleTest(&argc, argv);
 

@@ -11,7 +11,6 @@ class top : public sc_core::sc_module {
          tx_node->m_clk(*m_clk);
          rx_node->rx.bind(tx_node->tx);
          tx_node->rx.bind(rx_node->tx);
-         tx_node->m_credit = 10;
      }
  
     public:

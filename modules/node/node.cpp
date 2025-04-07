@@ -8,10 +8,40 @@ node::node(sc_core::sc_module_name name) : m_val(0), m_credit(0), m_credit_ret(0
 
     m_cycle_cnt = 0;
 
+    get_config("node.xml");
+
     m_logger = spdlog::basic_logger_mt(
         this->name(), std::string("./logs/") + this->name() + ".log", true);
     m_logger->set_level(spdlog::level::info);
     m_logger->set_pattern("%v");
+}
+
+void node::get_config(const char* xml_file) {
+    XMLDocument doc;
+    XMLError eResult = doc.LoadFile(xml_file);
+
+    if (eResult != XML_SUCCESS) {
+        cerr << "Error loading XML file: " << doc.ErrorName() << endl;
+    }
+
+    int num = 0;
+
+    XMLElement* root = doc.FirstChildElement("node");
+    if (root == nullptr) {
+        cerr << "Error: Could not find the root element 'node'." << endl;
+    }
+
+    XMLElement* settingsElement = root->FirstChildElement("cfg");
+    if (settingsElement) {
+        XMLElement* databaseElement = settingsElement->FirstChildElement("credit");
+        if (databaseElement) {
+            if (databaseElement->QueryAttribute("num", &num) != XML_SUCCESS) {
+                cerr << "Error: Could not find the element 'num'." << endl;
+            }
+        }
+    }
+
+    m_credit = num;
 }
 
 void node::mth_entry() {
@@ -45,7 +75,7 @@ void node::mth_entry() {
         p_api->type = CTRL_MSG;
 
         auto p_ctrl = std::make_shared<MY_CTRL_T>();
-        int credit = 5;
+        int credit = 1;
         p_ctrl->credit = credit;
         p_api->dat = p_ctrl;
 

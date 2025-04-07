@@ -9,6 +9,10 @@
 #include <tlm_utils/peq_with_get.h>
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/basic_file_sink.h>
+#include <tinyxml2.h>
+
+using namespace tinyxml2;
+using namespace std;
 
 enum msg_type {
     CTRL_MSG = 0,
@@ -38,7 +42,8 @@ class node : public sc_core::sc_module {
     public:
      SC_HAS_PROCESS(node);
      node(sc_core::sc_module_name name);
- 
+    
+     virtual void get_config(const char* xml_file);
      virtual void mth_entry();
      void cal_speed();
      void set_credit(int credit);
