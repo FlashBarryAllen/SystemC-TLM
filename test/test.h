@@ -2,15 +2,22 @@
 #define TEST_H
 
 #include <iostream>
+#include <deque>
+#include <vector>
 
-namespace ycl {
-    void test_main();
-}
+#define VIRTURL_CHANNEL_NUM 8
 
-namespace test {
-    void test_main();
-}
+class Qos
+{
+    public:
+        Qos();
+        ~Qos();
 
-void test_main();
+        int in(int priority, int data);
+        int sch();
+    public:
+        std::vector<std::deque<int>> vc;
+        int cnt = 0;
+};
 
 #endif // TEST_H
