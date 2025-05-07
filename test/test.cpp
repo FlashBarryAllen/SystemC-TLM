@@ -22,7 +22,7 @@ int Qos::in(int priority, int data)
     return 0;
 }
 
-int Qos::sch()
+int Qos::pq_sch()
 {
     while (cnt > 0)
     {
@@ -34,6 +34,36 @@ int Qos::sch()
                 vc[i].pop_front();
                 cnt--;
                 break;
+            }
+        }
+    }
+
+    return 0;
+}
+
+int Qos::rr_sch()
+{
+    while (cnt > 0)
+    {
+        while (last_sch < VIRTURL_CHANNEL_NUM)
+        {
+            if (!vc[last_sch].empty())
+            {
+                std::cout << "Processing data from channel " << last_sch << ": " << vc[last_sch].front() << std::endl;
+                vc[last_sch].pop_front();
+                cnt--;
+                last_sch++;
+                if (last_sch >= VIRTURL_CHANNEL_NUM)
+                {
+                    last_sch = 0;
+                }
+                break;
+            }
+
+            last_sch++;
+            if (last_sch >= VIRTURL_CHANNEL_NUM)
+            {
+                last_sch = 0;
             }
         }
     }

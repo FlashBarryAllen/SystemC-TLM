@@ -32,7 +32,8 @@ int sc_main(int argc, char* argv[])
     qos.in(6, 15);
     qos.in(7, 16);
 
-    qos.sch();
+    //qos.qos_sch();
+    qos.rr_sch();
 
     // tlm test
     top srv_top("srv_top");

@@ -14,10 +14,12 @@ class Qos
         ~Qos();
 
         int in(int priority, int data);
-        int sch();
+        int pq_sch();
+        int rr_sch();
     public:
         std::vector<std::deque<int>> vc;
         int cnt = 0;
+        int last_sch = 0;
 };
 
 #endif // TEST_H
