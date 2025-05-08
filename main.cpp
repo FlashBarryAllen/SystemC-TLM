@@ -15,15 +15,15 @@ int sc_main(int argc, char* argv[])
     InitGoogleTest(&argc, argv);
 
     Qos qos;
-    qos.in(0, 1);
-    qos.in(1, 2);
-    qos.in(2, 3);
-    qos.in(3, 4);
-    qos.in(4, 5);
-    qos.in(5, 6);
-    qos.in(6, 7);
+    //qos.in(0, 1);
+    //qos.in(1, 2);
+    //qos.in(2, 3);
+    //qos.in(3, 4);
+    //qos.in(4, 5);
+    //qos.in(5, 6);
+    //qos.in(6, 7);
     qos.in(7, 8);
-    qos.in(0, 9);
+    //qos.in(0, 9);
     qos.in(1, 10);
     qos.in(2, 11);
     qos.in(3, 12);
@@ -32,7 +32,7 @@ int sc_main(int argc, char* argv[])
     qos.in(6, 15);
     qos.in(7, 16);
 
-    //qos.qos_sch();
+    //qos.sp_sch();
     qos.rr_sch();
 
     // tlm test
