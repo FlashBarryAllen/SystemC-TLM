@@ -35,6 +35,7 @@ public:
 
 	virtual void b_transport(tlm::tlm_generic_payload& trans,
 					sc_time& delay);
+	virtual tlm::tlm_sync_enum nb_transport(tlm::tlm_generic_payload& trans, tlm::tlm_phase& phase, sc_core::sc_time& time);
 	virtual bool get_direct_mem_ptr(tlm::tlm_generic_payload& trans,
                                   tlm::tlm_dmi& dmi_data);
 	virtual unsigned int transport_dbg(tlm::tlm_generic_payload& trans);

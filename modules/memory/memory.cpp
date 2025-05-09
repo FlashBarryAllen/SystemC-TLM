@@ -41,6 +41,7 @@ memory::memory(sc_module_name name, sc_time latency, off_t size_,
 	  mem(buf),
 	  free_mem(false)
 {
+	socket.register_nb_transport_fw(this, &memory::nb_transport);
 	socket.register_b_transport(this, &memory::b_transport);
 	socket.register_get_direct_mem_ptr(this, &memory::get_direct_mem_ptr);
 	socket.register_transport_dbg(this, &memory::transport_dbg);
@@ -59,6 +60,11 @@ memory::~memory()
 	if (free_mem) {
 		delete[] mem;
 	}
+}
+
+tlm::tlm_sync_enum memory::nb_transport(tlm::tlm_generic_payload& trans, tlm::tlm_phase& phase, sc_core::sc_time& time)
+{
+	return tlm::TLM_COMPLETED;
 }
 
 void memory::b_transport(tlm::tlm_generic_payload& trans, sc_time& delay)
