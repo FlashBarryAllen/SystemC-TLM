@@ -16,6 +16,8 @@ include_directories("${CMAKE_SOURCE_DIR}/include/tinyxml2/")
 include_directories("${CMAKE_SOURCE_DIR}/test/")
 include_directories("${CMAKE_SOURCE_DIR}/modules/top/")
 include_directories("${CMAKE_SOURCE_DIR}/modules/node/")
+include_directories("${CMAKE_SOURCE_DIR}/modules/gen/")
+include_directories("${CMAKE_SOURCE_DIR}/modules/memory/")
 #include_directories("${CMAKE_SOURCE_DIR}/common/")
 #include_directories("${CMAKE_SOURCE_DIR}/peq/")
 #include_directories("${CMAKE_SOURCE_DIR}/islip/")
@@ -34,6 +36,7 @@ add_executable(${PROJECT_NAME}
     ${CMAKE_SOURCE_DIR}/main.cpp
     ${CMAKE_SOURCE_DIR}/test/test.cpp
     ${CMAKE_SOURCE_DIR}/modules/node/node.cpp
+    ${CMAKE_SOURCE_DIR}/modules/memory/memory.cpp
     ${CMAKE_SOURCE_DIR}/modules/top/top.cpp
 )
 

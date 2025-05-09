@@ -1,20 +1,32 @@
+#ifndef TOP_H
+#define TOP_H
+
 #include <node.h>
+#include <tg-tlm.h>
+#include <traffic-desc.h>
+#include <gen_utils.h>
+#include <memory.h>
+
+using namespace sc_core;
+using namespace sc_dt;
+using namespace std;
+using namespace gen_utils;
+
+#define RAM_SIZE (8 * 1024)
 
 class top : public sc_core::sc_module {
     public:
-     SC_HAS_PROCESS(top);
-     top(sc_core::sc_module_name name) {
-         m_clk = new sc_core::sc_clock("clk", 1, sc_core::SC_NS);
-         rx_node = std::make_shared<node>("rx");
-         tx_node = std::make_shared<node>("tx");
-         rx_node->m_clk(*m_clk);
-         tx_node->m_clk(*m_clk);
-         rx_node->rx.bind(tx_node->tx);
-         tx_node->rx.bind(rx_node->tx);
-     }
+        SC_HAS_PROCESS(top);
+        top(sc_core::sc_module_name name);
+        ~top();
+
+        void run();
  
     public:
-     sc_core::sc_clock* m_clk;
-     std::shared_ptr<node> rx_node;
-     std::shared_ptr<node> tx_node;
+        sc_clock clk;
+        sc_in_clk clk_in;
+        TLMTrafficGenerator tg;
+        memory b0_mem;
  };
+
+ #endif
