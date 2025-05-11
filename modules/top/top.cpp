@@ -27,7 +27,9 @@ top::top(sc_core::sc_module_name name) : sc_module(name), tg("tg"),
     //
     // Setup traffic generator
     //
-    tg.addTransfers(transfers);
+    DataTransferVec data_transfers = tg.get_config("gen.xml");
+    static TrafficDesc m_transfers(merge(data_transfers));
+    tg.addTransfers(m_transfers);
     tg.enableDebug();
 
     tg.socket.bind(tgt_socket);

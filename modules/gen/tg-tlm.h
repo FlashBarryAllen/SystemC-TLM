@@ -38,6 +38,7 @@ using namespace std;
 #include "tlm_utils/simple_target_socket.h"
 #include "data-transfer.h"
 #include "itraffic-desc.h"
+#include <tinyxml2.h>
 
 SC_MODULE(TLMTrafficGenerator)
 {
@@ -86,6 +87,72 @@ SC_MODULE(TLMTrafficGenerator)
 								threadId,
 								c);
 	}
+
+	DataTransferVec get_config(const char* xml_file) {
+		XMLDocument doc;
+		XMLError eResult = doc.LoadFile(xml_file);
+	
+		if (eResult != XML_SUCCESS) {
+			cerr << "Error loading XML file: " << doc.ErrorName() << endl;
+		}
+	
+		int num = 0;
+	
+		XMLElement* root = doc.FirstChildElement("gen");
+		if (root == nullptr) {
+			cerr << "Error: Could not find the root element 'gen'." << endl;
+		}
+		
+		XMLElement* cmdElement = root->FirstChildElement("cmd");
+		while (cmdElement != nullptr) {
+			DataTransfer transfer;
+			uint64_t addr = 0;
+			const char* data = nullptr;
+			uint64_t length = 0;
+
+			const XMLAttribute* nameAttribute = cmdElement->FindAttribute("name");
+	
+			if (nameAttribute) {
+				string name = nameAttribute->Value();
+	
+				if (name == "WRITE") {
+					cmdElement->QueryAttribute("addr", &addr);
+					cmdElement->QueryAttribute("data", &data);
+					transfer.cmd = DataTransfer::WRITE;
+					transfer.addr = addr;
+					unsigned char* tmp = new unsigned char[std::strlen(data)];
+					for (int i = 0; i < std::strlen(data); i++)
+					{
+						tmp[i] = data[i];
+					}
+					transfer.data = tmp;
+					transfer.length = 4;
+					transfer.streaming_width = 4;
+				} else if (name == "READ") {
+					cmdElement->QueryAttribute("addr", &addr);
+					cmdElement->QueryAttribute("length", &length);
+					transfer.cmd = DataTransfer::READ;
+					transfer.addr = addr;
+					transfer.length = length;
+					transfer.streaming_width = 4;
+				} else {
+					cout << " - Unknown command type." << endl;
+				}
+			} else {
+				cerr << "Error: 'name' attribute not found in a 'cmd' element." << endl;
+			}
+
+			m_data_transfers.push_back(transfer);
+	
+			// 移动到下一个同级的 <cmd> 元素
+			cmdElement = cmdElement->NextSiblingElement("cmd");
+		}
+
+		return m_data_transfers;
+	}
+
+public:
+	DataTransferVec m_data_transfers;
 
 private:
 	class ThreadData {

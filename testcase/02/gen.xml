@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gen>
+    <cmd name="WRITE" addr="0x0" data="{0xEE, 0x10, 0x80, 0x0}"/>
+    <cmd name="WRITE" addr="0x4" data="{0x0, 0x00, 0x10, 0x0}"/>
+    <cmd name="WRITE" addr="0x8" data="{0x0, 0x0, 0x0, 0x2}"/>
+    <cmd name="READ"  addr="0x0" length="4"/>
+    <cmd name="READ"  addr="0x4" length="4"/>
+    <cmd name="READ"  addr="0x8" length="4"/>
+</gen>
