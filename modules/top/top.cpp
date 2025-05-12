@@ -1,5 +1,6 @@
 #include <top.h>
 
+/*
 TrafficDesc transfers(merge({
     Write(0x0, DATA(0xEE, 0x10, 0x80, 0x0)),
     Write(0x4, DATA(0x0, 0x00, 0x10, 0x0)),
@@ -12,13 +13,14 @@ TrafficDesc transfers(merge({
 	Read(0x8, 4),
 		//Expect(DATA(0x0, 0x0, 0x0, 0x2), 4),
 }));
+*/
 
 top::top(sc_core::sc_module_name name) : sc_module(name), tg("tg"), 
-    //b0_mem("b0_mem", sc_time(0, SC_NS), RAM_SIZE), 
-    tgt_socket("tgt_socket"),
+    b0_mem("b0_mem", sc_time(0, SC_NS), RAM_SIZE), 
+    //tgt_socket("tgt_socket"),
     clk("clk", sc_time(1, SC_NS))
 {
-    tgt_socket.register_b_transport(this, &top::b_transport);
+    //tgt_socket.register_b_transport(this, &top::b_transport);
     clk_in(clk);
     SC_METHOD(run);
     sensitive << clk_in.pos();
@@ -32,7 +34,7 @@ top::top(sc_core::sc_module_name name) : sc_module(name), tg("tg"),
     tg.addTransfers(m_transfers);
     tg.enableDebug();
 
-    tg.socket.bind(tgt_socket);
+    tg.socket.bind(b0_mem.socket);
 }
 
 top::~top()

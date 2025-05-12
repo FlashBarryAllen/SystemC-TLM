@@ -36,8 +36,8 @@ class top : public sc_core::sc_module {
         sc_clock clk;
         sc_in_clk clk_in;
         TLMTrafficGenerator tg;
-        //memory b0_mem;
-        tlm_utils::simple_target_socket<top> tgt_socket;
+        memory b0_mem;
+        //tlm_utils::simple_target_socket<top> tgt_socket;
         deque<shared_ptr<gen_data>> m_input_que;
  };
 

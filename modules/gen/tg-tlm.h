@@ -88,6 +88,39 @@ SC_MODULE(TLMTrafficGenerator)
 								c);
 	}
 
+	// 解析数据字符串为字节数组
+	std::vector<uint8_t> parseDataString(const std::string& dataStr) {
+		std::vector<uint8_t> byteArray;
+		std::istringstream iss(dataStr);
+		std::string token;
+		
+		// 移除开头的 '{'
+		if (!dataStr.empty() && dataStr[0] == '{') {
+			iss.ignore(1);
+		}
+		
+		// 解析每个字节值
+		while (std::getline(iss, token, ',')) {
+			// 移除空白字符和 '0x' 前缀
+			token.erase(0, token.find_first_not_of(" \t\n\r\f\v"));
+			token.erase(token.find_last_not_of(" \t\n\r\f\v") + 1);
+			
+			if (token.size() >= 2 && token[0] == '0' && std::tolower(token[1]) == 'x') {
+				token = token.substr(2);
+			}
+			
+			// 转换16进制字符串为字节
+			try {
+				uint8_t byte = static_cast<uint8_t>(std::stoul(token, nullptr, 16));
+				byteArray.push_back(byte);
+			} catch (...) {
+				std::cerr << "解析数据失败: " << token << std::endl;
+			}
+		}
+		
+		return byteArray;
+	}
+
 	DataTransferVec get_config(const char* xml_file) {
 		XMLDocument doc;
 		XMLError eResult = doc.LoadFile(xml_file);
@@ -107,7 +140,8 @@ SC_MODULE(TLMTrafficGenerator)
 		while (cmdElement != nullptr) {
 			DataTransfer transfer;
 			uint64_t addr = 0;
-			const char* data = nullptr;
+			const char* data_ptr = nullptr;
+			std::vector<char> byte_vector;
 			uint64_t length = 0;
 
 			const XMLAttribute* nameAttribute = cmdElement->FindAttribute("name");
@@ -117,16 +151,23 @@ SC_MODULE(TLMTrafficGenerator)
 	
 				if (name == "WRITE") {
 					cmdElement->QueryAttribute("addr", &addr);
-					cmdElement->QueryAttribute("data", &data);
+					cmdElement->QueryAttribute("data", &data_ptr);
+					std::string dataStr(data_ptr);
+        
+					// 解析数据
+					std::vector<uint8_t> dataBytes = parseDataString(dataStr);
+					unsigned char* data = new unsigned char[dataBytes.size()];
+					int i = 0;
+					for (auto byte : dataBytes) {
+						transfer.length++;
+						data[i++] = byte;
+						//std::cout << "0x" << std::hex << static_cast<int>(byte) << " ";
+					}
+					//std::cout << std::endl;
+
 					transfer.cmd = DataTransfer::WRITE;
 					transfer.addr = addr;
-					unsigned char* tmp = new unsigned char[std::strlen(data)];
-					for (int i = 0; i < std::strlen(data); i++)
-					{
-						tmp[i] = data[i];
-					}
-					transfer.data = tmp;
-					transfer.length = 4;
+					transfer.data = data;
 					transfer.streaming_width = 4;
 				} else if (name == "READ") {
 					cmdElement->QueryAttribute("addr", &addr);
