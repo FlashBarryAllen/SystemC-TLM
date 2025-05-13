@@ -38,33 +38,30 @@ using namespace std;
 memory::memory(sc_module_name name, sc_time latency, off_t size_,
 	       uint8_t *buf)
 	: sc_module(name), socket("socket"), LATENCY(latency),
-	  mem(buf),
-	  free_mem(false)
+	  //mem(buf),
+	  //free_mem(false),
+	  size(size_)
 {
-	socket.register_nb_transport_fw(this, &memory::nb_transport);
 	socket.register_b_transport(this, &memory::b_transport);
 	socket.register_get_direct_mem_ptr(this, &memory::get_direct_mem_ptr);
 	socket.register_transport_dbg(this, &memory::transport_dbg);
 
-	size = size_;
-
+	/*
 	if (mem == NULL) {
 		mem = new uint8_t[size];
 		memset(&mem[0], 0, size);
 		free_mem = true;
 	}
+	*/
 }
 
 memory::~memory()
 {
+	/*
 	if (free_mem) {
 		delete[] mem;
 	}
-}
-
-tlm::tlm_sync_enum memory::nb_transport(tlm::tlm_generic_payload& trans, tlm::tlm_phase& phase, sc_core::sc_time& time)
-{
-	return tlm::TLM_COMPLETED;
+	*/
 }
 
 void memory::b_transport(tlm::tlm_generic_payload& trans, sc_time& delay)
@@ -99,9 +96,11 @@ void memory::b_transport(tlm::tlm_generic_payload& trans, sc_time& delay)
 				}
 
 				if (trans.is_read()) {
-					ptr[pos] = mem[addr + (pos % streaming_width)];
+					//ptr[pos] = mem[addr + (pos % streaming_width)];
+					ptr[pos] = mem_map[addr + (pos % streaming_width)];
 				} else {
-					mem[addr + (pos % streaming_width)] = ptr[pos];
+					//mem[addr + (pos % streaming_width)] = ptr[pos];
+					mem_map[addr + (pos % streaming_width)] = ptr[pos];
 				}
 			}
 		}
@@ -112,10 +111,20 @@ void memory::b_transport(tlm::tlm_generic_payload& trans, sc_time& delay)
 			return;
 		}
 
-		if (trans.get_command() == tlm::TLM_READ_COMMAND)
-			memcpy(ptr, &mem[addr], len);
+		if (trans.get_command() == tlm::TLM_READ_COMMAND) {
+			//memcpy(ptr, &mem[addr], len);
+			for (unsigned int i = 0; i < len; i++) {
+				ptr[i] = mem_map[addr + i];
+			}
+		}
 		else if (cmd == tlm::TLM_WRITE_COMMAND)
-			memcpy(&mem[addr], ptr, len);
+		{
+			//memcpy(&mem[addr], ptr, len);
+			for (unsigned int i = 0; i < len; i++)
+			{
+				mem_map[addr + i] = ptr[i];
+			}
+		}
 	}
 
 	delay += LATENCY;
@@ -127,20 +136,20 @@ void memory::b_transport(tlm::tlm_generic_payload& trans, sc_time& delay)
 bool memory::get_direct_mem_ptr(tlm::tlm_generic_payload& trans,
 				tlm::tlm_dmi& dmi_data)
 {
-	dmi_data.allow_read_write();
-
-	dmi_data.set_dmi_ptr( reinterpret_cast<unsigned char*>(&mem[0]));
-	dmi_data.set_start_address(0);
-	dmi_data.set_end_address(size - 1);
+	//dmi_data.allow_read_write();
+	//dmi_data.set_dmi_ptr( reinterpret_cast<unsigned char*>(&mem[0]));
+	//dmi_data.set_start_address(0);
+	//dmi_data.set_end_address(size - 1);
 	/* Latencies are per byte.  Our latency is expressed per access,
 	   which are in 32bits so dividie by 4. Is there a better way?.  */
-	dmi_data.set_read_latency(LATENCY / 4);
-	dmi_data.set_write_latency(LATENCY / 4);
+	//dmi_data.set_read_latency(LATENCY / 4);
+	//dmi_data.set_write_latency(LATENCY / 4);
 	return true;
 }
 
 unsigned int memory::transport_dbg(tlm::tlm_generic_payload& trans)
 {
+	/*
 	tlm::tlm_command cmd = trans.get_command();
 	sc_dt::uint64    addr = trans.get_address();
 	unsigned char*   ptr = trans.get_data_ptr();
@@ -153,4 +162,7 @@ unsigned int memory::transport_dbg(tlm::tlm_generic_payload& trans)
 		memcpy(&mem[addr], ptr, num_bytes);
 
 	return num_bytes;
+	*/
+
+	return 0;
 }
