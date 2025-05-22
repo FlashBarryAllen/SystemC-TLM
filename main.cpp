@@ -36,9 +36,11 @@ int sc_main(int argc, char* argv[])
     qos.rr_sch();
 
     // tlm test
-    top srv_top("srv_top");
-    Top_LT top("top_lt");
-    sc_start(20, sc_core::SC_NS);
+    //top srv_top("srv_top");
+    Top_LT top_lt("top_lt");
+    Top_AT top_at("top_at");
+    sc_start();
+    //sc_start(20, sc_core::SC_NS);
     std::cout << "done" << std::endl;
 
     return 0;

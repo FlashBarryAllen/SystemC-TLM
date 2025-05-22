@@ -7,7 +7,8 @@
 #include <gen_utils.h>
 #include <memory.h>
 #include <memory>
-#include <dma_ctrl.h>
+#include <dma_ctrl_lt.h>
+#include <dma_ctrl_at.h>
 
 using namespace sc_core;
 using namespace sc_dt;

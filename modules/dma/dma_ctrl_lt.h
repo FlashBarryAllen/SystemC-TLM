@@ -1,3 +1,6 @@
+#ifndef DMA_CTRL_LT_H
+#define DMA_CTRL_LT_H
+
 #include "systemc.h"
 #include "tlm.h"
 #include "tlm_utils/simple_initiator_socket.h"
@@ -129,3 +132,5 @@ SC_MODULE(Top_LT) {
 //     // std::cout << "Memory at 0x200: " << std::hex << (int)top.mem.mem[0x200] << std::endl;
 //     return 0;
 // }
+
+#endif // LT_DMA_CTRL_H
