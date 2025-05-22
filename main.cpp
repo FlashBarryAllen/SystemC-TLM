@@ -37,6 +37,7 @@ int sc_main(int argc, char* argv[])
 
     // tlm test
     top srv_top("srv_top");
+    Top_LT top("top_lt");
     sc_start(20, sc_core::SC_NS);
     std::cout << "done" << std::endl;
 
