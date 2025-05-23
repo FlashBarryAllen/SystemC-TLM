@@ -76,15 +76,15 @@ SC_MODULE(LT_DmaController) {
 };
 
 // 内存模型 (与之前示例类似，但为了LT模式，忽略delay的累积)
-SC_MODULE(Memory) {
-    tlm_utils::simple_target_socket<Memory> socket;
+SC_MODULE(LT_Memory) {
+    tlm_utils::simple_target_socket<LT_Memory> socket;
     std::vector<unsigned char> mem;
     enum { MEM_SIZE = 1024 };
 
-    SC_CTOR(Memory) : socket("socket") {
-        socket.register_b_transport(this, &Memory::b_transport);
+    SC_CTOR(LT_Memory) : socket("socket") {
+        socket.register_b_transport(this, &LT_Memory::b_transport);
         mem.resize(MEM_SIZE, 0xAA);
-        std::cout << "Memory: Initialized " << MEM_SIZE << " bytes to 0xAA" << std::endl;
+        std::cout << "LT_Memory: Initialized " << MEM_SIZE << " bytes to 0xAA" << std::endl;
     }
 
     virtual void b_transport(tlm::tlm_generic_payload& trans, sc_core::sc_time& delay) {
@@ -118,7 +118,7 @@ SC_MODULE(Memory) {
 // Top 模块
 SC_MODULE(Top_LT) {
     LT_DmaController dma_ctrl;
-    Memory mem;
+    LT_Memory mem;
 
     SC_CTOR(Top_LT) : dma_ctrl("dma_ctrl"), mem("mem") {
         dma_ctrl.mem_socket.bind(mem.socket);
@@ -129,7 +129,7 @@ SC_MODULE(Top_LT) {
 //     Top_LT top("top_lt");
 //     sc_start();
 //     // 验证内存内容
-//     // std::cout << "Memory at 0x200: " << std::hex << (int)top.mem.mem[0x200] << std::endl;
+//     // std::cout << "LT_Memory at 0x200: " << std::hex << (int)top.mem.mem[0x200] << std::endl;
 //     return 0;
 // }
 

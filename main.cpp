@@ -39,6 +39,7 @@ int sc_main(int argc, char* argv[])
     //top srv_top("srv_top");
     Top_LT top_lt("top_lt");
     Top_AT top_at("top_at");
+    //DMA_Top  dma_top("dma_top");
     sc_start();
     //sc_start(20, sc_core::SC_NS);
     std::cout << "done" << std::endl;

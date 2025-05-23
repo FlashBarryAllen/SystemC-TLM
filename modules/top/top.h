@@ -9,6 +9,7 @@
 #include <memory>
 #include <dma_ctrl_lt.h>
 #include <dma_ctrl_at.h>
+#include <dma_engine.h>
 
 using namespace sc_core;
 using namespace sc_dt;
