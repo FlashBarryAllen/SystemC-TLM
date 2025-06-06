@@ -1,4 +1,5 @@
 #include "test.h"
+#include "pcie_scan.h"
 #include "top.h"
 #include "gtest/gtest.h"
 
@@ -13,6 +14,8 @@ using ::testing::UnitTest;
 int sc_main(int argc, char* argv[])
 {
     InitGoogleTest(&argc, argv);
+
+    pcie_main();
 
     Qos qos;
     //qos.in(0, 1);
