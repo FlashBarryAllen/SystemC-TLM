@@ -81,7 +81,7 @@ public:
 class PCIEnumerator {
 private:
     std::vector<std::shared_ptr<PCIDevice>> discovered_devices;
-    uint8_t next_bus_number;
+    uint8_t last_bus_number;
     
     // Simulated configuration space - in real implementation, this would be hardware access
     std::map<uint32_t, uint32_t> config_space;
@@ -210,14 +210,15 @@ private:
         writeConfigByte(bridge->bus, bridge->device, bridge->function, PCI_SUBORDINATE_BUS, subordinate);
     }
     
-    uint8_t enumerateBus(uint8_t bus_num, std::shared_ptr<PCIDevice> parent_bridge = nullptr) {
+    uint8_t enumerateBus(uint8_t bus_num) {
         std::cout << "\nSCANNING BUS " << (int)bus_num << std::endl;
         uint8_t max_subordinate_bus = bus_num;
         
         // Scan all possible devices on this bus
         for (uint8_t device = 0; device <= PCI_MAX_DEVICE; device++) {
             // First check function 0
-            auto pci_device = probeDevice(bus_num, device, 0);
+            uint8_t function = 0;
+            auto pci_device = probeDevice(bus_num, device, function);
             if (!pci_device) {
                 continue; // Device doesn't exist
             }
@@ -226,34 +227,23 @@ private:
             
             // If this is a bridge, perform depth-first enumeration
             if (pci_device->is_bridge) {
-                uint8_t secondary_bus = next_bus_number++;
+                uint8_t secondary_bus = ++last_bus_number;
                 configureBridge(pci_device, bus_num, secondary_bus, PCI_MAX_BUS);
                 
                 // Recursively enumerate the secondary bus
-                uint8_t subordinate_bus = enumerateBus(secondary_bus, pci_device);
+                uint8_t subordinate_bus = enumerateBus(secondary_bus);
                 
                 // Update the bridge's subordinate bus number
                 updateBridgeSubordinate(pci_device, subordinate_bus);
                 max_subordinate_bus = std::max(max_subordinate_bus, subordinate_bus);
-            }
-            
-            // If this is a multifunction device, check other functions
-            if (pci_device->is_multifunction) {
-                for (uint8_t function = 1; function <= PCI_MAX_FUNCTION; function++) {
+            } else if (pci_device->is_multifunction) {
+                function++;
+                while (function <= PCI_MAX_FUNCTION) {
                     auto func_device = probeDevice(bus_num, device, function);
                     if (func_device) {
                         discovered_devices.push_back(func_device);
-                        
-                        // If this function is also a bridge, enumerate it
-                        if (func_device->is_bridge) {
-                            uint8_t secondary_bus = next_bus_number++;
-                            configureBridge(func_device, bus_num, secondary_bus, PCI_MAX_BUS);
-                            
-                            uint8_t subordinate_bus = enumerateBus(secondary_bus, func_device);
-                            updateBridgeSubordinate(func_device, subordinate_bus);
-                            max_subordinate_bus = std::max(max_subordinate_bus, subordinate_bus);
-                        }
                     }
+                    function++;
                 }
             }
         }
@@ -262,8 +252,8 @@ private:
     }
     
 public:
-    PCIEnumerator() : next_bus_number(1) {
-        // Initialize simulated devices to match the example topology
+    PCIEnumerator() : last_bus_number(0) {
+        // Initialize simulated devices to match the example topology, actually this is a cfg write
         setupExampleTopology();
     }
     
@@ -334,7 +324,7 @@ public:
         std::cout << "Starting depth-first enumeration..." << std::endl;
         
         discovered_devices.clear();
-        next_bus_number = 1;
+        last_bus_number = 0;
         
         // Start enumeration from bus 0
         uint8_t max_bus = enumerateBus(0);
