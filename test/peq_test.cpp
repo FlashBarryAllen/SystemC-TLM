@@ -556,7 +556,8 @@ void peq_test()
 
     for (int i = 0; i < 20 || test_peq.get_inflight_count() != 0;) {
         if ((i < 20) && (test_peq.get_inflight_count() < max_dep)) {
-            test_peq.push_delayed_payload(sc_core::sc_time(delay_time[i], sc_core::SC_NS), arr[i]);
+            std::unique_ptr<int> p = std::make_unique<int>(arr[i]);
+            test_peq.push_delayed_payload(sc_core::sc_time(delay_time[i], sc_core::SC_NS), p);
             peq_max_dep = std::max(peq_max_dep, (int)test_peq.get_inflight_count());
             peq_min_dep = std::min(peq_min_dep, (int)test_peq.get_inflight_count());
 
@@ -566,7 +567,7 @@ void peq_test()
         }
 
         sc_core::sc_start(sc_core::sc_time(1, sc_core::SC_NS));
-        std::shared_ptr<int> event;
+        std::unique_ptr<int> event;
         while ((event = test_peq.pop_expired_payload())) {
             peq_max_dep = std::max(peq_max_dep, (int)test_peq.get_inflight_count());
             peq_min_dep = std::min(peq_min_dep, (int)test_peq.get_inflight_count());
