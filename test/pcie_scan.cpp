@@ -381,7 +381,7 @@ private:
     }
 };
 
-int pcie_main() {
+int pcie_scan_main() {
     PCIEnumerator enumerator;
     
     std::cout << "PCI-E Bus Enumeration Implementation" << std::endl;

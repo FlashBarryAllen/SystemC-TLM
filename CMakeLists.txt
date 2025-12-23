@@ -19,6 +19,7 @@ include_directories("${CMAKE_SOURCE_DIR}/modules/node/")
 include_directories("${CMAKE_SOURCE_DIR}/modules/gen/")
 include_directories("${CMAKE_SOURCE_DIR}/modules/memory/")
 include_directories("${CMAKE_SOURCE_DIR}/modules/dmac/")
+include_directories("${CMAKE_SOURCE_DIR}/modules/peq/")
 #include_directories("${CMAKE_SOURCE_DIR}/common/")
 #include_directories("${CMAKE_SOURCE_DIR}/peq/")
 #include_directories("${CMAKE_SOURCE_DIR}/islip/")
@@ -33,10 +34,15 @@ link_directories("${CMAKE_SOURCE_DIR}/libs/gtest/")
 link_directories("${CMAKE_SOURCE_DIR}/libs/gmock/")
 link_directories("${CMAKE_SOURCE_DIR}/libs/tinyxml2/")
 
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
+#set(CMAKE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS} -fsanitize=address")
+
 add_executable(${PROJECT_NAME} 
     ${CMAKE_SOURCE_DIR}/main.cpp
     ${CMAKE_SOURCE_DIR}/test/test.cpp
     ${CMAKE_SOURCE_DIR}/test/pcie_scan.cpp
+    ${CMAKE_SOURCE_DIR}/test/pcie_vc.cpp
+    ${CMAKE_SOURCE_DIR}/test/pcie_arb.cpp
     ${CMAKE_SOURCE_DIR}/modules/node/node.cpp
     ${CMAKE_SOURCE_DIR}/modules/memory/memory.cpp
     ${CMAKE_SOURCE_DIR}/modules/top/top.cpp
