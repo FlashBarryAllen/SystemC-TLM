@@ -21,7 +21,9 @@ int sc_main(int argc, char* argv[])
 {
     InitGoogleTest(&argc, argv);
 
-    peq_test_main();
+    //peq_test_main();
+
+    peq_test();
 
     //pcie_scan_main();
 

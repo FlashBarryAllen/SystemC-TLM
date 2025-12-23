@@ -541,29 +541,44 @@ SC_MODULE(Top)
 
 void peq_test()
 {
+    int max_dep = 10;
+    int peq_max_dep = 0;
+    int peq_min_dep = 100;
+    int arr[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                   11,12,13,14,15,16,17,18,19,20};
+    
+    int delay_time[20] = {10, 5, 15, 3, 8, 12, 7, 1, 20, 18,
+                         6, 4, 9, 14, 2, 11, 13, 17, 19, 16};
+
     peq<int> test_peq;
 
     sc_core::sc_start(sc_core::sc_time(0, sc_core::SC_NS));
 
-    test_peq.delay(sc_core::sc_time(10, sc_core::SC_NS), 42);
-    test_peq.delay(sc_core::sc_time(5, sc_core::SC_NS), 84);
-    test_peq.delay(sc_core::sc_time(15, sc_core::SC_NS), 168);
+    for (int i = 0; i < 20 || test_peq.get_inflight_count() != 0;) {
+        if ((i < 20) && (test_peq.get_inflight_count() < max_dep)) {
+            test_peq.push_delayed_payload(sc_core::sc_time(delay_time[i], sc_core::SC_NS), arr[i]);
+            peq_max_dep = std::max(peq_max_dep, (int)test_peq.get_inflight_count());
+            peq_min_dep = std::min(peq_min_dep, (int)test_peq.get_inflight_count());
 
-    for (int i = 0; i < 20; i += 1) {
-        sc_core::sc_start(sc_core::sc_time(1, sc_core::SC_NS));
-        test_peq.delay(sc_core::sc_time(3, sc_core::SC_NS), 123);
-        test_peq.delay(sc_core::sc_time(3, sc_core::SC_NS), 456);
-
-        std::shared_ptr<int> event;
-        while ((event = test_peq.get_next_event())) {
             std::cout << "[PEQ] @ " << sc_core::sc_time_stamp() 
-                    << " | Processed: " << *event << std::endl;
+                    << " | push: " << arr[i] << " | delay: " << delay_time[i] << std::endl;
+            i++;
+        }
+
+        sc_core::sc_start(sc_core::sc_time(1, sc_core::SC_NS));
+        std::shared_ptr<int> event;
+        while ((event = test_peq.pop_expired_payload())) {
+            peq_max_dep = std::max(peq_max_dep, (int)test_peq.get_inflight_count());
+            peq_min_dep = std::min(peq_min_dep, (int)test_peq.get_inflight_count());
+            std::cout << "[PEQ] @ " << sc_core::sc_time_stamp() 
+                    << " | pop:  " << *event << std::endl;
         }
     }
+
+    std::cout << "[PEQ] max depth: " << peq_max_dep << ", min depth: " << peq_min_dep << std::endl;
 }
 
 void peq_test_main()
 {
   Top top("top");
-  peq_test();
 }
