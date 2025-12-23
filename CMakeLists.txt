@@ -40,6 +40,7 @@ link_directories("${CMAKE_SOURCE_DIR}/libs/tinyxml2/")
 add_executable(${PROJECT_NAME} 
     ${CMAKE_SOURCE_DIR}/main.cpp
     ${CMAKE_SOURCE_DIR}/test/test.cpp
+    ${CMAKE_SOURCE_DIR}/test/peq_test.cpp
     ${CMAKE_SOURCE_DIR}/test/pcie_scan.cpp
     ${CMAKE_SOURCE_DIR}/test/pcie_vc.cpp
     ${CMAKE_SOURCE_DIR}/test/pcie_arb.cpp

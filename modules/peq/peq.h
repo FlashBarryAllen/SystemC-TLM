@@ -30,6 +30,10 @@ public:
             return trans;
         }
     }
+
+    int size() const {
+        return m_peq.size();
+    }
 private:
     std::multimap<sc_core::sc_time,  std::shared_ptr<T>> m_peq;
 };

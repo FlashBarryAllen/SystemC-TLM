@@ -1,4 +1,5 @@
 #include "test.h"
+#include "peq_test.h"
 #include "pcie_scan.h"
 #include "pcie_vc.h"
 #include "pcie_arb.h"
@@ -15,36 +16,12 @@ using ::testing::TestInfo;
 using ::testing::TestPartResult;
 using ::testing::UnitTest;
 
-void peq_test()
-{
-    peq<int> test_peq;
-
-    sc_core::sc_start(sc_core::sc_time(0, sc_core::SC_NS));
-
-    test_peq.delay(sc_core::sc_time(10, sc_core::SC_NS), 42);
-    test_peq.delay(sc_core::sc_time(5, sc_core::SC_NS), 84);
-    test_peq.delay(sc_core::sc_time(15, sc_core::SC_NS), 168);
-
-    for (int i = 0; i < 20; i += 1) {
-        sc_core::sc_start(sc_core::sc_time(1, sc_core::SC_NS));
-        test_peq.delay(sc_core::sc_time(3, sc_core::SC_NS), 123);
-        test_peq.delay(sc_core::sc_time(3, sc_core::SC_NS), 456);
-
-        std::shared_ptr<int> event;
-        while ((event = test_peq.get_next_event())) {
-            std::cout << "[PEQ] @ " << sc_core::sc_time_stamp() 
-                    << " | Processed: " << *event << std::endl;
-        }
-    }
-}
 
 int sc_main(int argc, char* argv[])
 {
     InitGoogleTest(&argc, argv);
 
-    peq_test();
-
-    return 0;
+    peq_test_main();
 
     //pcie_scan_main();
 
@@ -74,7 +51,7 @@ int sc_main(int argc, char* argv[])
     //qos.rr_sch();
 
     // tlm test
-    top srv_top("srv_top");
+    //top srv_top("srv_top");
     //Top_LT top_lt("top_lt");
     //Top_AT top_at("top_at");
     //DMA_Top  dma_top("dma_top");
