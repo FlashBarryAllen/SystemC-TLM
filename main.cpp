@@ -25,7 +25,11 @@ int sc_main(int argc, char* argv[])
 
     //peq_test();
 
-    TEST_islip();
+    //TEST_islip();
+    //TEST_islip_lonely_pair();
+    //TEST_islip_real_lonely();
+    //TEST_islip_lonely();
+    TEST_islip_final_showdown();
 
     //pcie_scan_main();
 

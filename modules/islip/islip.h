@@ -14,7 +14,7 @@ public:
 public:
     void init_priority_ptr();
     void set_ql(int i, int j);
-    void islip_sch();
+    void islip_sch(int max_iterations = 1);
     void init();
     void send_request();
     void do_grant();
@@ -30,6 +30,11 @@ public:
     std::vector<bool> m_request;
     std::vector<bool> m_grant;
     std::vector<std::pair<int, int>> sch_result;
+
+    // 在 islip 类定义中增加：
+    std::vector<bool> m_input_occupied;
+    std::vector<bool> m_output_occupied;
+    int m_current_iter; // 记录当前是第几次迭代
 };
 
 #endif

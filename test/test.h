@@ -25,5 +25,9 @@ class Qos
 };
 
 void TEST_islip();
+void TEST_islip_lonely_pair();
+void TEST_islip_real_lonely();
+void TEST_islip_lonely();
+void TEST_islip_final_showdown();
 
 #endif // TEST_H
