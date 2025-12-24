@@ -1,22 +1,25 @@
 #include "islip.h"
 #include <iostream>
 #include <algorithm>
+#include <vector>
 
 islip::islip(int input_num, int output_num)
 {
     m_num_port = std::max(input_num, output_num);
     
-    // 初始化指针和矩阵
-    m_gi.resize(m_num_port);
-    m_ai.resize(m_num_port);
-    m_ql.resize(m_num_port * m_num_port);
+    // 初始化指针
+    m_gi.resize(m_num_port, 0);
+    m_ai.resize(m_num_port, 0);
+    
+    // 初始化矩阵：m_ql 现在建议存储具体的包数量 (int)
+    m_ql.resize(m_num_port * m_num_port, 0);
     m_accept.resize(m_num_port * m_num_port);
     m_request.resize(m_num_port * m_num_port);
     m_grant.resize(m_num_port * m_num_port);
 
-    // Speedup=1 状态记录
-    m_input_occupied.resize(m_num_port);
-    m_output_occupied.resize(m_num_port);
+    // Speedup 状态记录：记录本周期各端口已匹配次数
+    m_input_match_count.resize(m_num_port);
+    m_output_match_count.resize(m_num_port);
 
     init_priority_ptr();
 }
@@ -27,65 +30,68 @@ void islip::init_priority_ptr()
 {
     for (int i = 0; i < m_num_port; i++)
     {
-        m_ai.at(i) = 0; // 初始指向端口0
+        m_ai.at(i) = 0; 
         m_gi.at(i) = 0;
     }
 }
 
 void islip::init()
 {
-    // 重置所有内部信号
     std::fill(m_accept.begin(), m_accept.end(), false);
     std::fill(m_request.begin(), m_request.end(), false);
     std::fill(m_grant.begin(), m_grant.end(), false);
-    std::fill(m_ql.begin(), m_ql.end(), false);
-
+    std::fill(m_ql.begin(), m_ql.end(), 0); // 注意：这里重置为0个包
     sch_result.clear();
 }
 
+// 修改 set_ql 以支持增加包计数
 void islip::set_ql(int i, int j)
 {
-    m_ql.at(i * m_num_port + j) = true;
+    m_ql.at(i * m_num_port + j)++;
 }
 
 /**
- * @brief 核心调度逻辑封装
- * @param max_iterations 迭代次数。Speedup=1 时，多次迭代用于寻找最大匹配
+ * @brief 支持 Speedup 的核心调度逻辑
+ * @param max_iterations 迭代次数
+ * @param speedup 加速比 (默认1)
  */
-void islip::islip_sch(int max_iterations)
+void islip::islip_sch(int max_iterations, int speedup)
 {
-    // 1. 本时钟周期开始，清空所有端口的占用状态 (Speedup=1)
-    m_input_occupied.assign(m_num_port, false);
-    m_output_occupied.assign(m_num_port, false);
+    // 1. 初始化本周期的配额状态
+    m_input_match_count.assign(m_num_port, 0);
+    m_output_match_count.assign(m_num_port, 0);
     sch_result.clear();
 
-    // 2. 开始迭代循环
+    // 2. 创建影子队列，用于在本周期迭代内追踪剩余包数，不影响外部 m_ql
+    m_shadow_ql = m_ql;
+
+    // 3. 开始迭代循环
     for (m_current_iter = 0; m_current_iter < max_iterations; ++m_current_iter)
     {
-        // 每一轮迭代前，清理上一轮产生的 Request/Grant/Accept 信号
-        // 但保留 m_input_occupied 状态，确保已配对的不再参加后续迭代
+        // 每一轮迭代重置握手信号
         std::fill(m_request.begin(), m_request.end(), false);
         std::fill(m_grant.begin(), m_grant.end(), false);
         std::fill(m_accept.begin(), m_accept.end(), false);
 
-        send_request();       // 第一阶段
-        do_grant();           // 第二阶段
-        do_accept();          // 第三阶段
-        update_priority_ptr(); // 第四阶段
+        // 内部流程封装
+        send_request(speedup);       
+        do_grant(speedup);           
+        do_accept(speedup);          
+        update_priority_ptr(); 
     }
 }
 
-void islip::send_request()
+void islip::send_request(int speedup)
 {
     for (int i = 0; i < m_num_port; i++)
     {
-        // 如果输入端口 i 在之前的迭代中已匹配，这轮不再发请求
-        if (m_input_occupied[i]) continue;
+        // 如果输入端口 i 的配额已用完，本周期不再发请求
+        if (m_input_match_count[i] >= speedup) continue;
 
         for (int j = 0; j < m_num_port; j++)
         {
-            // 只有当输出 j 也没被占用，且 VOQ 中有数据时，才发请求
-            if (!m_output_occupied[j] && m_ql.at(i * m_num_port + j))
+            // 如果输出端口 j 还没满，且 VOQ 中还有包
+            if (m_output_match_count[j] < speedup && m_shadow_ql.at(i * m_num_port + j) > 0)
             {
                 m_request.at(i * m_num_port + j) = true;
             }
@@ -93,12 +99,11 @@ void islip::send_request()
     }
 }
 
-void islip::do_grant()
+void islip::do_grant(int speedup)
 {
     for (int j = 0; j < m_num_port; j++)
     {
-        // 已经配对的输出端口不再响应任何请求
-        if (m_output_occupied[j]) continue;
+        if (m_output_match_count[j] >= speedup) continue;
 
         int start_i = m_gi.at(j);
         int i = start_i;
@@ -107,19 +112,18 @@ void islip::do_grant()
             if (m_request.at(i * m_num_port + j))
             {
                 m_grant.at(i * m_num_port + j) = true;
-                break; // 输出 j 授权给第一个扫到的输入 i
+                break; 
             }
             i = (i + 1) % m_num_port;
         } while (i != start_i);
     }
 }
 
-void islip::do_accept()
+void islip::do_accept(int speedup)
 {
     for (int i = 0; i < m_num_port; i++)
     {
-        // 已经配对的输入端口不再接受新的授权
-        if (m_input_occupied[i]) continue;
+        if (m_input_match_count[i] >= speedup) continue;
 
         int start_j = m_ai.at(i);
         int j = start_j;
@@ -129,10 +133,10 @@ void islip::do_accept()
             {
                 m_accept.at(i * m_num_port + j) = true;
                 
-                // 关键：一旦接受，立即标记该输入和输出为“已占用”
-                // 这保证了本时钟周期内物理链路不再被分配给他人 (Speedup=1)
-                m_input_occupied[i] = true;
-                m_output_occupied[j] = true;
+                // 关键：增加配额计数，并扣减影子队列中的包
+                m_input_match_count[i]++;
+                m_output_match_count[j]++;
+                m_shadow_ql.at(i * m_num_port + j)--; 
                 break;
             }
             j = (j + 1) % m_num_port;
@@ -148,16 +152,14 @@ void islip::update_priority_ptr()
         {
             if (m_accept.at(i * m_num_port + j))
             {
-                // iSLIP 指针更新规则：
-                // 只有在第一轮迭代 (Iteration 0) 匹配成功的才移动指针
-                // 这样可以打破同步，保持调度的公平性和高吞吐
+                // iSLIP 规则：仅在第一轮迭代更新指针
                 if (m_current_iter == 0)
                 {
                     m_gi.at(j) = (i + 1) % m_num_port;
                     m_ai.at(i) = (j + 1) % m_num_port;
                 }
                 
-                // 每一轮匹配到的结果都要记录，最终输出给 Crossbar
+                // 记录匹配结果
                 sch_result.emplace_back(std::make_pair(i, j));
             }
         }

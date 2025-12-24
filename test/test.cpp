@@ -213,7 +213,9 @@ void TEST_islip_final_showdown() {
 
     // 1. 让 输入 1 成为“焦点”：同时请求输出 0 和 输出 2
     myislip->set_ql(1, 0); 
-    myislip->set_ql(1, 2); 
+    myislip->set_ql(1, 1); 
+    myislip->set_ql(1, 2);
+    myislip->set_ql(1, 3); 
 
     // 2. 关键：确保输出 0 和 输出 2 都没有其他追求者，只能授权给输入 1
     // 不要调用 set_ql(0, 0) 或 set_ql(3, 2)
@@ -221,7 +223,15 @@ void TEST_islip_final_showdown() {
     // 3. 让 输入 2 去请求一个无关的 输出 1，保证系统不全空
     myislip->set_ql(2, 2);
 
-    myislip->islip_sch();
+    //myislip->islip_sch(1);
+    //myislip->islip_sch(2);
+    //myislip->islip_sch(3);
+    myislip->islip_sch(4);
+
+    //myislip->islip_sch(1, 2);
+    //myislip->islip_sch(2, 2);
+    //myislip->islip_sch(3, 2);
+    //myislip->islip_sch(4, 2);
 
     auto ret = myislip->sch_result;
     std::cout << "--- 1次迭代的最终对决结果 ---" << std::endl;
