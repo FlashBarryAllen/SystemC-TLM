@@ -4,6 +4,7 @@
 #include <iostream>
 #include <deque>
 #include <vector>
+#include "islip.h"
 
 #define VIRTURL_CHANNEL_NUM 8
 
@@ -22,5 +23,7 @@ class Qos
         int last_sch = 0;
         int time = 0;
 };
+
+void TEST_islip();
 
 #endif // TEST_H

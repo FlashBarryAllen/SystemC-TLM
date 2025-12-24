@@ -71,3 +71,34 @@ int Qos::rr_sch()
 
     return 0;
 }
+
+void TEST_islip() {
+    islip* myislip = new islip(4, 4);
+    myislip->init_priority_ptr();
+
+    while (1) {
+        myislip->init();
+
+        for (auto i = 0; i < 4; i++) {
+            myislip->set_ql(i, 0);
+            myislip->set_ql(i, 1);
+            myislip->set_ql(i, 2);
+            myislip->set_ql(i, 3);
+        }
+
+        myislip->islip_sch();
+
+        auto ret = myislip->sch_result;
+
+        for (auto i = 0; i < ret.size(); i++) {
+            auto in = ret[i].first;
+            auto out = ret[i].second;
+
+            std::cout << "(" << in << ", " << out << ")" << std::endl;
+        }
+
+        std::cout << std::endl;
+    }
+
+    return;
+}
