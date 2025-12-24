@@ -29,5 +29,9 @@ void TEST_islip_lonely_pair();
 void TEST_islip_real_lonely();
 void TEST_islip_lonely();
 void TEST_islip_final_showdown();
+void TEST_islip_priority();
+void TEST_Shadow_Preemption();
+void TEST_Quota_Exhaustion();
+void TEST_Full_Load_Suppression();
 
 #endif // TEST_H

@@ -3,21 +3,26 @@
 #include <algorithm>
 #include <vector>
 
-islip::islip(int input_num, int output_num)
+// 构造函数增加 priority_num 参数，默认为 1
+islip::islip(int input_num, int output_num, int priority_num)
 {
     m_num_port = std::max(input_num, output_num);
+    m_num_prio = priority_num; // 新增：记录优先级层级数
     
-    // 初始化指针
-    m_gi.resize(m_num_port, 0);
-    m_ai.resize(m_num_port, 0);
+    // 初始化指针：现在的指针数量是 端口数 * 优先级数
+    // 索引方式：p * m_num_port + port_index
+    m_gi.resize(m_num_prio * m_num_port, 0);
+    m_ai.resize(m_num_prio * m_num_port, 0);
     
-    // 初始化矩阵：m_ql 现在建议存储具体的包数量 (int)
-    m_ql.resize(m_num_port * m_num_port, 0);
+    // 初始化 VOQ：大小变为 Input * Output * Priority
+    m_ql.resize(m_num_port * m_num_port * m_num_prio, 0);
+
+    // 握手信号矩阵大小不变 (因为每次只调度一个优先级)
     m_accept.resize(m_num_port * m_num_port);
     m_request.resize(m_num_port * m_num_port);
     m_grant.resize(m_num_port * m_num_port);
 
-    // Speedup 状态记录：记录本周期各端口已匹配次数
+    // Speedup 计数器
     m_input_match_count.resize(m_num_port);
     m_output_match_count.resize(m_num_port);
 
@@ -28,11 +33,9 @@ islip::~islip() {}
 
 void islip::init_priority_ptr()
 {
-    for (int i = 0; i < m_num_port; i++)
-    {
-        m_ai.at(i) = 0; 
-        m_gi.at(i) = 0;
-    }
+    // 对每个优先级的每个端口指针进行初始化
+    std::fill(m_ai.begin(), m_ai.end(), 0);
+    std::fill(m_gi.begin(), m_gi.end(), 0);
 }
 
 void islip::init()
@@ -40,58 +43,68 @@ void islip::init()
     std::fill(m_accept.begin(), m_accept.end(), false);
     std::fill(m_request.begin(), m_request.end(), false);
     std::fill(m_grant.begin(), m_grant.end(), false);
-    std::fill(m_ql.begin(), m_ql.end(), 0); // 注意：这里重置为0个包
+    std::fill(m_ql.begin(), m_ql.end(), 0);
     sch_result.clear();
 }
 
-// 修改 set_ql 以支持增加包计数
-void islip::set_ql(int i, int j)
+// 修改 set_ql：增加 priority 参数 (0 是最高优先级)
+void islip::set_ql(int i, int j, int prio)
 {
-    m_ql.at(i * m_num_port + j)++;
+    if (prio >= m_num_prio) return;
+    // 索引计算：(i * num_out + j) * num_prio + prio
+    int index = (i * m_num_port + j) * m_num_prio + prio;
+    m_ql.at(index)++;
 }
 
 /**
- * @brief 支持 Speedup 的核心调度逻辑
+ * @brief 支持 Speedup + Priority 的核心调度逻辑
  * @param max_iterations 迭代次数
- * @param speedup 加速比 (默认1)
+ * @param speedup 加速比
  */
 void islip::islip_sch(int max_iterations, int speedup)
 {
-    // 1. 初始化本周期的配额状态
+    // 1. 初始化本周期的配额状态 (所有优先级共享这个配额)
     m_input_match_count.assign(m_num_port, 0);
     m_output_match_count.assign(m_num_port, 0);
     sch_result.clear();
 
-    // 2. 创建影子队列，用于在本周期迭代内追踪剩余包数，不影响外部 m_ql
+    // 2. 创建影子队列
     m_shadow_ql = m_ql;
 
-    // 3. 开始迭代循环
-    for (m_current_iter = 0; m_current_iter < max_iterations; ++m_current_iter)
+    // --- 外层循环：严格优先级调度 (Strict Priority) ---
+    // 先调度 Prio 0 (高)，再调度 Prio 1 (低)...
+    for (int p = 0; p < m_num_prio; ++p)
     {
-        // 每一轮迭代重置握手信号
-        std::fill(m_request.begin(), m_request.end(), false);
-        std::fill(m_grant.begin(), m_grant.end(), false);
-        std::fill(m_accept.begin(), m_accept.end(), false);
+        // --- 内层循环：标准的 iSLIP 迭代 ---
+        for (m_current_iter = 0; m_current_iter < max_iterations; ++m_current_iter)
+        {
+            // 每一轮迭代重置握手信号
+            std::fill(m_request.begin(), m_request.end(), false);
+            std::fill(m_grant.begin(), m_grant.end(), false);
+            std::fill(m_accept.begin(), m_accept.end(), false);
 
-        // 内部流程封装
-        send_request(speedup);       
-        do_grant(speedup);           
-        do_accept(speedup);          
-        update_priority_ptr(); 
+            // 传入当前正在处理的优先级 p
+            send_request(speedup, p);      
+            do_grant(speedup, p);          
+            do_accept(speedup, p);         
+            update_priority_ptr(p); 
+        }
     }
 }
 
-void islip::send_request(int speedup)
+void islip::send_request(int speedup, int prio)
 {
     for (int i = 0; i < m_num_port; i++)
     {
-        // 如果输入端口 i 的配额已用完，本周期不再发请求
+        // 检查配额：如果高优先级已经把 Speedup 用完了，低优先级就无法发送请求
         if (m_input_match_count[i] >= speedup) continue;
 
         for (int j = 0; j < m_num_port; j++)
         {
-            // 如果输出端口 j 还没满，且 VOQ 中还有包
-            if (m_output_match_count[j] < speedup && m_shadow_ql.at(i * m_num_port + j) > 0)
+            // 检查影子队列中 当前优先级 是否有包
+            int ql_index = (i * m_num_port + j) * m_num_prio + prio;
+
+            if (m_output_match_count[j] < speedup && m_shadow_ql.at(ql_index) > 0)
             {
                 m_request.at(i * m_num_port + j) = true;
             }
@@ -99,13 +112,16 @@ void islip::send_request(int speedup)
     }
 }
 
-void islip::do_grant(int speedup)
+void islip::do_grant(int speedup, int prio)
 {
     for (int j = 0; j < m_num_port; j++)
     {
         if (m_output_match_count[j] >= speedup) continue;
 
-        int start_i = m_gi.at(j);
+        // 获取当前优先级 prio 对应的 Grant 指针
+        int ptr_idx = prio * m_num_port + j;
+        int start_i = m_gi.at(ptr_idx);
+        
         int i = start_i;
         do 
         {
@@ -119,13 +135,16 @@ void islip::do_grant(int speedup)
     }
 }
 
-void islip::do_accept(int speedup)
+void islip::do_accept(int speedup, int prio)
 {
     for (int i = 0; i < m_num_port; i++)
     {
         if (m_input_match_count[i] >= speedup) continue;
 
-        int start_j = m_ai.at(i);
+        // 获取当前优先级 prio 对应的 Accept 指针
+        int ptr_idx = prio * m_num_port + i;
+        int start_j = m_ai.at(ptr_idx);
+
         int j = start_j;
         do 
         {
@@ -133,10 +152,13 @@ void islip::do_accept(int speedup)
             {
                 m_accept.at(i * m_num_port + j) = true;
                 
-                // 关键：增加配额计数，并扣减影子队列中的包
+                // 更新配额
                 m_input_match_count[i]++;
                 m_output_match_count[j]++;
-                m_shadow_ql.at(i * m_num_port + j)--; 
+                
+                // 扣减影子队列 (注意指定优先级)
+                int ql_index = (i * m_num_port + j) * m_num_prio + prio;
+                m_shadow_ql.at(ql_index)--; 
                 break;
             }
             j = (j + 1) % m_num_port;
@@ -144,7 +166,7 @@ void islip::do_accept(int speedup)
     }
 }
 
-void islip::update_priority_ptr()
+void islip::update_priority_ptr(int prio)
 {
     for (int i = 0; i < m_num_port; i++)
     {
@@ -155,11 +177,12 @@ void islip::update_priority_ptr()
                 // iSLIP 规则：仅在第一轮迭代更新指针
                 if (m_current_iter == 0)
                 {
-                    m_gi.at(j) = (i + 1) % m_num_port;
-                    m_ai.at(i) = (j + 1) % m_num_port;
+                    // 只更新当前优先级层级的指针，互不干扰
+                    m_gi.at(prio * m_num_port + j) = (i + 1) % m_num_port;
+                    m_ai.at(prio * m_num_port + i) = (j + 1) % m_num_port;
                 }
                 
-                // 记录匹配结果
+                // 记录匹配结果 (可以考虑将 prio 也存入 result，视需求而定)
                 sch_result.emplace_back(std::make_pair(i, j));
             }
         }
