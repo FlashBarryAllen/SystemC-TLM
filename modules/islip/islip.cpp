@@ -61,7 +61,7 @@ void islip::set_ql(int i, int j, int prio)
  * @param max_iterations 迭代次数
  * @param speedup 加速比
  */
-void islip::islip_sch(int max_iterations, int speedup)
+void islip::islip_sch(int max_iterations, int speedup, bool is_islip_mode)
 {
     // 1. 初始化本周期的配额状态 (所有优先级共享这个配额)
     m_input_match_count.assign(m_num_port, 0);
@@ -85,9 +85,9 @@ void islip::islip_sch(int max_iterations, int speedup)
 
             // 传入当前正在处理的优先级 p
             send_request(speedup, p);      
-            do_grant(speedup, p);          
+            do_grant(speedup, p, is_islip_mode);          
             do_accept(speedup, p);         
-            update_priority_ptr(p); 
+            update_priority_ptr(p, is_islip_mode); 
         }
     }
 }
@@ -112,7 +112,7 @@ void islip::send_request(int speedup, int prio)
     }
 }
 
-void islip::do_grant(int speedup, int prio)
+void islip::do_grant(int speedup, int prio, bool is_islip_mode)
 {
     for (int j = 0; j < m_num_port; j++)
     {
@@ -128,6 +128,9 @@ void islip::do_grant(int speedup, int prio)
             if (m_request.at(i * m_num_port + j))
             {
                 m_grant.at(i * m_num_port + j) = true;
+                if (!is_islip_mode) {
+                    m_gi.at(prio * m_num_port + j) = (i + 1) % m_num_port;
+                }
                 break; 
             }
             i = (i + 1) % m_num_port;
@@ -166,23 +169,40 @@ void islip::do_accept(int speedup, int prio)
     }
 }
 
-void islip::update_priority_ptr(int prio)
+/**
+ * @brief 更新轮询指针
+ * @param prio 当前处理的优先级层级
+ * @param is_islip_mode true 则运行 iSLIP 逻辑，false 则运行 RRM 逻辑
+ */
+void islip::update_priority_ptr(int prio, bool is_islip_mode)
 {
     for (int i = 0; i < m_num_port; i++)
     {
         for (int j = 0; j < m_num_port; j++)
         {
+            // 只有当输入端口 i 和 输出端口 j 匹配成功时才考虑更新指针
             if (m_accept.at(i * m_num_port + j))
             {
-                // iSLIP 规则：仅在第一轮迭代更新指针
-                if (m_current_iter == 0)
+                // --- 核心逻辑切换 ---
+                // iSLIP: 仅在第一轮迭代 (m_current_iter == 0) 更新指针，实现去同步化
+                // RRM:   每一轮迭代只要匹配成功，就更新指针，容易导致指针同步
+                if (is_islip_mode && m_current_iter == 0)
                 {
-                    // 只更新当前优先级层级的指针，互不干扰
+                    // 更新 Grant 指针：让输出端口 j 下次从 i+1 开始轮询
                     m_gi.at(prio * m_num_port + j) = (i + 1) % m_num_port;
+                    
+                    // 更新 Accept 指针：让输入端口 i 下次从 j+1 开始轮询
                     m_ai.at(prio * m_num_port + i) = (j + 1) % m_num_port;
                 }
+
+                if (!is_islip_mode)
+                {
+                    // RRM 模式下，每次匹配成功都更新指针
+                    m_ai.at(prio * m_num_port + i) = (j + 1) % m_num_port;
+                    
+                }
                 
-                // 记录匹配结果 (可以考虑将 prio 也存入 result，视需求而定)
+                // 记录匹配结果
                 sch_result.emplace_back(std::make_pair(i, j));
             }
         }

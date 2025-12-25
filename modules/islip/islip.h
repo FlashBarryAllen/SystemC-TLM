@@ -21,13 +21,13 @@ public:
     void set_ql(int i, int j, int prio = 0);
     
     // 主调度函数
-    void islip_sch(int max_iterations = 1, int speedup = 1);
+    void islip_sch(int max_iterations = 1, int speedup = 1, bool is_islip_mode = true);
 
     // 内部四个阶段函数：都需要感知当前正在调度哪个优先级
     void send_request(int speedup, int prio);
-    void do_grant(int speedup, int prio);
+    void do_grant(int speedup, int prio, bool is_islip_mode = true);
     void do_accept(int speedup, int prio);
-    void update_priority_ptr(int prio);
+    void update_priority_ptr(int prio, bool is_islip_mode = true);
 
 public:
     int m_num_port;

@@ -329,3 +329,20 @@ void TEST_Full_Load_Suppression() {
     std::cout << "--- 全负载压制测试 ---" << std::endl;
     for (auto& p : ret) std::cout << "输入 " << p.first << " -> 输出 " << p.second << std::endl;
 }
+
+void TEST_max_match() {
+    islip* myislip = new islip(4, 4);
+    myislip->init();
+
+    myislip->set_ql(0, 0);
+    myislip->set_ql(0, 1);
+    myislip->set_ql(2, 1);
+    myislip->set_ql(2, 3);
+    myislip->set_ql(3, 3);
+
+    myislip->islip_sch(2, 1, false);
+
+    auto ret = myislip->sch_result;
+    std::cout << "--- max_match测试 ---" << std::endl;
+    for (auto& p : ret) std::cout << "输入 " << p.first << " -> 输出 " << p.second << std::endl;
+}

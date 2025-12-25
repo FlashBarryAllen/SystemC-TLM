@@ -33,5 +33,6 @@ void TEST_islip_priority();
 void TEST_Shadow_Preemption();
 void TEST_Quota_Exhaustion();
 void TEST_Full_Load_Suppression();
+void TEST_max_match();
 
 #endif // TEST_H
