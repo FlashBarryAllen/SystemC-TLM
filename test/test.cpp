@@ -86,7 +86,7 @@ void TEST_islip() {
             myislip->set_ql(i, 3);
         }
 
-        myislip->islip_sch();
+        myislip->islip_sch(2,1,false);
 
         auto ret = myislip->sch_result;
 
