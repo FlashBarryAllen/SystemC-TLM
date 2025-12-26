@@ -48,6 +48,7 @@ add_executable(${PROJECT_NAME}
     ${CMAKE_SOURCE_DIR}/modules/memory/memory.cpp
     ${CMAKE_SOURCE_DIR}/modules/top/top.cpp
     ${CMAKE_SOURCE_DIR}/modules/islip/islip.cpp
+    ${CMAKE_SOURCE_DIR}/modules/islip/booksim_islip.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} debug gtest              optimized gtest)

@@ -199,7 +199,6 @@ void islip::update_priority_ptr(int prio, bool is_islip_mode)
                 {
                     // RRM 模式下，每次匹配成功都更新指针
                     m_ai.at(prio * m_num_port + i) = (j + 1) % m_num_port;
-                    
                 }
                 
                 // 记录匹配结果

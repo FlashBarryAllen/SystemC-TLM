@@ -25,7 +25,7 @@ int sc_main(int argc, char* argv[])
 
     //peq_test();
 
-    TEST_islip();
+    //TEST_islip();
     //TEST_islip_lonely_pair();
     //TEST_islip_real_lonely();
     //TEST_islip_lonely();
@@ -34,7 +34,8 @@ int sc_main(int argc, char* argv[])
     //TEST_Shadow_Preemption();
     //TEST_Quota_Exhaustion();
     //TEST_Full_Load_Suppression();
-    TEST_max_match();
+    //TEST_max_match();
+    TEST_starvation();
 
     //pcie_scan_main();
 

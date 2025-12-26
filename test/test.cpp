@@ -346,3 +346,22 @@ void TEST_max_match() {
     std::cout << "--- max_match测试 ---" << std::endl;
     for (auto& p : ret) std::cout << "输入 " << p.first << " -> 输出 " << p.second << std::endl;
 }
+
+void TEST_starvation() {
+    islip_booksim* myislip = new islip_booksim(3, 3, 2);
+    
+    while (1) {
+        myislip->init();
+        myislip->set_ql(0, 0);
+        myislip->set_ql(0, 1);
+        myislip->set_ql(0, 2);
+        myislip->set_ql(1, 1);
+        myislip->set_ql(2, 1);
+
+        myislip->islip_sch();
+
+        auto ret = myislip->sch_result;
+        std::cout << "--- starvation测试 ---" << std::endl;
+        for (auto& p : ret) std::cout << "输入 " << p.first << " -> 输出 " << p.second << std::endl;
+    }
+}
