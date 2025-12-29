@@ -340,10 +340,27 @@ void TEST_max_match() {
     myislip->set_ql(2, 3);
     myislip->set_ql(3, 3);
 
-    myislip->islip_sch(2, 1, false);
+    myislip->islip_sch(3, 1, false);
 
     auto ret = myislip->sch_result;
     std::cout << "--- max_match测试 ---" << std::endl;
+    for (auto& p : ret) std::cout << "输入 " << p.first << " -> 输出 " << p.second << std::endl;
+}
+
+void TEST_booksim_max_match() {
+    islip_booksim* myislip = new islip_booksim(4, 4, 4, true);
+    myislip->init();
+
+    myislip->set_ql(0, 0);
+    myislip->set_ql(0, 1);
+    myislip->set_ql(2, 1);
+    myislip->set_ql(2, 3);
+    myislip->set_ql(3, 3);
+
+    myislip->islip_sch();
+
+    auto ret = myislip->sch_result;
+    std::cout << "--- booksim_max_match测试 ---" << std::endl;
     for (auto& p : ret) std::cout << "输入 " << p.first << " -> 输出 " << p.second << std::endl;
 }
 
@@ -363,5 +380,106 @@ void TEST_starvation() {
         auto ret = myislip->sch_result;
         std::cout << "--- starvation测试 ---" << std::endl;
         for (auto& p : ret) std::cout << "输入 " << p.first << " -> 输出 " << p.second << std::endl;
+    }
+}
+
+void TEST_dpa() {
+    // Test case 1: Basic functionality
+    std::cout << "Test case 1: Basic functionality" << std::endl;
+    dpa_scheduler arbiter1(4, 4);
+    arbiter1.request(0, 2);
+    arbiter1.request(0, 3);
+    arbiter1.request(1, 0);
+    arbiter1.request(1, 2);
+    arbiter1.request(2, 0);
+    arbiter1.request(2, 1);
+    arbiter1.request(2, 3);
+    arbiter1.request(3, 1);
+    arbiter1.request(3, 3);
+
+    for (int i = 0; i < arbiter1.m_num_ports * 2; i++) {
+        std::cout << arbiter1.m_ptr << std::endl;
+        arbiter1.arbitration();
+        for (int row = 0; row < arbiter1.m_num_ports; row++) {
+            for (int col = 0; col < arbiter1.m_num_ports; col++) {
+                std::cout << arbiter1.m_grants[row][col] << ", ";
+            }
+
+            std::cout << " " << std::endl;
+        }
+
+        auto result = arbiter1.sch_result;
+
+        bool grant_0_2 = arbiter1.has_granted(0, 2);
+        bool grant_0_3 = arbiter1.has_granted(0, 3);
+        bool grant_1_0 = arbiter1.has_granted(1, 0);
+        bool grant_1_2 = arbiter1.has_granted(1, 2);
+        bool grant_2_0 = arbiter1.has_granted(2, 0);
+        bool grant_2_1 = arbiter1.has_granted(2, 1);
+        bool grant_2_3 = arbiter1.has_granted(2, 3);
+        bool grant_3_1 = arbiter1.has_granted(3, 1);
+        bool grant_3_3 = arbiter1.has_granted(3, 3);
+    }
+
+    if (arbiter1.has_granted(1, 2)) {
+        std::cout << "Input 1 is granted access to output 2." << std::endl;
+    } else {
+        std::cout << "Input 1 is not granted access." << std::endl;
+    }
+
+    if (arbiter1.has_granted(2, 0)) {
+        std::cout << "Input 2 is granted access to output 0." << std::endl;
+    } else {
+        std::cout << "Input 2 is not granted access." << std::endl;
+    }
+
+    // Test case 2: Invalid port numbers
+    std::cout << "\nTest case 2: Invalid port numbers" << std::endl;
+    try {
+        arbiter1.request(-1, 2);  // Invalid input port
+    } catch (const std::exception& e) {
+        std::cout << "Exception caught: " << e.what() << std::endl;
+    }
+    try {
+        arbiter1.has_granted(4, 0);  // Invalid output port
+    } catch (const std::exception& e) {
+        std::cout << "Exception caught: " << e.what() << std::endl;
+    }
+
+    // Test case 3: No requests
+    std::cout << "\nTest case 3: No requests" << std::endl;
+    dpa_scheduler arbiter2(2, 2);
+    arbiter2.arbitration();
+    for (int i = 0; i < 2; ++i) {
+        for (int j = 0; j < 2; ++j) {
+            if (arbiter2.has_granted(i, j)) {
+                std::cout << "Unexpected grant: Input " << i << " to output "
+                          << j << std::endl;
+            }
+        }
+    }
+
+    // Test case 4: Multiple requests for the same output port
+    std::cout << "\nTest case 4: Multiple requests for the same output port"
+              << std::endl;
+    dpa_scheduler arbiter3(3, 3);
+    arbiter3.request(0, 2);
+    arbiter3.request(1, 2);
+    arbiter3.request(2, 2);
+    arbiter3.arbitration();
+    if (arbiter3.has_granted(0, 2)) {
+        std::cout << "Input 0 is granted access to output 2." << std::endl;
+    } else {
+        std::cout << "Input 0 is not granted access." << std::endl;
+    }
+    if (arbiter3.has_granted(1, 2)) {
+        std::cout << "Input 1 is granted access to output 2." << std::endl;
+    } else {
+        std::cout << "Input 1 is not granted access." << std::endl;
+    }
+    if (arbiter3.has_granted(2, 2)) {
+        std::cout << "Input 2 is granted access to output 2." << std::endl;
+    } else {
+        std::cout << "Input 2 is not granted access." << std::endl;
     }
 }

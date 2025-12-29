@@ -8,7 +8,7 @@
 class islip_booksim
 {
 public:
-    islip_booksim(int input_num, int output_num, int iteratoins = 1);
+    islip_booksim(int input_num, int output_num, int iteratoins = 1, bool max_match = false);
     ~islip_booksim();
 
 public:
@@ -22,6 +22,7 @@ public:
     void update_priority_ptr();
 
 public:
+    bool m_max_match;
     int m_input_num;
     int m_output_num;
     int m_num_port;

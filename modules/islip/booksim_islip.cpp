@@ -1,6 +1,6 @@
 #include "booksim_islip.h"
 
-islip_booksim::islip_booksim(int input_num, int output_num, int iterations)
+islip_booksim::islip_booksim(int input_num, int output_num, int iterations, bool max_match)
 {
     m_num_port = std::max(input_num, output_num);
     m_gi.resize(m_num_port);
@@ -11,6 +11,7 @@ islip_booksim::islip_booksim(int input_num, int output_num, int iterations)
     m_grant.resize(m_num_port * m_num_port);
     m_iterations = iterations;
     m_iter_cnt = 0;
+    m_max_match = max_match;
 
     m_input_occupied.resize(m_num_port, false);
     m_output_occupied.resize(m_num_port, false);
@@ -89,6 +90,7 @@ void islip_booksim::send_request()
 
 void islip_booksim::do_grant()
 {
+    int found = 0;
     for (int output = 0; output < m_num_port; output++)
     {
         if (m_output_occupied.at(output))
@@ -107,16 +109,23 @@ void islip_booksim::do_grant()
             if (m_request.at(input * m_num_port + output))
             {
                 m_grant.at(input * m_num_port + output) = 1;
+                found = 1;
                 break;
             }
             input = (input + 1) % m_num_port;
         }
-        while ( input != m_gi.at(output) ); 
+        while ( input != m_gi.at(output) );
+
+        if (found == 1 && m_max_match)
+        {
+            break;
+        }
     }
 }
 
 void islip_booksim::do_accept()
 {
+    int found = 0;
     for (int input = 0; input < m_num_port; input++)
     {
         if (m_input_occupied.at(input))
@@ -136,11 +145,17 @@ void islip_booksim::do_accept()
             if (m_grant.at(input * m_num_port + output))
             {
                 m_accept.at(input * m_num_port + output) = 1;
+                found = 1;
                 break;
             }
             output = (output + 1) % m_num_port;
         }
         while ( output !=  m_ai.at(input) );
+
+        if (found == 1 && m_max_match)
+        {
+            break;
+        }
     }
 }
 

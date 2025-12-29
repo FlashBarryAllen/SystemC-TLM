@@ -23,7 +23,7 @@ include_directories("${CMAKE_SOURCE_DIR}/modules/peq/")
 #include_directories("${CMAKE_SOURCE_DIR}/common/")
 #include_directories("${CMAKE_SOURCE_DIR}/peq/")
 include_directories("${CMAKE_SOURCE_DIR}/modules/islip/")
-#include_directories("${CMAKE_SOURCE_DIR}/dpa/")
+include_directories("${CMAKE_SOURCE_DIR}/modules/dpa/")
 #include_directories("${CMAKE_SOURCE_DIR}/test/")
 #include_directories("${CMAKE_SOURCE_DIR}/network/")
 #include_directories("${CMAKE_SOURCE_DIR}/sch/")
@@ -49,6 +49,7 @@ add_executable(${PROJECT_NAME}
     ${CMAKE_SOURCE_DIR}/modules/top/top.cpp
     ${CMAKE_SOURCE_DIR}/modules/islip/islip.cpp
     ${CMAKE_SOURCE_DIR}/modules/islip/booksim_islip.cpp
+    ${CMAKE_SOURCE_DIR}/modules/dpa/dpa.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} debug gtest              optimized gtest)
