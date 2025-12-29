@@ -49,6 +49,7 @@ add_executable(${PROJECT_NAME}
     ${CMAKE_SOURCE_DIR}/modules/top/top.cpp
     ${CMAKE_SOURCE_DIR}/modules/islip/islip.cpp
     ${CMAKE_SOURCE_DIR}/modules/islip/booksim_islip.cpp
+    ${CMAKE_SOURCE_DIR}/modules/islip/islip_ycl.cpp
     ${CMAKE_SOURCE_DIR}/modules/dpa/dpa.cpp
 )
 

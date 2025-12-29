@@ -6,6 +6,7 @@
 #include <vector>
 #include "islip.h"
 #include "booksim_islip.h"
+#include "islip_ycl.h"
 #include "dpa.h"
 
 #define VIRTURL_CHANNEL_NUM 8
@@ -38,7 +39,7 @@ void TEST_Full_Load_Suppression();
 void TEST_max_match();
 void TEST_starvation();
 void TEST_booksim_max_match();
-
+void TEST_islip_ycl();
 void TEST_dpa();
 
 #endif // TEST_H

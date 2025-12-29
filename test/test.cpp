@@ -383,6 +383,25 @@ void TEST_starvation() {
     }
 }
 
+void TEST_islip_ycl() {
+    islip_ycl* myislip = new islip_ycl(4, 4, 2);
+    
+    while (1) {
+        std::cout << "--- islip_ycl测试 ---" << std::endl;
+        myislip->request(0, 0);
+        myislip->request(0, 1);
+        myislip->request(2, 1);
+        myislip->request(2, 3);
+        myislip->request(3, 3);
+
+        myislip->arbitration();
+
+        auto ret = myislip->get_sch_result();
+        myislip->reset();
+        for (auto& p : ret) std::cout << "输入 " << p.first << " -> 输出 " << p.second << std::endl;
+    }
+}
+
 void TEST_dpa() {
     // Test case 1: Basic functionality
     std::cout << "Test case 1: Basic functionality" << std::endl;
