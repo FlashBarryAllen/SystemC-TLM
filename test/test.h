@@ -40,6 +40,9 @@ void TEST_max_match();
 void TEST_starvation();
 void TEST_booksim_max_match();
 void TEST_islip_ycl();
+void TEST_islip_ycl_rrm();
+void TEST_islip_ycl_islip();
+void TEST_islip_ycl_islip_with_priority();
 void TEST_dpa();
 
 #endif // TEST_H

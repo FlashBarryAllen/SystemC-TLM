@@ -384,21 +384,141 @@ void TEST_starvation() {
 }
 
 void TEST_islip_ycl() {
-    islip_ycl* myislip = new islip_ycl(4, 4, 2);
-    
-    while (1) {
+    int input_num = 4;
+    int output_num = 4;
+    int iterations = 2;
+    int voq_size = 4;
+    bool islip_mode = false; // true: iSLIP 模式; false: Round-Robin 模式
+    islip_ycl* myislip = new islip_ycl(4, 4, 2, voq_size, islip_mode);
+
+    vector<int> total_connect(input_num, 0);
+    vector<vector<int>> voq_stat(input_num, vector<int>(output_num, 0));
+
+    for (int times = 0; times < 10000; times++) {
         std::cout << "--- islip_ycl测试 ---" << std::endl;
-        myislip->request(0, 0);
-        myislip->request(0, 1);
-        myislip->request(2, 1);
-        myislip->request(2, 3);
-        myislip->request(3, 3);
+        if (times % 16 == 0) {
+            std::cout << "迭代次数: " << times << std::endl;
+            myislip->request(0, 0);
+            myislip->request(0, 1);
+            myislip->request(0, 2);
+            myislip->request(0, 3);
+            myislip->request(1, 0);
+            myislip->request(1, 1);
+            myislip->request(1, 2);
+            myislip->request(1, 3);
+            myislip->request(2, 0);
+            myislip->request(2, 1);
+            myislip->request(2, 2);
+            myislip->request(2, 3);
+            myislip->request(3, 0);
+            myislip->request(3, 1);
+            myislip->request(3, 2);
+            myislip->request(3, 3);
+        }
 
         myislip->arbitration();
 
         auto ret = myislip->get_sch_result();
         myislip->reset();
-        for (auto& p : ret) std::cout << "输入 " << p.first << " -> 输出 " << p.second << std::endl;
+        for (auto& p : ret) {
+            std::cout << "输入 " << std::get<0>(p) << " -> 输出 " << std::get<1>(p) << std::endl;
+            voq_stat[std::get<0>(p)][std::get<1>(p)]++;
+            total_connect[std::get<0>(p)]++;
+        }
+    }
+
+    std::cout << "--- 统计结果 ---" << std::endl;
+    for (int i = 0; i < input_num; i++) {
+        std::cout << "--- input " << i << " ---" << "total_connect " << total_connect[i] << std::endl;
+        for (int j = 0; j < output_num; j++) {
+            std::cout << "输入 " << i << " -> 输出 " << j << ": "
+                      << voq_stat[i][j] << " 次, 比例: "
+                      << static_cast<double>(voq_stat[i][j]) / total_connect[i] << std::endl;
+        }
+    }
+}
+
+void TEST_islip_ycl_rrm() {
+    int input_num   = 4;
+    int output_num  = 4;
+    int iterations  = 2;
+    int voq_size    = 4;
+    bool islip_mode = false; // true: iSLIP 模式; false: Round-Robin 模式
+    islip_ycl* myislip = new islip_ycl(input_num, output_num, iterations, voq_size, islip_mode);
+
+    for (int times = 0; times < 1; times++) {
+        std::cout << "--- islip_ycl_rrm测试 ---" << std::endl;
+        if (times % 16 == 0) {
+            std::cout << "迭代次数: " << times << std::endl;
+            myislip->request(0, 0);
+            myislip->request(0, 1);
+
+            myislip->request(2, 1);
+            myislip->request(2, 3);
+
+            myislip->request(3, 3);
+        }
+
+        myislip->arbitration();
+
+        auto ret = myislip->get_sch_result();
+        myislip->reset();
+        for (auto& p : ret) {
+            std::cout << "输入 " << std::get<0>(p) << " -> 输出 " << std::get<1>(p) << std::endl;
+        }
+    }
+
+}
+
+void TEST_islip_ycl_islip() {
+    int input_num   = 4;
+    int output_num  = 4;
+    int iterations  = 2;
+    int voq_size    = 4;
+    bool islip_mode = true; // true: iSLIP 模式; false: Round-Robin 模式
+    islip_ycl* myislip = new islip_ycl(input_num, output_num, iterations, voq_size, islip_mode);
+
+
+    for (int times = 0; times < 1; times++) {
+        std::cout << "--- islip_ycl_islip测试 ---" << std::endl;
+        if (times % 16 == 0) {
+            std::cout << "迭代次数: " << times << std::endl;
+            myislip->request(0, 0);
+            myislip->request(0, 1);
+
+            myislip->request(2, 1);
+            myislip->request(2, 3);
+
+            myislip->request(3, 3);
+        }
+
+        myislip->arbitration();
+
+        auto ret = myislip->get_sch_result();
+        myislip->reset();
+        for (auto& p : ret) {
+            std::cout << "输入 " << std::get<0>(p) << " -> 输出 " << std::get<1>(p) << std::endl;
+        }
+    }
+}
+
+void TEST_islip_ycl_islip_with_priority() {
+    int input_num   = 4;
+    int output_num  = 4;
+    int iterations  = 2;
+    int voq_size    = 4;
+    bool islip_mode = true; // true: iSLIP 模式; false: Round-Robin 模式
+    int priority_levels = 3; // 增加优先级层数
+    islip_ycl* myislip = new islip_ycl(input_num, output_num, iterations, voq_size, islip_mode, priority_levels);
+
+    while (1) {
+        myislip->request(0, 1, 1); // In 0 to Out 1, 低优先级
+        myislip->request(0, 1, 0); // In 0 to Out 1, 高优先级 (同一通道，高优先级应先出)
+        myislip->request(1, 1, 0); // In 1 to Out 1, 高优先级 (竞争输出 1)
+        myislip->request(2, 2, 1);
+
+        cout << "--- Start Arbitration ---" << endl;
+        myislip->arbitration();
     }
 }
 

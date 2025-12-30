@@ -2,41 +2,51 @@
 #define ISLIP_YCL_H
 
 #include <vector>
+#include <iostream>
+#include <tuple>
+
 using namespace std;
 
-class islip_ycl
-{
+class islip_ycl {
 public:
-    islip_ycl(int input_num, int output_num, int iterations = 1, int voq_size = 4);
+    // 构造函数增加了 priority_levels 参数
+    islip_ycl(int input_num, int output_num, int iterations, int voq_size, bool islip_mode, int priority_levels = 2);
     ~islip_ycl();
 
-public:
-    void reset();
-    void request(int input, int output);
+    void request(int input, int output, int priority = 0);
     void arbitration();
-    vector<pair<int, int>> get_sch_result();
+    void reset();
+
+    // 结果包含：<input, output, priority>
+    vector<tuple<int, int, int>> get_sch_result();
 
 private:
     void do_grant();
     void do_accept();
     void update_pointers();
 
-private:
     int m_input_num;
     int m_output_num;
-    int m_voq_size;
-    int m_viq_size;
     int m_iterations;
     int m_iter_cnt;
+    int m_voq_size;
+    int m_priority_levels;
+    bool m_islip_mode;
+
     vector<int> m_g_ptr;
     vector<int> m_a_ptr;
-    vector<vector<int>> m_voq;
-    vector<vector<int>> m_viq;
+
     vector<vector<int>> m_grants;
     vector<vector<int>> m_accepts;
+
     vector<bool> m_input_occupied;
     vector<bool> m_output_occupied;
-    vector<pair<int, int>> sch_result;
+
+    // m_voq[input][output][priority]
+    vector<vector<vector<int>>> m_voq;
+    
+    // 存储调度成功的三元组：输入, 输出, 优先级
+    vector<tuple<int, int, int>> sch_result;
 };
 
-#endif // ISLIP_YCL_H
+#endif
