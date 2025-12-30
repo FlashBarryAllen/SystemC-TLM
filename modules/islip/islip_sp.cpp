@@ -1,7 +1,7 @@
-#include "islip_ycl.h"
+#include "islip_sp.h"
 
-islip_ycl::islip_ycl(int input_num, int output_num, int iterations, int voq_size, bool islip_mode, int priority_levels)
-    : m_islip_mode(islip_mode), m_priority_levels(priority_levels)
+islip_sp::islip_sp(int input_num, int output_num, int iterations, int voq_size, int priority_levels)
+    : m_priority_levels(priority_levels)
 {
     m_input_num = input_num;
     m_output_num = output_num;
@@ -22,9 +22,9 @@ islip_ycl::islip_ycl(int input_num, int output_num, int iterations, int voq_size
     m_voq.resize(m_input_num, vector<vector<int>>(m_output_num, vector<int>(m_priority_levels, 0)));
 }
 
-islip_ycl::~islip_ycl() {}
+islip_sp::~islip_sp() {}
 
-void islip_ycl::request(int input, int output, int priority)
+void islip_sp::request(int input, int output, int priority)
 {
     if (input < 0 || input >= m_input_num || output < 0 || output >= m_output_num || priority >= m_priority_levels) {
         cerr << "Error: Index out of range" << endl;
@@ -39,7 +39,7 @@ void islip_ycl::request(int input, int output, int priority)
     m_voq[input][output][priority]++;
 }
 
-void islip_ycl::arbitration()
+void islip_sp::arbitration()
 {
     reset();
     
@@ -51,7 +51,7 @@ void islip_ycl::arbitration()
     }
 }
 
-void islip_ycl::do_grant()
+void islip_sp::do_grant()
 {
     for (int output = 0; output < m_output_num; output++)
     {
@@ -68,9 +68,6 @@ void islip_ycl::do_grant()
                 if (!m_input_occupied[input] && m_voq[input][output][p] > 0)
                 {
                     m_grants[output][input] = 1;
-                    if (!m_islip_mode) {
-                        m_g_ptr[output] = (input + 1) % m_input_num;
-                    }
                     granted = true;
                     break;
                 }
@@ -80,7 +77,7 @@ void islip_ycl::do_grant()
     }
 }
 
-void islip_ycl::do_accept()
+void islip_sp::do_accept()
 {
     for (int input = 0; input < m_input_num; input++)
     {
@@ -93,9 +90,6 @@ void islip_ycl::do_accept()
             if (!m_output_occupied[output] && m_grants[output][input] == 1)
             {
                 m_accepts[input][output] = 1;
-                if (!m_islip_mode) {
-                    m_a_ptr[input] = (output + 1) % m_output_num;
-                }
                 break;
             }
             output = (output + 1) % m_output_num;
@@ -103,7 +97,7 @@ void islip_ycl::do_accept()
     }
 }
 
-void islip_ycl::update_pointers()
+void islip_sp::update_pointers()
 {
     for (int input = 0; input < m_input_num; input++)
     {
@@ -128,21 +122,21 @@ void islip_ycl::update_pointers()
                     }
                 }
 
-                if (m_iter_cnt == 0 && m_islip_mode) {
+                if (m_iter_cnt == 0) {
                     m_g_ptr[output] = (input + 1) % m_input_num;
                     m_a_ptr[input] = (output + 1) % m_output_num;
                 }
 
                 sch_result.emplace_back(make_tuple(input, output, selected_prio));
-                cout << "[Sch] In:" << input << " -> Out:" << output << " (Prio:" << selected_prio << ")" << endl;
+                cout << "[Sch] In:" << input << " -> Out:" << output << " (Prio:" << selected_prio << ")" << " (iSLIP_priority Success)" << endl;
             }
         }
     }
 }
 
-vector<tuple<int, int, int>> islip_ycl::get_sch_result() { return sch_result; }
+vector<tuple<int, int, int>> islip_sp::get_sch_result() { return sch_result; }
 
-void islip_ycl::reset()
+void islip_sp::reset()
 {
     m_iter_cnt = 0;
     sch_result.clear();

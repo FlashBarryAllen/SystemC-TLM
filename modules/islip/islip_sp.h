@@ -1,5 +1,5 @@
-#ifndef ISLIP_YCL_H
-#define ISLIP_YCL_H
+#ifndef ISLIP_SP_H
+#define ISLIP_SP_H
 
 #include <vector>
 #include <iostream>
@@ -7,11 +7,11 @@
 
 using namespace std;
 
-class islip_ycl {
+class islip_sp {
 public:
     // 构造函数增加了 priority_levels 参数
-    islip_ycl(int input_num, int output_num, int iterations, int voq_size, bool islip_mode, int priority_levels = 2);
-    ~islip_ycl();
+    islip_sp(int input_num, int output_num, int iterations, int voq_size, int priority_levels = 2);
+    ~islip_sp();
 
     void request(int input, int output, int priority = 0);
     void arbitration();
@@ -31,7 +31,6 @@ private:
     int m_iter_cnt;
     int m_voq_size;
     int m_priority_levels;
-    bool m_islip_mode;
 
     vector<int> m_g_ptr;
     vector<int> m_a_ptr;

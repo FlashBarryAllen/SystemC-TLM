@@ -37,10 +37,15 @@ int sc_main(int argc, char* argv[])
     //TEST_max_match();
     //TEST_booksim_max_match();
     //TEST_starvation();
-    //TEST_islip_ycl();
-    //TEST_islip_ycl_rrm();
-    //TEST_islip_ycl_islip();
-    TEST_islip_ycl_islip_with_priority();
+    TEST_fifo();
+    TEST_pim();
+    TEST_rrm();
+    TEST_fifo_and_rrm();
+    TEST_rrm_to_islip_basic();
+    TEST_islip_basic_with_mutilple_iteration();
+    TEST_islip_priority();
+    TEST_islip_threshold();
+    TEST_islip_wrr();
     //TEST_dpa();
 
     //pcie_scan_main();

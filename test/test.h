@@ -6,7 +6,13 @@
 #include <vector>
 #include "islip.h"
 #include "booksim_islip.h"
-#include "islip_ycl.h"
+#include "fifo.h"
+#include "pim.h"
+#include "rrm.h"
+#include "islip_basic.h"
+#include "islip_sp.h"
+#include "islip_threshold.h"
+#include "islip_wrr.h"
 #include "dpa.h"
 
 #define VIRTURL_CHANNEL_NUM 8
@@ -39,10 +45,17 @@ void TEST_Full_Load_Suppression();
 void TEST_max_match();
 void TEST_starvation();
 void TEST_booksim_max_match();
-void TEST_islip_ycl();
-void TEST_islip_ycl_rrm();
-void TEST_islip_ycl_islip();
-void TEST_islip_ycl_islip_with_priority();
+
+void TEST_fifo();
+void TEST_pim();
+void TEST_rrm();
+void TEST_fifo_and_rrm();
+void TEST_rrm_to_islip_basic();
+void TEST_islip_basic_with_mutilple_iteration();
+void TEST_islip_priority();
+void TEST_islip_threshold();
+void TEST_islip_wrr();
+
 void TEST_dpa();
 
 #endif // TEST_H
