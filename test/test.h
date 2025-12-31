@@ -4,6 +4,7 @@
 #include <iostream>
 #include <deque>
 #include <vector>
+#include <cassert>
 #include "islip.h"
 #include "booksim_islip.h"
 #include "fifo.h"
@@ -14,6 +15,7 @@
 #include "islip_threshold.h"
 #include "islip_wrr.h"
 #include "dpa.h"
+#include "lsu.h"
 
 #define VIRTURL_CHANNEL_NUM 8
 
@@ -58,5 +60,7 @@ void TEST_islip_threshold();
 void TEST_islip_wrr();
 
 void TEST_dpa();
+
+void TEST_load_forwarding();
 
 #endif // TEST_H

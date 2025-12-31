@@ -928,3 +928,50 @@ void TEST_dpa() {
         std::cout << "Input 2 is not granted access." << std::endl;
     }
 }
+
+// ===================================================================
+// 测试场景 1: Load Forwarding (从 Store Buffer 转发)
+// ===================================================================
+void TEST_load_forwarding() {
+    std::cout << "\n>>> SCENARIO 1: Load Forwarding from Store Buffer <<<" << std::endl;
+    LSU my_lsu(3, 2); // Load延迟3周期，Store延迟2周期
+    
+    uint64_t addr = 0x1000;
+    
+    // 运行多个周期
+    for (int i = 0; i < 20; ++i) {
+        std::cout << "\n--- Tick Cycle " << i << " ---" << std::endl;
+        my_lsu.tick();
+        
+        // Cycle 0: 发起 Load ID=1
+        if (i == 0) {
+            std::cout << "\nIssue Load ID=1 to addr=0x1000" << std::endl;
+            my_lsu.issue_request(1, MemOp::LOAD, addr, 0);
+        }
+
+        // Cycle 1: 发起 Store ID=2 到同一地址
+        if (i == 1) {
+            std::cout << "Issue Store ID=2 to addr=0x1000, data=42" << std::endl;
+            my_lsu.issue_request(2, MemOp::STORE, addr, 42);
+            my_lsu.dump_status();
+        }
+
+        // Cycle 4: 发起 Store ID=3 到同一地址
+        if (i == 4) {
+            std::cout << "Issue Load ID=3 to addr=0x2000" << std::endl;
+            addr = 0x2000;
+            my_lsu.issue_request(3, MemOp::LOAD, addr, 0);
+        }
+        
+        int id;
+        uint32_t data;
+        if (my_lsu.has_completed_load(id, data)) {
+            std::cout << "[Result] Load ID=" << id << " completed with data=" << data 
+                      << " (0x" << std::hex << data << std::dec << ")" << std::endl;
+            if (id == 1) {
+                assert(data == 42 && "Error: Load should forward from Store Buffer!");
+                std::cout << "✓ PASS: Load Forwarding works correctly" << std::endl;
+            }
+        }
+    }
+}
