@@ -53,6 +53,7 @@ void TEST_fifo_and_rrm();
 void TEST_rrm_and_islip_basic();
 void TEST_rrm_and_islip_basic_with_mutilple_iteration();
 void TEST_islip_priority();
+void TEST_islip_non_saturated();
 void TEST_islip_threshold();
 void TEST_islip_wrr();
 

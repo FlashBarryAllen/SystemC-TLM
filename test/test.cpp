@@ -544,25 +544,145 @@ void TEST_islip_priority() {
     int output_num  = 4;
     int iterations  = 2;
     int voq_size    = 4;
-    int priority_levels = 3; // 增加优先级层数
-    islip_sp* myislip = new islip_sp(input_num, output_num, iterations, voq_size, priority_levels);
+    int priority_levels = 3; // 增加优先级层数, 0~2 共3级, 0为最高优先级
+    
+    // 统计结果：<input, output, priority> -> 成功发送的包数
+    vector<int> total_snd(output_num, 0);
+    vector<vector<vector<int>>> voq_stats(input_num, vector<vector<int>>(output_num, vector<int>(priority_levels, 0)));
+    vector<vector<double>> ideal_percentages(input_num, vector<double>(output_num, 0.0));
+
+    vector<tuple<int, int, int>> test_cases = {{0, 0, 0}, {0, 0, 1}, {0, 0, 2},
+                                               {0, 1, 0}, {0, 1, 1}, {0, 1, 2},
+                                               {1, 1, 0}, {1, 1, 1}, {1, 1, 2},
+                                               {2, 2, 0}, {2, 2, 1}, {2, 2, 2},
+                                               {3, 3, 0}, {3, 3, 1}, {3, 3, 2}};
     
     cout << "---------------------------------------------------------" << endl;
-    cout << "--- test islip stric priority arbitration ---" << endl;
-    int cell_times = 5;
+    cout << "--- test islip strict priority arbitration ---" << endl;
+    
+    int cell_times = 1000;
+    islip_sp* myislip = new islip_sp(input_num, output_num, iterations, voq_size, priority_levels);
     for (int cell = 0; cell < cell_times; ++cell) {
-        cout << "----------------------------" << endl;
-        cout << "--- cell " << cell << " ---" << endl;
-
         // 构造请求
-        myislip->request(0, 1, 1); // In 0 to Out 1, 低优先级
-        myislip->request(0, 1, 0); // In 0 to Out 1, 高优先级 (同一通道，高优先级应先出)
-        myislip->request(1, 1, 0); // In 1 to Out 1, 高优先级 (竞争输出 1)
-        myislip->request(2, 2, 1);
+        for (auto& tc : test_cases) {
+            int in  = std::get<0>(tc);
+            int out = std::get<1>(tc);
+            int p   = std::get<2>(tc);
+
+            myislip->request(in, out, p);
+        }
+
         myislip->arbitration();
-        cout << "----------------------------" << endl;
+
+        auto slot_results = myislip->get_sch_result();
+        for (auto& slot : slot_results) {
+            int in  = std::get<0>(slot);
+            int out = std::get<1>(slot);
+            int p   = std::get<2>(slot);
+            cout << "Cell " << cell << ": In " << in << " -> Out " << out << " (Prio:" << p << ")" << endl;
+            voq_stats[in][out][p]++;
+            total_snd[out]++;
+        }
     }
 
+    // --- 打印统计结果 ---
+    cout << "\n========================================================" << endl;
+    cout << "                SP BANDWIDTH REPORT (Output)            " << endl;
+    cout << "========================================================" << endl;
+    cout << left << setw(15) << "Channel" << setw(10) << "priority" << setw(15) << "Grant Count" << "Actual %" << "Ideal %" << endl;
+    cout << "--------------------------------------------------------" << endl;
+
+    for (auto& tc : test_cases) {
+        int in  = std::get<0>(tc);
+        int out = std::get<1>(tc);
+        int p   = std::get<2>(tc);
+
+        if (total_snd[out] == 0) continue; // 避免除以零
+
+        double actual_p = (voq_stats[in][out][p] * 100.0) / total_snd[out];
+
+        cout << "In " << in << " -> Out " << out << setw(6) << "" 
+            << setw(10) << p
+            << setw(15) << voq_stats[in][out][p] 
+            << fixed << setprecision(1) << actual_p << "%" 
+            << setw(4) << "" << ideal_percentages[in][out] << "%" << endl;
+    }
+    cout << "========================================================" << endl;
+
+    delete myislip;
+}
+
+void TEST_islip_non_saturated() {
+    int input_num = 4;
+    int output_num = 4;
+    int iterations = 2;
+    int voq_size = 64; // 适当调大缓存以容纳突发
+    int priority_levels = 3;
+    
+    // 统计结果
+    vector<int> total_snd(output_num, 0);
+    vector<vector<vector<int>>> voq_stats(input_num, vector<vector<int>>(output_num, vector<int>(priority_levels, 0)));
+
+    // 定义测试配置：{Input, Output, Priority, 发送概率(0.0~1.0)}
+    struct TrafficConfig {
+        int in, out, prio;
+        double prob;
+    };
+
+    vector<TrafficConfig> configs = {
+        // --- 观察点：Out 1 ---
+        {0, 1, 0, 0.3},  // In 0 发送 P0 的概率只有 30%
+        {1, 1, 1, 1.0},  // In 1 始终想发送 P1 (100%)
+        
+        // --- 观察点：Out 2 ---
+        {2, 2, 0, 0.8},  // P0 占用 80%
+        {2, 2, 2, 1.0}   // P2 始终存在，观察是否能捡到剩下的 20%
+    };
+    
+    int cell_times = 10000; // 增加样本量使概率统计更准确
+    islip_sp* myislip = new islip_sp(input_num, output_num, iterations, voq_size, priority_levels);
+
+    // 随机数生成器
+    srand(time(0));
+
+    for (int cell = 0; cell < cell_times; ++cell) {
+        // --- 非饱和请求构造 ---
+        for (auto& cfg : configs) {
+            double r = (double)rand() / RAND_MAX;
+            if (r < cfg.prob) {
+                myislip->request(cfg.in, cfg.out, cfg.prio);
+            }
+        }
+
+        myislip->arbitration();
+
+        auto slot_results = myislip->get_sch_result();
+        for (auto& slot : slot_results) {
+            int in = std::get<0>(slot);
+            int out = std::get<1>(slot);
+            int p = std::get<2>(slot);
+            voq_stats[in][out][p]++;
+            total_snd[out]++;
+        }
+    }
+
+    // --- 打印报告 ---
+    cout << "\n========================================================" << endl;
+    cout << "           NON-SATURATED SP REPORT (Output)            " << endl;
+    cout << "========================================================" << endl;
+    cout << left << setw(15) << "Channel" << setw(10) << "Prio" << setw(15) << "Prob" << "Actual %" << endl;
+    cout << "--------------------------------------------------------" << endl;
+
+    for (auto& cfg : configs) {
+        if (total_snd[cfg.out] == 0) continue;
+        double actual_p = (voq_stats[cfg.in][cfg.out][cfg.prio] * 100.0) / total_snd[cfg.out];
+
+        cout << "In " << cfg.in << " -> Out " << cfg.out << setw(6) << "" 
+             << setw(10) << cfg.prio
+             << fixed << setprecision(1) << cfg.prob * 100 << "%" << setw(10) << ""
+             << actual_p << "%" << endl;
+    }
+    cout << "========================================================" << endl;
     delete myislip;
 }
 
@@ -621,7 +741,7 @@ void TEST_islip_wrr() {
     int input_num   = 4;
     int output_num  = 4;
     int iterations  = 2;
-    int total_slots = 1000; // 模拟 1000 个时隙以获得稳定的比例
+    int total_slots = 10000; // 模拟 1000 个时隙以获得稳定的比例
 
     // 定义权重：In 0, 1, 2 对 Out 0 的竞争权重分别为 5:2:1
     // 意味着 In 0 应该获得约 62.5% (5/8) 的带宽
@@ -673,7 +793,7 @@ void TEST_islip_wrr() {
 
         auto slot_results = wrr_scheduler->get_sch_result();
         for (auto& p : slot_results) {
-            cout << "Slot " << slot << ": In " << p.first << " -> Out " << p.second << endl;
+            //cout << "Slot " << slot << ": In " << p.first << " -> Out " << p.second << endl;
             voq_stats[p.first][p.second]++;
             total_snd[p.second]++;
         }
@@ -681,7 +801,7 @@ void TEST_islip_wrr() {
 
     // --- 打印统计结果 ---
     cout << "\n========================================================" << endl;
-    cout << "                WRR BANDWIDTH REPORT (Out 0)            " << endl;
+    cout << "                WRR BANDWIDTH REPORT (Output)            " << endl;
     cout << "========================================================" << endl;
     cout << left << setw(15) << "Channel" << setw(10) << "Weight" << setw(15) << "Grant Count" << "Actual %" << "Ideal %" << endl;
     cout << "--------------------------------------------------------" << endl;
