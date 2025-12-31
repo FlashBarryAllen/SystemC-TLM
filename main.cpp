@@ -43,7 +43,7 @@ int sc_main(int argc, char* argv[])
     //TEST_fifo_and_rrm();
     //TEST_rrm_and_islip_basic();
     //TEST_rrm_and_islip_basic_with_mutilple_iteration();
-    //TEST_islip_priority();
+    TEST_islip_priority();
     TEST_islip_non_saturated();
     //TEST_islip_threshold();
     //TEST_islip_wrr();

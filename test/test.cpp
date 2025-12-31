@@ -553,6 +553,7 @@ void TEST_islip_priority() {
 
     vector<tuple<int, int, int>> test_cases = {{0, 0, 0}, {0, 0, 1}, {0, 0, 2},
                                                {0, 1, 0}, {0, 1, 1}, {0, 1, 2},
+                                               {0, 2, 1}, {0, 2, 0}, {0, 2, 2},
                                                {1, 1, 0}, {1, 1, 1}, {1, 1, 2},
                                                {2, 2, 0}, {2, 2, 1}, {2, 2, 2},
                                                {3, 3, 0}, {3, 3, 1}, {3, 3, 2}};
@@ -658,9 +659,9 @@ void TEST_islip_non_saturated() {
 
         auto slot_results = myislip->get_sch_result();
         for (auto& slot : slot_results) {
-            int in = std::get<0>(slot);
+            int in  = std::get<0>(slot);
             int out = std::get<1>(slot);
-            int p = std::get<2>(slot);
+            int p   = std::get<2>(slot);
             voq_stats[in][out][p]++;
             total_snd[out]++;
         }

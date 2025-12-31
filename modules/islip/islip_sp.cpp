@@ -32,7 +32,7 @@ void islip_sp::request(int input, int output, int priority)
     }
     
     if (m_voq[input][output][priority] >= m_voq_size) {
-        cout << "VOQ Full: Input " << input << " Output " << output << " Prio " << priority << " dropped." << endl;
+        //cout << "VOQ Full: Input " << input << " Output " << output << " Prio " << priority << " dropped." << endl;
         return;
     }
 
@@ -129,7 +129,7 @@ void islip_sp::update_pointers()
                 }
 
                 sch_result.emplace_back(make_tuple(input, output, selected_prio));
-                cout << "[Sch] In:" << input << " -> Out:" << output << " (Prio:" << selected_prio << ")" << " (iSLIP_priority Success)" << endl;
+                //cout << "[Sch] In:" << input << " -> Out:" << output << " (Prio:" << selected_prio << ")" << " (iSLIP_priority Success)" << endl;
             }
         }
     }
