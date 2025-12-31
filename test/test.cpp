@@ -626,7 +626,7 @@ void TEST_islip_wrr() {
     // 定义权重：In 0, 1, 2 对 Out 0 的竞争权重分别为 5:2:1
     // 意味着 In 0 应该获得约 62.5% (5/8) 的带宽
     vector<tuple<int, int, int>> test_cases = {{0, 0, 5}, {1, 0, 2}, {2, 0, 1}, 
-                                               {0, 1, 1}, {1, 1, 1}, {2, 1, 1}};
+                                               {0, 1, 2}, {1, 1, 1}, {2, 1, 1}};
     vector<vector<int>> weights(input_num, vector<int>(output_num, 1));
     vector<int> total_num(output_num, 0);
     for (auto& tc : test_cases) {
@@ -673,6 +673,7 @@ void TEST_islip_wrr() {
 
         auto slot_results = wrr_scheduler->get_sch_result();
         for (auto& p : slot_results) {
+            cout << "Slot " << slot << ": In " << p.first << " -> Out " << p.second << endl;
             voq_stats[p.first][p.second]++;
             total_snd[p.second]++;
         }
