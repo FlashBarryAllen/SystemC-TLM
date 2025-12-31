@@ -36,7 +36,7 @@ void pim::request(int input, int output)
 
 void pim::arbitration()
 {
-    reset();
+   reset_arbiter();
 
     // 使用静态随机数生成器提高效率
     static std::random_device rd;
@@ -47,6 +47,7 @@ void pim::arbitration()
         do_grant(g);
         do_accept(g);
         update_pointers();
+        reset_iteration();
     }
 }
 
@@ -117,21 +118,21 @@ void pim::update_pointers()
                 sch_result.emplace_back(make_pair(input, output));
 
                 cout << "[Sch] In:" << input << " -> Out:" << output << " (PIM Success)" << endl;
-                
-                // 每次匹配成功后，重置该输入/输出在当前迭代的中间信号
-                // 确保它们不会在同一 iteration 的后续 update 中被重复处理
             }
         }
     }
 }
 
-void pim::reset()
-{
-    m_input_occupied.assign(m_input_num, false);
-    m_output_occupied.assign(m_output_num, false);
+void pim::reset_arbiter() {
+    m_iter_cnt = 0;
     sch_result.clear();
-    
-    // 清空临时矩阵
-    for(auto& row : m_grants) fill(row.begin(), row.end(), 0);
-    for(auto& row : m_accepts) fill(row.begin(), row.end(), 0);
+    fill(m_input_occupied.begin(), m_input_occupied.end(), false);
+    fill(m_output_occupied.begin(), m_output_occupied.end(), false);
+    for(int j=0; j<m_output_num; j++) fill(m_grants[j].begin(), m_grants[j].end(), 0);
+    for(int i=0; i<m_input_num; i++) fill(m_accepts[i].begin(), m_accepts[i].end(), 0);
+}
+
+void pim::reset_iteration() {
+    for(int j=0; j<m_output_num; j++) fill(m_grants[j].begin(), m_grants[j].end(), 0);
+    for(int i=0; i<m_input_num; i++) fill(m_accepts[i].begin(), m_accepts[i].end(), 0);
 }

@@ -15,7 +15,6 @@ public:
 
     void request(int input, int output, int priority = 0);
     void arbitration();
-    void reset();
 
     // 结果包含：<input, output, priority>
     vector<tuple<int, int, int>> get_sch_result();
@@ -24,6 +23,8 @@ private:
     void do_grant();
     void do_accept();
     void update_pointers();
+    void reset_arbiter(); 
+    void reset_iteration();
 
     int m_input_num;
     int m_output_num;

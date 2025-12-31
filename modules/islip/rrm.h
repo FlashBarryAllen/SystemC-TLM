@@ -12,7 +12,6 @@ public:
 
 public:
     void init_priority_ptr();
-    void reset();
     void request(int input, int output);
     void arbitration();
     vector<pair<int, int>> get_sch_result();
@@ -21,6 +20,8 @@ private:
     void do_grant();
     void do_accept();
     void update_pointers();
+    void reset_arbiter(); 
+    void reset_iteration();
 
 private:
     int m_input_num;

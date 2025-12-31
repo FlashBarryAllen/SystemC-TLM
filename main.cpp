@@ -41,8 +41,8 @@ int sc_main(int argc, char* argv[])
     TEST_pim();
     TEST_rrm();
     TEST_fifo_and_rrm();
-    TEST_rrm_to_islip_basic();
-    TEST_islip_basic_with_mutilple_iteration();
+    TEST_rrm_and_islip_basic();
+    TEST_rrm_and_islip_basic_with_mutilple_iteration();
     TEST_islip_priority();
     TEST_islip_threshold();
     TEST_islip_wrr();

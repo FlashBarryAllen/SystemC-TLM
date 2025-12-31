@@ -18,7 +18,8 @@ private:
     void do_grant(std::mt19937& g);
     void do_accept(std::mt19937& g);
     void update_pointers(); // 仅保留名称，内部逻辑更新占用状态
-    void reset();
+    void reset_arbiter(); 
+    void reset_iteration();
 
     int m_input_num;
     int m_output_num;

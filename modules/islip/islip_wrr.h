@@ -13,12 +13,14 @@ public:
     
     void request(int input, int output);
     void arbitration();
-    void reset_iteration(); // 每时隙开始前重置临时状态
+    vector<pair<int, int>> get_sch_result();
 
 private:
     void do_grant();
     void do_accept();
     void update_pointers();
+    void reset_arbiter(); 
+    void reset_iteration();
 
     int m_input_num, m_output_num, m_iterations, m_iter_cnt;
     
@@ -28,11 +30,13 @@ private:
     vector<vector<int>> m_voq;           // 队列计数
     vector<vector<int>> m_weights;       // 固定权重配置
     vector<vector<int>> m_current_quota; // 当前剩余配额
+    vector<vector<int>> m_current_quota_input; // 当前剩余配额
 
     vector<vector<int>> m_grants;
     vector<vector<int>> m_accepts;
     vector<bool> m_input_occupied;
     vector<bool> m_output_occupied;
+    vector<pair<int, int>> sch_result;
 };
 
 #endif

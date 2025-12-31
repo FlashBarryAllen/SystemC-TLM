@@ -41,13 +41,14 @@ void islip_sp::request(int input, int output, int priority)
 
 void islip_sp::arbitration()
 {
-    reset();
+    reset_arbiter();
     
     for (m_iter_cnt = 0; m_iter_cnt < m_iterations; m_iter_cnt++)
     {
         do_grant();
         do_accept();
         update_pointers();
+        reset_iteration();
     }
 }
 
@@ -136,16 +137,16 @@ void islip_sp::update_pointers()
 
 vector<tuple<int, int, int>> islip_sp::get_sch_result() { return sch_result; }
 
-void islip_sp::reset()
-{
+void islip_sp::reset_arbiter() {
     m_iter_cnt = 0;
     sch_result.clear();
-    for (int i = 0; i < m_input_num; i++) {
-        m_input_occupied[i] = false;
-        fill(m_accepts[i].begin(), m_accepts[i].end(), 0);
-    }
-    for (int j = 0; j < m_output_num; j++) {
-        m_output_occupied[j] = false;
-        fill(m_grants[j].begin(), m_grants[j].end(), 0);
-    }
+    fill(m_input_occupied.begin(), m_input_occupied.end(), false);
+    fill(m_output_occupied.begin(), m_output_occupied.end(), false);
+    for(int j=0; j<m_output_num; j++) fill(m_grants[j].begin(), m_grants[j].end(), 0);
+    for(int i=0; i<m_input_num; i++) fill(m_accepts[i].begin(), m_accepts[i].end(), 0);
+}
+
+void islip_sp::reset_iteration() {
+    for(int j=0; j<m_output_num; j++) fill(m_grants[j].begin(), m_grants[j].end(), 0);
+    for(int i=0; i<m_input_num; i++) fill(m_accepts[i].begin(), m_accepts[i].end(), 0);
 }

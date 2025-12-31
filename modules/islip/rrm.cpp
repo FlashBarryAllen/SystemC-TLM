@@ -53,7 +53,7 @@ void rrm::request(int input, int output)
 
 void rrm::arbitration()
 {
-    reset();
+    reset_arbiter();
 
     for (m_iter_cnt = 0; m_iter_cnt < m_iterations; m_iter_cnt++)
     {
@@ -61,6 +61,7 @@ void rrm::arbitration()
         do_grant();
         do_accept();
         update_pointers();
+        reset_iteration();
     }
 }
 
@@ -162,27 +163,16 @@ vector<pair<int, int>> rrm::get_sch_result()
     return sch_result;
 }
 
-void rrm::reset()
-{
+void rrm::reset_arbiter() {
     m_iter_cnt = 0;
-
-    for (int input = 0; input < m_input_num; input++)
-    {
-        m_input_occupied[input] = false;
-        for (int output = 0; output < m_output_num; output++)
-        {
-            m_accepts[input][output] = 0;
-        }
-    }
-
-    for (int output = 0; output < m_output_num; output++)
-    {
-        m_output_occupied[output] = false;
-        for (int input = 0; input < m_input_num; input++)
-        {
-            m_grants[output][input] = 0;
-        }
-    }
-
     sch_result.clear();
+    fill(m_input_occupied.begin(), m_input_occupied.end(), false);
+    fill(m_output_occupied.begin(), m_output_occupied.end(), false);
+    for(int j=0; j<m_output_num; j++) fill(m_grants[j].begin(), m_grants[j].end(), 0);
+    for(int i=0; i<m_input_num; i++) fill(m_accepts[i].begin(), m_accepts[i].end(), 0);
+}
+
+void rrm::reset_iteration() {
+    for(int j=0; j<m_output_num; j++) fill(m_grants[j].begin(), m_grants[j].end(), 0);
+    for(int i=0; i<m_input_num; i++) fill(m_accepts[i].begin(), m_accepts[i].end(), 0);
 }

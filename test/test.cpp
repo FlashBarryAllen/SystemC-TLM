@@ -364,17 +364,20 @@ void TEST_fifo() {
     fifo* myislip = new fifo(input_num, output_num);
     myislip->init_priority_ptr();
 
+    cout << "---------------------------------------------------------" << endl;
     cout << "--- test fifo arbitration ---" << endl;
     int cell_times = 4;
     for (int cell = 0; cell < cell_times; ++cell) {
+        cout << "----------------------------" << endl;
         cout << "--- cell " << cell << " ---" << endl;
+
         myislip->request(0, 0);
         myislip->request(0, 1);
-
         myislip->request(1, 0);
         myislip->request(1, 1);
-
         myislip->arbitration();
+
+        cout << "----------------------------" << endl;
     }
 
     delete myislip;
@@ -385,17 +388,20 @@ void TEST_pim() {
     int output_num = 2;
     pim* mypim = new pim(input_num, output_num);
 
+    cout << "---------------------------------------------------------" << endl;
     cout << "--- test pim arbitration ---" << endl;
     int cell_times = 4;
     for (int cell = 0; cell < cell_times; ++cell) {
+        cout << "----------------------------" << endl;
         cout << "--- cell " << cell << " ---" << endl;
+        
         mypim->request(0, 0);
         mypim->request(0, 1);
-
         mypim->request(1, 0);
         mypim->request(1, 1);
-
         mypim->arbitration();
+
+        cout << "----------------------------" << endl;
     }
 
     delete mypim;
@@ -409,17 +415,20 @@ void TEST_rrm() {
     rrm* myislip = new rrm(input_num, output_num, iterations, voq_size);
     myislip->init_priority_ptr();
 
+    cout << "---------------------------------------------------------" << endl;
     cout << "--- test rrm arbitration ---" << endl;
     int cell_times = 4;
     for (int cell = 0; cell < cell_times; ++cell) {
+        cout << "----------------------------" << endl;
         cout << "--- cell " << cell << " ---" << endl;
+        
         myislip->request(0, 0);
         myislip->request(0, 1);
-
         myislip->request(1, 0);
         myislip->request(1, 1);
-
         myislip->arbitration();
+
+        cout << "----------------------------" << endl;
     }
 
     delete myislip;
@@ -429,15 +438,18 @@ void TEST_fifo_and_rrm() {
     int input_num  = 2;
     int output_num = 2;
     fifo* myfifo = new fifo(input_num, output_num);
-    myfifo->init_priority_ptr();
+    //myfifo->init_priority_ptr();
 
-    rrm* myrrm = new rrm(input_num, output_num, 1, 4);
-    myrrm->init_priority_ptr();
+    rrm* myrrm = new rrm(input_num, output_num, 2, 4);
+    //myrrm->init_priority_ptr();
 
+    cout << "---------------------------------------------------------" << endl;
     cout << "--- test fifo and rrm arbitration ---" << endl;
     int cell_times = 1;
     for (int cell = 0; cell < cell_times; ++cell) {
+        cout << "----------------------------" << endl;
         cout << "--- cell " << cell << " ---" << endl;
+
         myfifo->request(0, 0);
         myfifo->request(0, 1);
         myfifo->request(1, 0);
@@ -449,53 +461,79 @@ void TEST_fifo_and_rrm() {
         myrrm->request(1, 0);
         myrrm->request(1, 1);
         myrrm->arbitration();
+
+        cout << "----------------------------" << endl;
     }
 
     delete myfifo;
     delete myrrm;
 }
 
-void TEST_rrm_to_islip_basic() {
+void TEST_rrm_and_islip_basic() {
     int input_num  = 2;
     int output_num = 2;
     int iterations = 1;
     int voq_size   = 4;
+
+    rrm* myrrm = new rrm(input_num, output_num, iterations, voq_size);
+
     islip_basic* myislip = new islip_basic(input_num, output_num, iterations, voq_size);
 
-    cout << "--- test rrm to islip_basic arbitration ---" << endl;
+    cout << "---------------------------------------------------------" << endl;
+    cout << "--- test rrm and islip_basic 1 iteration arbitration ---" << endl;
     int cell_times = 4;
     for (int cell = 0; cell < cell_times; ++cell) {
+        cout << "----------------------------" << endl;
         cout << "--- cell " << cell << " ---" << endl;
+
+        myrrm->request(0, 0);
+        myrrm->request(0, 1);
+        myrrm->request(1, 0);
+        myrrm->request(1, 1);
+        myrrm->arbitration();
+
         myislip->request(0, 0);
         myislip->request(0, 1);
-
         myislip->request(1, 0);
         myislip->request(1, 1);
-
         myislip->arbitration();
+
+        cout << "----------------------------" << endl;
     }
 
     delete myislip;
 }
 
-void TEST_islip_basic_with_mutilple_iteration() {
+void TEST_rrm_and_islip_basic_with_mutilple_iteration() {
     int input_num  = 3;
     int output_num = 3;
     int iterations = 2;
     int voq_size   = 4;
+    rrm* myrrm = new rrm(input_num, output_num, iterations, voq_size);
     islip_basic* myislip = new islip_basic(input_num, output_num, iterations, voq_size);
 
-    cout << "--- test islip basic 2 iterations arbitration ---" << endl;
+    cout << "---------------------------------------------------------" << endl;
+    cout << "--- test rrm and islip basic 2 iterations arbitration ---" << endl;
     int cell_times = 5;
     for (int cell = 0; cell < cell_times; ++cell) {
+        cout << "----------------------------" << endl;
         cout << "--- cell " << cell << " ---" << endl;
+
+        myrrm->request(0, 0);
+        myrrm->request(0, 1);
+        myrrm->request(0, 2);
+        myrrm->request(1, 1);
+        myrrm->request(2, 1);
+        myrrm->arbitration();
+        
         myislip->request(0, 0);
         myislip->request(0, 1);
         myislip->request(0, 2);
         myislip->request(1, 1);
         myislip->request(2, 1);
-
         myislip->arbitration();
+
+        cout << "----------------------------" << endl;
     }
 
     delete myislip;
@@ -508,14 +546,22 @@ void TEST_islip_priority() {
     int voq_size    = 4;
     int priority_levels = 3; // 增加优先级层数
     islip_sp* myislip = new islip_sp(input_num, output_num, iterations, voq_size, priority_levels);
-
-    myislip->request(0, 1, 1); // In 0 to Out 1, 低优先级
-    myislip->request(0, 1, 0); // In 0 to Out 1, 高优先级 (同一通道，高优先级应先出)
-    myislip->request(1, 1, 0); // In 1 to Out 1, 高优先级 (竞争输出 1)
-    myislip->request(2, 2, 1);
-
+    
+    cout << "---------------------------------------------------------" << endl;
     cout << "--- test islip stric priority arbitration ---" << endl;
-    myislip->arbitration();
+    int cell_times = 5;
+    for (int cell = 0; cell < cell_times; ++cell) {
+        cout << "----------------------------" << endl;
+        cout << "--- cell " << cell << " ---" << endl;
+
+        // 构造请求
+        myislip->request(0, 1, 1); // In 0 to Out 1, 低优先级
+        myislip->request(0, 1, 0); // In 0 to Out 1, 高优先级 (同一通道，高优先级应先出)
+        myislip->request(1, 1, 0); // In 1 to Out 1, 高优先级 (竞争输出 1)
+        myislip->request(2, 2, 1);
+        myislip->arbitration();
+        cout << "----------------------------" << endl;
+    }
 
     delete myislip;
 }
@@ -530,6 +576,7 @@ void TEST_islip_threshold() {
     // 使用我们之前整合的 islip_threshold 类
     islip_threshold* mytslip = new islip_threshold(input_num, output_num, iterations, voq_size, threshold);
 
+    cout << "---------------------------------------------------------" << endl;
     cout << "--- Starting Threshold SLIP (T-SLIP) Test ---" << endl;
     cout << "Configuration: Threshold = " << threshold << endl;
 
@@ -574,38 +621,61 @@ void TEST_islip_wrr() {
     int input_num   = 4;
     int output_num  = 4;
     int iterations  = 2;
-    int total_slots = 10; // 模拟 1000 个时隙以获得稳定的比例
+    int total_slots = 1000; // 模拟 1000 个时隙以获得稳定的比例
 
     // 定义权重：In 0, 1, 2 对 Out 0 的竞争权重分别为 5:2:1
     // 意味着 In 0 应该获得约 62.5% (5/8) 的带宽
+    vector<tuple<int, int, int>> test_cases = {{0, 0, 5}, {1, 0, 2}, {2, 0, 1}, 
+                                               {0, 1, 1}, {1, 1, 1}, {2, 1, 1}};
     vector<vector<int>> weights(input_num, vector<int>(output_num, 1));
-    weights[0][0] = 5; 
-    weights[1][0] = 2;
-    weights[2][0] = 1;
+    vector<int> total_num(output_num, 0);
+    for (auto& tc : test_cases) {
+            int in = std::get<0>(tc);
+            int out = std::get<1>(tc);
+            int w = std::get<2>(tc);
+
+            weights[in][out] = w;
+            total_num[out] += w;
+    }
+
+    vector<vector<double>> ideal_percentages(input_num, vector<double>(output_num, 0.0));
+    for (auto& tc : test_cases) {
+            int in = std::get<0>(tc);
+            int out = std::get<1>(tc);
+            int w = std::get<2>(tc);
+
+            ideal_percentages[in][out] = (w * 100.0) / total_num[out];
+    }
 
     // 初始化 WRR 调度器
     islip_wrr* wrr_scheduler = new islip_wrr(input_num, output_num, iterations, weights);
 
     // 统计结果：<input, output> -> 成功发送的包数
-    map<pair<int, int>, int> stats;
+    vector<int> total_snd(output_num, 0);
+    vector<vector<int>> voq_stats(input_num, vector<int>(output_num, 0));
 
+    cout << "---------------------------------------------------------" << endl;
     cout << "--- test islip wrr arbitration ---" << endl;
     cout << "Configured Weights for Output 0 -> In0:5, In1:2, In2:1" << endl;
 
     for (int slot = 0; slot < total_slots; ++slot) {
-        // 1. 模拟全负载压力：每个时隙所有输入都有发往 Out 0 的请求
+        // 1. 模拟全负载压力：每个时隙所有输入都有发往 Out 0 和 Out 1的请求
         wrr_scheduler->request(0, 0);
         wrr_scheduler->request(1, 0);
         wrr_scheduler->request(2, 0);
 
+        wrr_scheduler->request(0, 1);
+        wrr_scheduler->request(1, 1);
+        wrr_scheduler->request(2, 1);
+
         // 2. 执行仲裁
-        // 注意：为配合测试，建议在 update_pointers 中将结果存入一个临时 list
-        // 或者直接在 update_pointers 里进行打印/统计
         wrr_scheduler->arbitration();
 
-        // 假设我们在 scheduler 类中增加了一个 get_current_slot_results()
-        // 这里为了演示，我们模拟统计 update_pointers 的调度行为
-        // 实际使用时，请参考之前代码中 get_sch_result() 的逻辑来累加 stats
+        auto slot_results = wrr_scheduler->get_sch_result();
+        for (auto& p : slot_results) {
+            voq_stats[p.first][p.second]++;
+            total_snd[p.second]++;
+        }
     }
 
     // --- 打印统计结果 ---
@@ -615,23 +685,20 @@ void TEST_islip_wrr() {
     cout << left << setw(15) << "Channel" << setw(10) << "Weight" << setw(15) << "Grant Count" << "Actual %" << "Ideal %" << endl;
     cout << "--------------------------------------------------------" << endl;
 
-    // 理论权重总和 = 5 + 2 + 1 = 8
-    vector<pair<int, int>> test_cases = {{0, 5}, {1, 2}, {2, 1}};
     for (auto& tc : test_cases) {
-        int in = tc.first;
-        int w = tc.second;
-        
-        // 这里的 count 应该是从 get_sch_result() 累加得到的
-        // 以下为理论运行结果示例
-        int count = (total_slots * w) / 8; 
-        double actual_p = (count * 100.0) / total_slots;
-        double ideal_p  = (w * 100.0) / 8.0;
+        int in = std::get<0>(tc);
+        int out = std::get<1>(tc);
+        int w = std::get<2>(tc);
 
-        cout << "In " << in << " -> Out 0" << setw(6) << "" 
-             << setw(10) << w 
-             << setw(15) << count 
-             << fixed << setprecision(1) << actual_p << "%" 
-             << setw(4) << "" << ideal_p << "%" << endl;
+        if (total_snd[out] == 0) continue; // 避免除以零
+
+        double actual_p = (voq_stats[in][out] * 100.0) / total_snd[out];
+
+        cout << "In " << in << " -> Out " << out << setw(6) << "" 
+            << setw(10) << w 
+            << setw(15) << voq_stats[in][out] 
+            << fixed << setprecision(1) << actual_p << "%" 
+            << setw(4) << "" << ideal_percentages[in][out] << "%" << endl;
     }
     cout << "========================================================" << endl;
 
@@ -639,6 +706,7 @@ void TEST_islip_wrr() {
 }
 
 void TEST_dpa() {
+    cout << "---------------------------------------------------------" << endl;
     // Test case 1: Basic functionality
     std::cout << "Test case 1: Basic functionality" << std::endl;
     dpa_scheduler arbiter1(4, 4);

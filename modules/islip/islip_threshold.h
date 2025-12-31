@@ -16,11 +16,12 @@ public:
     void arbitration();
     vector<pair<int, int>> get_sch_result();
 
-protected:
+private:
     void do_grant();
     void do_accept();
     void update_pointers();
-    void reset();
+    void reset_arbiter(); 
+    void reset_iteration();
 
     int m_input_num;
     int m_output_num;

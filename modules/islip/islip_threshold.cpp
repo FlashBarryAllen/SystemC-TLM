@@ -27,11 +27,12 @@ void islip_threshold::request(int input, int output) {
 }
 
 void islip_threshold::arbitration() {
-    reset();
+    reset_arbiter();
     for (m_iter_cnt = 0; m_iter_cnt < m_iterations; m_iter_cnt++) {
         do_grant();
         do_accept();
         update_pointers();
+        reset_iteration();
     }
 }
 
@@ -107,12 +108,18 @@ void islip_threshold::update_pointers() {
     }
 }
 
-void islip_threshold::reset() {
+void islip_threshold::reset_arbiter() {
+    m_iter_cnt = 0;
     sch_result.clear();
     fill(m_input_occupied.begin(), m_input_occupied.end(), false);
     fill(m_output_occupied.begin(), m_output_occupied.end(), false);
-    for (int i = 0; i < m_output_num; i++) fill(m_grants[i].begin(), m_grants[i].end(), 0);
-    for (int i = 0; i < m_input_num; i++) fill(m_accepts[i].begin(), m_accepts[i].end(), 0);
+    for(int j=0; j<m_output_num; j++) fill(m_grants[j].begin(), m_grants[j].end(), 0);
+    for(int i=0; i<m_input_num; i++) fill(m_accepts[i].begin(), m_accepts[i].end(), 0);
+}
+
+void islip_threshold::reset_iteration() {
+    for(int j=0; j<m_output_num; j++) fill(m_grants[j].begin(), m_grants[j].end(), 0);
+    for(int i=0; i<m_input_num; i++) fill(m_accepts[i].begin(), m_accepts[i].end(), 0);
 }
 
 vector<pair<int, int>> islip_threshold::get_sch_result() { return sch_result; }
