@@ -476,32 +476,43 @@ void TEST_rrm_and_islip_basic() {
     int voq_size   = 4;
 
     rrm* myrrm = new rrm(input_num, output_num, iterations, voq_size);
-
     islip_basic* myislip = new islip_basic(input_num, output_num, iterations, voq_size);
 
     cout << "---------------------------------------------------------" << endl;
-    cout << "--- test rrm and islip_basic 1 iteration arbitration ---" << endl;
+    cout << "--- test rrm and islip_basic 1 iteration arbitration ----" << endl;
     int cell_times = 4;
     for (int cell = 0; cell < cell_times; ++cell) {
-        cout << "----------------------------" << endl;
-        cout << "--- cell " << cell << " ---" << endl;
-
+        cout << "Cell " << cell << ": " << "--- RRM 1 iteration arbitration and result ---" << endl;
         myrrm->request(0, 0);
         myrrm->request(0, 1);
         myrrm->request(1, 0);
         myrrm->request(1, 1);
         myrrm->arbitration();
+        auto rrm_results = myrrm->get_sch_result();
+        cout << "Cell " << cell << ": " << "RRM total arb result:" << endl;
+        for (auto& slot : rrm_results) {
+            int in  = slot.first;
+            int out = slot.second;
+            cout << "        In " << in << " -> Out " << out << endl;
+        }
 
+        cout << "Cell " << cell << ": " << "--- ISLIP 1 iteration arbitration and result ---" << endl;
         myislip->request(0, 0);
         myislip->request(0, 1);
-        myislip->request(1, 0);
-        myislip->request(1, 1);
+        //myislip->request(1, 0);
+        //myislip->request(1, 1);
         myislip->arbitration();
-
-        cout << "----------------------------" << endl;
+        auto islip_results = myislip->get_sch_result();
+        cout << "Cell " << cell << ": " << "ISLIP total arb result:" << endl;
+        for (auto& slot : islip_results) {
+            int in  = slot.first;
+            int out = slot.second;
+            cout << "        In " << in << " -> Out " << out << endl;
+        }
     }
 
     delete myislip;
+    delete myrrm;
 }
 
 void TEST_rrm_and_islip_basic_with_mutilple_iteration() {
@@ -516,27 +527,39 @@ void TEST_rrm_and_islip_basic_with_mutilple_iteration() {
     cout << "--- test rrm and islip basic 2 iterations arbitration ---" << endl;
     int cell_times = 5;
     for (int cell = 0; cell < cell_times; ++cell) {
-        cout << "----------------------------" << endl;
-        cout << "--- cell " << cell << " ---" << endl;
-
+        cout << "Cell " << cell << ": " << "--- RRM 2 iterations arbitration and result ---" << endl;
         myrrm->request(0, 0);
         myrrm->request(0, 1);
         myrrm->request(0, 2);
         myrrm->request(1, 1);
         myrrm->request(2, 1);
         myrrm->arbitration();
+        auto rrm_results = myrrm->get_sch_result();
+        cout << "Cell " << cell << ": " << "RRM total arb result:" << endl;
+        for (auto& slot : rrm_results) {
+            int in  = slot.first;
+            int out = slot.second;
+            cout << "        In " << in << " -> Out " << out << endl;
+        }
         
+        cout << "Cell " << cell << ": " << "--- ISLIP 2 iterations arbitration and result ---" << endl;
         myislip->request(0, 0);
         myislip->request(0, 1);
         myislip->request(0, 2);
         myislip->request(1, 1);
         myislip->request(2, 1);
         myislip->arbitration();
-
-        cout << "----------------------------" << endl;
+        auto islip_results = myislip->get_sch_result();
+        cout << "Cell " << cell << ": " << "ISLIP total arb result:" << endl;
+        for (auto& slot : islip_results) {
+            int in  = slot.first;
+            int out = slot.second;
+            cout << "        In " << in << " -> Out " << out << endl;
+        }
     }
 
     delete myislip;
+    delete myrrm;
 }
 
 void TEST_islip_priority() {

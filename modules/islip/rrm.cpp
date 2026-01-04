@@ -57,7 +57,6 @@ void rrm::arbitration()
 
     for (m_iter_cnt = 0; m_iter_cnt < m_iterations; m_iter_cnt++)
     {
-        cout << "--- iteration " << m_iter_cnt << " ---" << endl;
         do_grant();
         do_accept();
         update_pointers();
@@ -152,7 +151,7 @@ void rrm::update_pointers()
 
                 sch_result.emplace_back(make_pair(input, output));
 
-                cout << "[Sch] In:" << input << " -> Out:" << output << " (RRM Success)" << endl;
+                cout << "Iter " << m_iter_cnt << ": In:" << input << " -> Out:" << output << endl;
             }
         }
     }
