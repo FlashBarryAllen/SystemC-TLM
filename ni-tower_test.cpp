@@ -78,21 +78,19 @@ class B : public sc_module {
 };
 
 void B::process() {
-    if (m_data_queue.empty()) {
-        return;
-    }
-
-    m_delay_cnt++;
-    if (m_delay_cnt == 2) {  // Simulate a delay
-        m_delay_cnt = 0;
-        int data = m_data_queue.front();
-        std::cout << "time: " << sc_time_stamp() << " B pop data: 0x" << std::hex << data << std::dec << std::endl;
-        m_data_queue.pop_front();
-        tlm_generic_payload pl;
-        pl.set_command(TLM_WRITE_COMMAND);
-        tlm_phase phase = BEGIN_REQ;
-        sc_time delay = SC_ZERO_TIME;
-        tx_ctrl->nb_transport_fw(pl, phase, delay);
+    if (!m_data_queue.empty()) {
+        m_delay_cnt++;
+        if (m_delay_cnt == 2) {  // Simulate a delay
+            m_delay_cnt = 0;
+            int data = m_data_queue.front();
+            std::cout << "time: " << sc_time_stamp() << " B pop data: 0x" << std::hex << data << std::dec << std::endl;
+            m_data_queue.pop_front();
+            tlm_generic_payload pl;
+            pl.set_command(TLM_WRITE_COMMAND);
+            tlm_phase phase = BEGIN_REQ;
+            sc_time delay = SC_ZERO_TIME;
+            tx_ctrl->nb_transport_fw(pl, phase, delay);
+        }
     }
 }
 
