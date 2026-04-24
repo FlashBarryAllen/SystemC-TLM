@@ -68,6 +68,12 @@ void A::process() {
 	}
 }
 
+struct bank {
+	int bank_id;
+	int slice_num;
+	int read;
+};
+
 struct slice {
 	int valid;
 	int bank_id;
@@ -86,7 +92,7 @@ struct queue_info {
 class B : public sc_module {
 	public:
 		SC_HAS_PROCESS(B);
-		B(sc_module_name name) : sc_module(name), bank_num(4), slice_num(128), decode_link_num(5), delay(4), read_conflict(0) {
+		B(sc_module_name name) : sc_module(name), bank_num(4), slice_num(128), decode_link_num(4), delay(4) {
 			rx.register_nb_transport_fw(this, &B::rcv_from);
 			SC_METHOD(process);
 			sensitive << m_clk.pos();
@@ -117,7 +123,6 @@ class B : public sc_module {
 	public:
 		int decode_link_num;
 		int read_bank_id;
-		int read_conflict;
 		int delay;
 		int bank_num;
 		int slice_num;
@@ -153,7 +158,7 @@ void B::process() {
 		queue_info& bank_slice = queue_map[queue_id];
 		if (bank_slice.counter > 0) {
 			bank_slice.counter--;
-			std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " bank: " << bank_slice.bank_id << " counter: " << bank_slice.counter << std::endl;
+			std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " read bank: " << bank_slice.bank_id << " counter: " << bank_slice.counter << std::endl;
 			if  (bank_slice.counter != 0) {
 				++it;
 				continue;
@@ -165,10 +170,9 @@ void B::process() {
 		read_bank_id = bank_id;
 
 		if (read_bank_id_vec[read_bank_id] == 1) {
-			std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " read conflitc on bank: " << read_bank_id << std::endl;
+			std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " read conflict on bank: " << read_bank_id << std::endl;
 			++it;
 			bank_slice.counter = 1;
-			read_conflict = 1;
 			continue;
 		}
 		read_bank_id_vec[read_bank_id] = 1;
@@ -182,25 +186,18 @@ void B::process() {
 		encode_vec[bank_id][slice_id].next_slice_id = -1;
 		encode_vec[bank_id][slice_id].queue_id = -1;
 		bank_deep_vec[bank_id]++;
-		std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " release bank: " << bank_id << ", slice: " << slice_id << std::endl;
+		std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " read release bank: " << bank_id << ", slice: " << slice_id << std::endl;
 
 		bank_id = next_bank_id;
 		slice_id = next_slice_id;
 		
 		if (bank_id == -1 || slice_id == -1) {
-			std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " decode erase: queue_id " << queue_id << std::endl;
+			std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " read decode erase: queue_id " << queue_id << std::endl;
 			queue_map.erase(queue_id);
 			it = decode_que_head.erase(it);
 		} else {
 			queue_map[queue_id] = {bank_id, slice_id, delay};
 			++it;
-		}
-	}
-
-	if (read_conflict == 1) {
-		read_conflict = 0;
-		for (int i = 0; i < bank_num; i++) {
-			read_bank_id_vec[i] = 0;
 		}
 	}
 
@@ -211,17 +208,14 @@ void B::process() {
 		int last_slice_id = -1;
 		
 		for (int num = 0; num < 16; num++) {
-			// 挑选bank_id,优先级为bank_deep_vec较大的bank_id，且不等于read_bank_id
+			// 挑选bank_id,优先级为bank_deep_vec较大的bank_id，且不在读的bank
 			int bank_id = 0;
-			int max_deep = bank_deep_vec[bank_id];
+			int max_deep = 0;
 			for (int i = bank_id; i < bank_num; i++) {
-				if (bank_id == read_bank_id) {
-					if (bank_id == 0) {
-						bank_id = 1;
-						max_deep = bank_deep_vec[bank_id];
-					}
+				if (read_bank_id_vec[i] == 1) {
 					continue;
 				}
+
 				if (bank_deep_vec[i] > max_deep) {
 					max_deep = bank_deep_vec[i];
 					bank_id = i;
@@ -250,13 +244,17 @@ void B::process() {
 					
 					bank_deep_vec[bank_id]--;
 					max_deep = bank_deep_vec[bank_id];
-					std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " allocate bank: " << bank_id << ", slice: " << j << std::endl;
+					std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " write allocate bank: " << bank_id << ", slice: " << j << std::endl;
 					break;
 				}
 			}
 		}
 
 		encode_que.pop_front();
+	}
+
+	for (int i = 0; i < bank_num; i++) {
+		read_bank_id_vec[i] = 0;
 	}
 }
 
