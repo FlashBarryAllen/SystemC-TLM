@@ -93,7 +93,7 @@ struct queue_info {
 class B : public sc_module {
 	public:
 		SC_HAS_PROCESS(B);
-		B(sc_module_name name) : sc_module(name), bank_num(4), slice_num(128), decode_link_num(4), delay(4), write_cnt(1), write_slice_num(8) {
+		B(sc_module_name name) : sc_module(name), bank_num(4), slice_num(128), decode_link_num(5), delay(4), write_cnt(1), write_slice_num(8) {
 			rx.register_nb_transport_fw(this, &B::rcv_from);
 			SC_METHOD(process);
 			sensitive << m_clk.pos();
