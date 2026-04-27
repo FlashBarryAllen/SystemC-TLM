@@ -87,12 +87,13 @@ struct queue_info {
 	int bank_id;
 	int slice_id;
 	int counter;
+	int delay;
 };
 
 class B : public sc_module {
 	public:
 		SC_HAS_PROCESS(B);
-		B(sc_module_name name) : sc_module(name), bank_num(4), slice_num(128), decode_link_num(5), delay(4), write_cnt(1), write_slice_num(16) {
+		B(sc_module_name name) : sc_module(name), bank_num(4), slice_num(128), decode_link_num(4), delay(4), write_cnt(1), write_slice_num(8) {
 			rx.register_nb_transport_fw(this, &B::rcv_from);
 			SC_METHOD(process);
 			sensitive << m_clk.pos();
@@ -156,18 +157,32 @@ void B::decode_list() {
 
 void B::process() {
 	if (!decode_que.empty() && (decode_que.size() > decode_link_num)) {
+		int delay = 1;
 		while (decode_que_head.size() < decode_link_num) {
 			int queue_id = decode_que.front();
 			decode_que_head.push_back(queue_id);
 			decode_que.pop_front();
+			queue_map[queue_id].delay = delay;
+			delay++;
 		}
 	}
+
+	int erase_flag = 0;
 
 	for (auto it = decode_que_head.begin(); it != decode_que_head.end();) {
 		int queue_id = *it;
 		if (queue_map.find(queue_id) == queue_map.end()) {
 			++it;
 			continue;
+		}
+
+		if (queue_map[queue_id].delay > 0) {
+			queue_map[queue_id].delay--;
+			if (queue_map[queue_id].delay != 0) {
+				++it;
+				continue;
+			}
+			queue_map[queue_id].delay = 0;
 		}
 
 		queue_info& bank_slice = queue_map[queue_id];
@@ -210,10 +225,18 @@ void B::process() {
 			std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " read decode erase: queue_id " << queue_id << std::endl;
 			queue_map.erase(queue_id);
 			it = decode_que_head.erase(it);
+			erase_flag = 1;
 		} else {
 			queue_map[queue_id] = {bank_id, slice_id, delay};
 			++it;
 		}
+	}
+	
+	if (erase_flag && !decode_que.empty()) {
+		int queue_id = decode_que.front();
+		decode_que_head.push_back(queue_id);
+		decode_que.pop_front();
+		queue_map[queue_id].delay = 4 - decode_que_head.size();
 	}
 
 	if (!encode_que.empty()) {

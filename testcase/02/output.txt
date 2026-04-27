@@ -1,0 +1,2634 @@
+time: 1 ns B encode queue: 2
+time: 1 ns B decode queue: 2
+time: 1 ns B queue:2 write wait counter: 0
+time: 1 ns B queue:2 process encode data: 2
+time: 1 ns B queue:2 write allocate bank: 0, slice: 0
+time: 2 ns B encode queue: 3
+time: 2 ns B decode queue: 3
+time: 2 ns B queue:2 write wait counter: 0
+time: 2 ns B queue:2 process encode data: 2
+time: 2 ns B queue:2 write allocate bank: 1, slice: 0
+time: 3 ns B encode queue: 4
+time: 3 ns B decode queue: 4
+time: 3 ns B queue:2 write wait counter: 0
+time: 3 ns B queue:2 process encode data: 2
+time: 3 ns B queue:2 write allocate bank: 2, slice: 0
+time: 4 ns B encode queue: 5
+time: 4 ns B decode queue: 5
+time: 4 ns B queue:2 write wait counter: 0
+time: 4 ns B queue:2 process encode data: 2
+time: 4 ns B queue:2 write allocate bank: 3, slice: 0
+time: 5 ns B encode queue: 6
+time: 5 ns B decode queue: 6
+time: 5 ns B queue:2 write wait counter: 0
+time: 5 ns B queue:2 process encode data: 2
+time: 5 ns B queue:2 write allocate bank: 0, slice: 1
+time: 6 ns B encode queue: 7
+time: 6 ns B decode queue: 7
+time: 6 ns B queue:2 write wait counter: 0
+time: 6 ns B queue:2 process encode data: 2
+time: 6 ns B queue:2 write allocate bank: 1, slice: 1
+time: 7 ns B encode queue: 8
+time: 7 ns B decode queue: 8
+time: 7 ns B queue:2 write wait counter: 0
+time: 7 ns B queue:2 process encode data: 2
+time: 7 ns B queue:2 write allocate bank: 2, slice: 1
+time: 8 ns B encode queue: 9
+time: 8 ns B decode queue: 9
+time: 8 ns B queue:2 write wait counter: 0
+time: 8 ns B queue:2 process encode data: 2
+time: 8 ns B queue:2 write allocate bank: 3, slice: 1
+time: 9 ns B encode queue: 10
+time: 9 ns B decode queue: 10
+time: 9 ns B queue:3 write wait counter: 0
+time: 9 ns B queue:3 process encode data: 3
+time: 9 ns B queue:3 write allocate bank: 0, slice: 2
+time: 10 ns B encode queue: 11
+time: 10 ns B decode queue: 11
+time: 10 ns B queue:3 write wait counter: 0
+time: 10 ns B queue:3 process encode data: 3
+time: 10 ns B queue:3 write allocate bank: 1, slice: 2
+time: 11 ns B encode queue: 12
+time: 11 ns B decode queue: 12
+time: 11 ns B queue:3 write wait counter: 0
+time: 11 ns B queue:3 process encode data: 3
+time: 11 ns B queue:3 write allocate bank: 2, slice: 2
+time: 12 ns B encode queue: 13
+time: 12 ns B decode queue: 13
+time: 12 ns B queue:3 write wait counter: 0
+time: 12 ns B queue:3 process encode data: 3
+time: 12 ns B queue:3 write allocate bank: 3, slice: 2
+time: 13 ns B encode queue: 14
+time: 13 ns B decode queue: 14
+time: 13 ns B queue:3 write wait counter: 0
+time: 13 ns B queue:3 process encode data: 3
+time: 13 ns B queue:3 write allocate bank: 0, slice: 3
+time: 14 ns B encode queue: 15
+time: 14 ns B decode queue: 15
+time: 14 ns B queue:3 write wait counter: 0
+time: 14 ns B queue:3 process encode data: 3
+time: 14 ns B queue:3 write allocate bank: 1, slice: 3
+time: 15 ns B encode queue: 16
+time: 15 ns B decode queue: 16
+time: 15 ns B queue:3 write wait counter: 0
+time: 15 ns B queue:3 process encode data: 3
+time: 15 ns B queue:3 write allocate bank: 2, slice: 3
+time: 16 ns B encode queue: 17
+time: 16 ns B decode queue: 17
+time: 16 ns B queue:3 write wait counter: 0
+time: 16 ns B queue:3 process encode data: 3
+time: 16 ns B queue:3 write allocate bank: 3, slice: 3
+time: 17 ns B encode queue: 18
+time: 17 ns B decode queue: 18
+time: 17 ns B queue:3 write wait counter: 0
+time: 17 ns B queue:3 process encode data: 3
+time: 17 ns B queue:3 write allocate bank: 0, slice: 4
+time: 18 ns B encode queue: 19
+time: 18 ns B decode queue: 19
+time: 18 ns B queue:3 write wait counter: 0
+time: 18 ns B queue:3 process encode data: 3
+time: 18 ns B queue:3 write allocate bank: 1, slice: 4
+time: 19 ns B encode queue: 20
+time: 19 ns B decode queue: 20
+time: 19 ns B queue:3 write wait counter: 0
+time: 19 ns B queue:3 process encode data: 3
+time: 19 ns B queue:3 write allocate bank: 2, slice: 4
+time: 20 ns B encode queue: 21
+time: 20 ns B decode queue: 21
+time: 20 ns B queue:3 write wait counter: 0
+time: 20 ns B queue:3 process encode data: 3
+time: 20 ns B queue:3 write allocate bank: 3, slice: 4
+time: 21 ns B encode queue: 22
+time: 21 ns B decode queue: 22
+time: 21 ns B queue:3 write wait counter: 0
+time: 21 ns B queue:3 process encode data: 3
+time: 21 ns B queue:3 write allocate bank: 0, slice: 5
+time: 22 ns B encode queue: 23
+time: 22 ns B decode queue: 23
+time: 22 ns B queue:3 write wait counter: 0
+time: 22 ns B queue:3 process encode data: 3
+time: 22 ns B queue:3 write allocate bank: 1, slice: 5
+time: 23 ns B encode queue: 24
+time: 23 ns B decode queue: 24
+time: 23 ns B queue:3 write wait counter: 0
+time: 23 ns B queue:3 process encode data: 3
+time: 23 ns B queue:3 write allocate bank: 2, slice: 5
+time: 24 ns B encode queue: 25
+time: 24 ns B decode queue: 25
+time: 24 ns B queue:3 write wait counter: 0
+time: 24 ns B queue:3 process encode data: 3
+time: 24 ns B queue:3 write allocate bank: 3, slice: 5
+time: 25 ns B encode queue: 26
+time: 25 ns B decode queue: 26
+time: 25 ns B queue:4 write wait counter: 0
+time: 25 ns B queue:4 process encode data: 4
+time: 25 ns B queue:4 write allocate bank: 0, slice: 6
+time: 26 ns B encode queue: 27
+time: 26 ns B decode queue: 27
+time: 26 ns B queue:4 write wait counter: 0
+time: 26 ns B queue:4 process encode data: 4
+time: 26 ns B queue:4 write allocate bank: 1, slice: 6
+time: 27 ns B encode queue: 28
+time: 27 ns B decode queue: 28
+time: 27 ns B queue:4 write wait counter: 0
+time: 27 ns B queue:4 process encode data: 4
+time: 27 ns B queue:4 write allocate bank: 2, slice: 6
+time: 28 ns B encode queue: 29
+time: 28 ns B decode queue: 29
+time: 28 ns B queue:4 write wait counter: 0
+time: 28 ns B queue:4 process encode data: 4
+time: 28 ns B queue:4 write allocate bank: 3, slice: 6
+time: 29 ns B encode queue: 30
+time: 29 ns B decode queue: 30
+time: 29 ns B queue:4 write wait counter: 0
+time: 29 ns B queue:4 process encode data: 4
+time: 29 ns B queue:4 write allocate bank: 0, slice: 7
+time: 30 ns B encode queue: 31
+time: 30 ns B decode queue: 31
+time: 30 ns B queue:4 write wait counter: 0
+time: 30 ns B queue:4 process encode data: 4
+time: 30 ns B queue:4 write allocate bank: 1, slice: 7
+time: 31 ns B encode queue: 32
+time: 31 ns B decode queue: 32
+time: 31 ns B queue:4 write wait counter: 0
+time: 31 ns B queue:4 process encode data: 4
+time: 31 ns B queue:4 write allocate bank: 2, slice: 7
+time: 32 ns B encode queue: 33
+time: 32 ns B decode queue: 33
+time: 32 ns B queue:4 write wait counter: 0
+time: 32 ns B queue:4 process encode data: 4
+time: 32 ns B queue:4 write allocate bank: 3, slice: 7
+time: 33 ns B encode queue: 34
+time: 33 ns B decode queue: 34
+time: 33 ns B queue:4 write wait counter: 0
+time: 33 ns B queue:4 process encode data: 4
+time: 33 ns B queue:4 write allocate bank: 0, slice: 8
+time: 34 ns B encode queue: 35
+time: 34 ns B decode queue: 35
+time: 34 ns B queue:4 write wait counter: 0
+time: 34 ns B queue:4 process encode data: 4
+time: 34 ns B queue:4 write allocate bank: 1, slice: 8
+time: 35 ns B encode queue: 36
+time: 35 ns B decode queue: 36
+time: 35 ns B queue:4 write wait counter: 0
+time: 35 ns B queue:4 process encode data: 4
+time: 35 ns B queue:4 write allocate bank: 2, slice: 8
+time: 36 ns B encode queue: 37
+time: 36 ns B decode queue: 37
+time: 36 ns B queue:4 write wait counter: 0
+time: 36 ns B queue:4 process encode data: 4
+time: 36 ns B queue:4 write allocate bank: 3, slice: 8
+time: 37 ns B encode queue: 38
+time: 37 ns B decode queue: 38
+time: 37 ns B queue:4 write wait counter: 0
+time: 37 ns B queue:4 process encode data: 4
+time: 37 ns B queue:4 write allocate bank: 0, slice: 9
+time: 38 ns B encode queue: 39
+time: 38 ns B decode queue: 39
+time: 38 ns B queue:4 write wait counter: 0
+time: 38 ns B queue:4 process encode data: 4
+time: 38 ns B queue:4 write allocate bank: 1, slice: 9
+time: 39 ns B encode queue: 40
+time: 39 ns B decode queue: 40
+time: 39 ns B queue:4 write wait counter: 0
+time: 39 ns B queue:4 process encode data: 4
+time: 39 ns B queue:4 write allocate bank: 2, slice: 9
+time: 40 ns B encode queue: 41
+time: 40 ns B decode queue: 41
+time: 40 ns B queue:4 write wait counter: 0
+time: 40 ns B queue:4 process encode data: 4
+time: 40 ns B queue:4 write allocate bank: 3, slice: 9
+time: 41 ns B encode queue: 42
+time: 41 ns B decode queue: 42
+time: 41 ns B queue:5 write wait counter: 0
+time: 41 ns B queue:5 process encode data: 5
+time: 41 ns B queue:5 write allocate bank: 0, slice: 10
+time: 42 ns B encode queue: 43
+time: 42 ns B decode queue: 43
+time: 42 ns B queue:5 write wait counter: 0
+time: 42 ns B queue:5 process encode data: 5
+time: 42 ns B queue:5 write allocate bank: 1, slice: 10
+time: 43 ns B encode queue: 44
+time: 43 ns B decode queue: 44
+time: 43 ns B queue:5 write wait counter: 0
+time: 43 ns B queue:5 process encode data: 5
+time: 43 ns B queue:5 write allocate bank: 2, slice: 10
+time: 44 ns B encode queue: 45
+time: 44 ns B decode queue: 45
+time: 44 ns B queue:5 write wait counter: 0
+time: 44 ns B queue:5 process encode data: 5
+time: 44 ns B queue:5 write allocate bank: 3, slice: 10
+time: 45 ns B encode queue: 46
+time: 45 ns B decode queue: 46
+time: 45 ns B queue:5 write wait counter: 0
+time: 45 ns B queue:5 process encode data: 5
+time: 45 ns B queue:5 write allocate bank: 0, slice: 11
+time: 46 ns B encode queue: 47
+time: 46 ns B decode queue: 47
+time: 46 ns B queue:5 write wait counter: 0
+time: 46 ns B queue:5 process encode data: 5
+time: 46 ns B queue:5 write allocate bank: 1, slice: 11
+time: 47 ns B encode queue: 48
+time: 47 ns B decode queue: 48
+time: 47 ns B queue:5 write wait counter: 0
+time: 47 ns B queue:5 process encode data: 5
+time: 47 ns B queue:5 write allocate bank: 2, slice: 11
+time: 48 ns B encode queue: 49
+time: 48 ns B decode queue: 49
+time: 48 ns B queue:5 write wait counter: 0
+time: 48 ns B queue:5 process encode data: 5
+time: 48 ns B queue:5 write allocate bank: 3, slice: 11
+time: 49 ns B encode queue: 50
+time: 49 ns B decode queue: 50
+time: 49 ns B queue:5 write wait counter: 0
+time: 49 ns B queue:5 process encode data: 5
+time: 49 ns B queue:5 write allocate bank: 0, slice: 12
+time: 50 ns B encode queue: 51
+time: 50 ns B decode queue: 51
+time: 50 ns B queue:5 write wait counter: 0
+time: 50 ns B queue:5 process encode data: 5
+time: 50 ns B queue:5 write allocate bank: 1, slice: 12
+time: 51 ns B encode queue: 52
+time: 51 ns B decode queue: 52
+time: 51 ns B queue:5 write wait counter: 0
+time: 51 ns B queue:5 process encode data: 5
+time: 51 ns B queue:5 write allocate bank: 2, slice: 12
+time: 52 ns B encode queue: 53
+time: 52 ns B decode queue: 53
+time: 52 ns B queue:5 write wait counter: 0
+time: 52 ns B queue:5 process encode data: 5
+time: 52 ns B queue:5 write allocate bank: 3, slice: 12
+time: 53 ns B encode queue: 54
+time: 53 ns B decode queue: 54
+time: 53 ns B queue:5 write wait counter: 0
+time: 53 ns B queue:5 process encode data: 5
+time: 53 ns B queue:5 write allocate bank: 0, slice: 13
+time: 54 ns B encode queue: 55
+time: 54 ns B decode queue: 55
+time: 54 ns B queue:5 write wait counter: 0
+time: 54 ns B queue:5 process encode data: 5
+time: 54 ns B queue:5 write allocate bank: 1, slice: 13
+time: 55 ns B encode queue: 56
+time: 55 ns B decode queue: 56
+time: 55 ns B queue:5 write wait counter: 0
+time: 55 ns B queue:5 process encode data: 5
+time: 55 ns B queue:5 write allocate bank: 2, slice: 13
+time: 56 ns B encode queue: 57
+time: 56 ns B decode queue: 57
+time: 56 ns B queue:5 write wait counter: 0
+time: 56 ns B queue:5 process encode data: 5
+time: 56 ns B queue:5 write allocate bank: 3, slice: 13
+time: 57 ns B encode queue: 58
+time: 57 ns B decode queue: 58
+time: 57 ns B queue:6 write wait counter: 0
+time: 57 ns B queue:6 process encode data: 6
+time: 57 ns B queue:6 write allocate bank: 0, slice: 14
+time: 58 ns B encode queue: 59
+time: 58 ns B decode queue: 59
+time: 58 ns B queue:6 write wait counter: 0
+time: 58 ns B queue:6 process encode data: 6
+time: 58 ns B queue:6 write allocate bank: 1, slice: 14
+time: 59 ns B encode queue: 60
+time: 59 ns B decode queue: 60
+time: 59 ns B queue:6 write wait counter: 0
+time: 59 ns B queue:6 process encode data: 6
+time: 59 ns B queue:6 write allocate bank: 2, slice: 14
+time: 60 ns B encode queue: 61
+time: 60 ns B decode queue: 61
+time: 60 ns B queue:6 write wait counter: 0
+time: 60 ns B queue:6 process encode data: 6
+time: 60 ns B queue:6 write allocate bank: 3, slice: 14
+time: 61 ns B encode queue: 62
+time: 61 ns B decode queue: 62
+time: 61 ns B queue:6 write wait counter: 0
+time: 61 ns B queue:6 process encode data: 6
+time: 61 ns B queue:6 write allocate bank: 0, slice: 15
+time: 62 ns B encode queue: 63
+time: 62 ns B decode queue: 63
+time: 62 ns B queue:6 write wait counter: 0
+time: 62 ns B queue:6 process encode data: 6
+time: 62 ns B queue:6 write allocate bank: 1, slice: 15
+time: 63 ns B encode queue: 64
+time: 63 ns B decode queue: 64
+time: 63 ns B queue:6 write wait counter: 0
+time: 63 ns B queue:6 process encode data: 6
+time: 63 ns B queue:6 write allocate bank: 2, slice: 15
+time: 64 ns B encode queue: 65
+time: 64 ns B decode queue: 65
+time: 64 ns B queue:6 write wait counter: 0
+time: 64 ns B queue:6 process encode data: 6
+time: 64 ns B queue:6 write allocate bank: 3, slice: 15
+time: 65 ns B encode queue: 66
+time: 65 ns B decode queue: 66
+time: 65 ns B queue:6 write wait counter: 0
+time: 65 ns B queue:6 process encode data: 6
+time: 65 ns B queue:6 write allocate bank: 0, slice: 16
+time: 66 ns B encode queue: 67
+time: 66 ns B decode queue: 67
+time: 66 ns B queue:6 write wait counter: 0
+time: 66 ns B queue:6 process encode data: 6
+time: 66 ns B queue:6 write allocate bank: 1, slice: 16
+time: 67 ns B encode queue: 68
+time: 67 ns B decode queue: 68
+time: 67 ns B queue:6 write wait counter: 0
+time: 67 ns B queue:6 process encode data: 6
+time: 67 ns B queue:6 write allocate bank: 2, slice: 16
+time: 68 ns B encode queue: 69
+time: 68 ns B decode queue: 69
+time: 68 ns B queue:6 write wait counter: 0
+time: 68 ns B queue:6 process encode data: 6
+time: 68 ns B queue:6 write allocate bank: 3, slice: 16
+time: 69 ns B encode queue: 70
+time: 69 ns B decode queue: 70
+time: 69 ns B queue:6 write wait counter: 0
+time: 69 ns B queue:6 process encode data: 6
+time: 69 ns B queue:6 write allocate bank: 0, slice: 17
+time: 70 ns B encode queue: 71
+time: 70 ns B decode queue: 71
+time: 70 ns B queue:6 write wait counter: 0
+time: 70 ns B queue:6 process encode data: 6
+time: 70 ns B queue:6 write allocate bank: 1, slice: 17
+time: 71 ns B encode queue: 72
+time: 71 ns B decode queue: 72
+time: 71 ns B queue:6 write wait counter: 0
+time: 71 ns B queue:6 process encode data: 6
+time: 71 ns B queue:6 write allocate bank: 2, slice: 17
+time: 72 ns B encode queue: 73
+time: 72 ns B decode queue: 73
+time: 72 ns B queue:6 write wait counter: 0
+time: 72 ns B queue:6 process encode data: 6
+time: 72 ns B queue:6 write allocate bank: 3, slice: 17
+time: 73 ns B encode queue: 74
+time: 73 ns B decode queue: 74
+time: 73 ns B queue:2 read bank: 0 counter: 3
+time: 73 ns B queue:7 write wait counter: 0
+time: 73 ns B queue:7 process encode data: 7
+time: 73 ns B queue:7 write allocate bank: 0, slice: 18
+time: 74 ns B encode queue: 75
+time: 74 ns B decode queue: 75
+time: 74 ns B queue:2 read bank: 0 counter: 2
+time: 74 ns B queue:3 read bank: 0 counter: 3
+time: 74 ns B queue:7 write wait counter: 0
+time: 74 ns B queue:7 process encode data: 7
+time: 74 ns B queue:7 write allocate bank: 1, slice: 18
+time: 75 ns B encode queue: 76
+time: 75 ns B decode queue: 76
+time: 75 ns B queue:2 read bank: 0 counter: 1
+time: 75 ns B queue:3 read bank: 0 counter: 2
+time: 75 ns B queue:4 read bank: 0 counter: 3
+time: 75 ns B queue:7 write wait counter: 0
+time: 75 ns B queue:7 process encode data: 7
+time: 75 ns B queue:7 write allocate bank: 2, slice: 18
+time: 76 ns B encode queue: 77
+time: 76 ns B decode queue: 77
+time: 76 ns B queue:2 read bank: 0 counter: 0
+time: 76 ns B queue:2 read release bank: 0, slice: 0
+time: 76 ns B queue:3 read bank: 0 counter: 1
+time: 76 ns B queue:4 read bank: 0 counter: 2
+time: 76 ns B queue:5 read bank: 0 counter: 3
+time: 76 ns B queue:7 write wait counter: 0
+time: 76 ns B queue:7 process encode data: 7
+time: 76 ns B queue:7 write allocate bank: 3, slice: 18
+time: 77 ns B encode queue: 78
+time: 77 ns B decode queue: 78
+time: 77 ns B queue:2 read bank: 1 counter: 3
+time: 77 ns B queue:3 read bank: 0 counter: 0
+time: 77 ns B queue:3 read release bank: 0, slice: 2
+time: 77 ns B queue:4 read bank: 0 counter: 1
+time: 77 ns B queue:5 read bank: 0 counter: 2
+time: 77 ns B queue:7 write wait counter: 0
+time: 77 ns B queue:7 process encode data: 7
+time: 77 ns B queue:7 write allocate bank: 1, slice: 19
+time: 78 ns B encode queue: 79
+time: 78 ns B decode queue: 79
+time: 78 ns B queue:2 read bank: 1 counter: 2
+time: 78 ns B queue:3 read bank: 1 counter: 3
+time: 78 ns B queue:4 read bank: 0 counter: 0
+time: 78 ns B queue:4 read release bank: 0, slice: 6
+time: 78 ns B queue:5 read bank: 0 counter: 1
+time: 78 ns B queue:7 write wait counter: 0
+time: 78 ns B queue:7 process encode data: 7
+time: 78 ns B queue:7 write allocate bank: 2, slice: 19
+time: 79 ns B encode queue: 80
+time: 79 ns B decode queue: 80
+time: 79 ns B queue:2 read bank: 1 counter: 1
+time: 79 ns B queue:3 read bank: 1 counter: 2
+time: 79 ns B queue:4 read bank: 1 counter: 3
+time: 79 ns B queue:5 read bank: 0 counter: 0
+time: 79 ns B queue:5 read release bank: 0, slice: 10
+time: 79 ns B queue:7 write wait counter: 0
+time: 79 ns B queue:7 process encode data: 7
+time: 79 ns B queue:7 write allocate bank: 3, slice: 19
+time: 80 ns B encode queue: 81
+time: 80 ns B decode queue: 81
+time: 80 ns B queue:2 read bank: 1 counter: 0
+time: 80 ns B queue:2 read release bank: 1, slice: 0
+time: 80 ns B queue:3 read bank: 1 counter: 1
+time: 80 ns B queue:4 read bank: 1 counter: 2
+time: 80 ns B queue:5 read bank: 1 counter: 3
+time: 80 ns B queue:7 write wait counter: 0
+time: 80 ns B queue:7 process encode data: 7
+time: 80 ns B queue:7 write allocate bank: 0, slice: 0
+time: 81 ns B encode queue: 82
+time: 81 ns B decode queue: 82
+time: 81 ns B queue:2 read bank: 2 counter: 3
+time: 81 ns B queue:3 read bank: 1 counter: 0
+time: 81 ns B queue:3 read release bank: 1, slice: 2
+time: 81 ns B queue:4 read bank: 1 counter: 1
+time: 81 ns B queue:5 read bank: 1 counter: 2
+time: 81 ns B queue:7 write wait counter: 0
+time: 81 ns B queue:7 process encode data: 7
+time: 81 ns B queue:7 write allocate bank: 0, slice: 2
+time: 82 ns B encode queue: 83
+time: 82 ns B decode queue: 83
+time: 82 ns B queue:2 read bank: 2 counter: 2
+time: 82 ns B queue:3 read bank: 2 counter: 3
+time: 82 ns B queue:4 read bank: 1 counter: 0
+time: 82 ns B queue:4 read release bank: 1, slice: 6
+time: 82 ns B queue:5 read bank: 1 counter: 1
+time: 82 ns B queue:7 write wait counter: 0
+time: 82 ns B queue:7 process encode data: 7
+time: 82 ns B queue:7 write allocate bank: 0, slice: 6
+time: 83 ns B encode queue: 84
+time: 83 ns B decode queue: 84
+time: 83 ns B queue:2 read bank: 2 counter: 1
+time: 83 ns B queue:3 read bank: 2 counter: 2
+time: 83 ns B queue:4 read bank: 2 counter: 3
+time: 83 ns B queue:5 read bank: 1 counter: 0
+time: 83 ns B queue:5 read release bank: 1, slice: 10
+time: 83 ns B queue:7 write wait counter: 0
+time: 83 ns B queue:7 process encode data: 7
+time: 83 ns B queue:7 write allocate bank: 0, slice: 10
+time: 84 ns B encode queue: 85
+time: 84 ns B decode queue: 85
+time: 84 ns B queue:2 read bank: 2 counter: 0
+time: 84 ns B queue:2 read release bank: 2, slice: 0
+time: 84 ns B queue:3 read bank: 2 counter: 1
+time: 84 ns B queue:4 read bank: 2 counter: 2
+time: 84 ns B queue:5 read bank: 2 counter: 3
+time: 84 ns B queue:7 write wait counter: 0
+time: 84 ns B queue:7 process encode data: 7
+time: 84 ns B queue:7 write allocate bank: 1, slice: 0
+time: 85 ns B encode queue: 86
+time: 85 ns B decode queue: 86
+time: 85 ns B queue:2 read bank: 3 counter: 3
+time: 85 ns B queue:3 read bank: 2 counter: 0
+time: 85 ns B queue:3 read release bank: 2, slice: 2
+time: 85 ns B queue:4 read bank: 2 counter: 1
+time: 85 ns B queue:5 read bank: 2 counter: 2
+time: 85 ns B queue:7 write wait counter: 0
+time: 85 ns B queue:7 process encode data: 7
+time: 85 ns B queue:7 write allocate bank: 1, slice: 2
+time: 86 ns B encode queue: 87
+time: 86 ns B decode queue: 87
+time: 86 ns B queue:2 read bank: 3 counter: 2
+time: 86 ns B queue:3 read bank: 3 counter: 3
+time: 86 ns B queue:4 read bank: 2 counter: 0
+time: 86 ns B queue:4 read release bank: 2, slice: 6
+time: 86 ns B queue:5 read bank: 2 counter: 1
+time: 86 ns B queue:7 write wait counter: 0
+time: 86 ns B queue:7 process encode data: 7
+time: 86 ns B queue:7 write allocate bank: 1, slice: 6
+time: 87 ns B encode queue: 88
+time: 87 ns B decode queue: 88
+time: 87 ns B queue:2 read bank: 3 counter: 1
+time: 87 ns B queue:3 read bank: 3 counter: 2
+time: 87 ns B queue:4 read bank: 3 counter: 3
+time: 87 ns B queue:5 read bank: 2 counter: 0
+time: 87 ns B queue:5 read release bank: 2, slice: 10
+time: 87 ns B queue:7 write wait counter: 0
+time: 87 ns B queue:7 process encode data: 7
+time: 87 ns B queue:7 write allocate bank: 0, slice: 19
+time: 88 ns B encode queue: 89
+time: 88 ns B decode queue: 89
+time: 88 ns B queue:2 read bank: 3 counter: 0
+time: 88 ns B queue:2 read release bank: 3, slice: 0
+time: 88 ns B queue:3 read bank: 3 counter: 1
+time: 88 ns B queue:4 read bank: 3 counter: 2
+time: 88 ns B queue:5 read bank: 3 counter: 3
+time: 88 ns B queue:7 write wait counter: 0
+time: 88 ns B queue:7 process encode data: 7
+time: 88 ns B queue:7 write allocate bank: 2, slice: 0
+time: 89 ns B encode queue: 90
+time: 89 ns B decode queue: 90
+time: 89 ns B queue:2 read bank: 0 counter: 3
+time: 89 ns B queue:3 read bank: 3 counter: 0
+time: 89 ns B queue:3 read release bank: 3, slice: 2
+time: 89 ns B queue:4 read bank: 3 counter: 1
+time: 89 ns B queue:5 read bank: 3 counter: 2
+time: 89 ns B queue:8 write wait counter: 0
+time: 89 ns B queue:8 process encode data: 8
+time: 89 ns B queue:8 write allocate bank: 2, slice: 2
+time: 90 ns B encode queue: 91
+time: 90 ns B decode queue: 91
+time: 90 ns B queue:2 read bank: 0 counter: 2
+time: 90 ns B queue:3 read bank: 0 counter: 3
+time: 90 ns B queue:4 read bank: 3 counter: 0
+time: 90 ns B queue:4 read release bank: 3, slice: 6
+time: 90 ns B queue:5 read bank: 3 counter: 1
+time: 90 ns B queue:8 write wait counter: 0
+time: 90 ns B queue:8 process encode data: 8
+time: 90 ns B queue:8 write allocate bank: 2, slice: 6
+time: 91 ns B encode queue: 92
+time: 91 ns B decode queue: 92
+time: 91 ns B queue:2 read bank: 0 counter: 1
+time: 91 ns B queue:3 read bank: 0 counter: 2
+time: 91 ns B queue:4 read bank: 0 counter: 3
+time: 91 ns B queue:5 read bank: 3 counter: 0
+time: 91 ns B queue:5 read release bank: 3, slice: 10
+time: 91 ns B queue:8 write wait counter: 0
+time: 91 ns B queue:8 process encode data: 8
+time: 91 ns B queue:8 write allocate bank: 1, slice: 10
+time: 92 ns B encode queue: 93
+time: 92 ns B decode queue: 93
+time: 92 ns B queue:2 read bank: 0 counter: 0
+time: 92 ns B queue:2 read release bank: 0, slice: 1
+time: 92 ns B queue:3 read bank: 0 counter: 1
+time: 92 ns B queue:4 read bank: 0 counter: 2
+time: 92 ns B queue:5 read bank: 0 counter: 3
+time: 92 ns B queue:8 write wait counter: 0
+time: 92 ns B queue:8 process encode data: 8
+time: 92 ns B queue:8 write allocate bank: 3, slice: 0
+time: 93 ns B encode queue: 94
+time: 93 ns B decode queue: 94
+time: 93 ns B queue:2 read bank: 1 counter: 3
+time: 93 ns B queue:3 read bank: 0 counter: 0
+time: 93 ns B queue:3 read release bank: 0, slice: 3
+time: 93 ns B queue:4 read bank: 0 counter: 1
+time: 93 ns B queue:5 read bank: 0 counter: 2
+time: 93 ns B queue:8 write wait counter: 0
+time: 93 ns B queue:8 process encode data: 8
+time: 93 ns B queue:8 write allocate bank: 3, slice: 2
+time: 94 ns B encode queue: 95
+time: 94 ns B decode queue: 95
+time: 94 ns B queue:2 read bank: 1 counter: 2
+time: 94 ns B queue:3 read bank: 1 counter: 3
+time: 94 ns B queue:4 read bank: 0 counter: 0
+time: 94 ns B queue:4 read release bank: 0, slice: 7
+time: 94 ns B queue:5 read bank: 0 counter: 1
+time: 94 ns B queue:8 write wait counter: 0
+time: 94 ns B queue:8 process encode data: 8
+time: 94 ns B queue:8 write allocate bank: 3, slice: 6
+time: 95 ns B encode queue: 96
+time: 95 ns B decode queue: 96
+time: 95 ns B queue:2 read bank: 1 counter: 1
+time: 95 ns B queue:3 read bank: 1 counter: 2
+time: 95 ns B queue:4 read bank: 1 counter: 3
+time: 95 ns B queue:5 read bank: 0 counter: 0
+time: 95 ns B queue:5 read release bank: 0, slice: 11
+time: 95 ns B queue:8 write wait counter: 0
+time: 95 ns B queue:8 process encode data: 8
+time: 95 ns B queue:8 write allocate bank: 2, slice: 10
+time: 96 ns B encode queue: 97
+time: 96 ns B decode queue: 97
+time: 96 ns B queue:2 read bank: 1 counter: 0
+time: 96 ns B queue:2 read release bank: 1, slice: 1
+time: 96 ns B queue:3 read bank: 1 counter: 1
+time: 96 ns B queue:4 read bank: 1 counter: 2
+time: 96 ns B queue:5 read bank: 1 counter: 3
+time: 96 ns B queue:8 write wait counter: 0
+time: 96 ns B queue:8 process encode data: 8
+time: 96 ns B queue:8 write allocate bank: 0, slice: 1
+time: 97 ns B encode queue: 98
+time: 97 ns B decode queue: 98
+time: 97 ns B queue:2 read bank: 2 counter: 3
+time: 97 ns B queue:3 read bank: 1 counter: 0
+time: 97 ns B queue:3 read release bank: 1, slice: 3
+time: 97 ns B queue:4 read bank: 1 counter: 1
+time: 97 ns B queue:5 read bank: 1 counter: 2
+time: 97 ns B queue:8 write wait counter: 0
+time: 97 ns B queue:8 process encode data: 8
+time: 97 ns B queue:8 write allocate bank: 0, slice: 3
+time: 98 ns B encode queue: 99
+time: 98 ns B decode queue: 99
+time: 98 ns B queue:2 read bank: 2 counter: 2
+time: 98 ns B queue:3 read bank: 2 counter: 3
+time: 98 ns B queue:4 read bank: 1 counter: 0
+time: 98 ns B queue:4 read release bank: 1, slice: 7
+time: 98 ns B queue:5 read bank: 1 counter: 1
+time: 98 ns B queue:8 write wait counter: 0
+time: 98 ns B queue:8 process encode data: 8
+time: 98 ns B queue:8 write allocate bank: 0, slice: 7
+time: 99 ns B encode queue: 100
+time: 99 ns B decode queue: 100
+time: 99 ns B queue:2 read bank: 2 counter: 1
+time: 99 ns B queue:3 read bank: 2 counter: 2
+time: 99 ns B queue:4 read bank: 2 counter: 3
+time: 99 ns B queue:5 read bank: 1 counter: 0
+time: 99 ns B queue:5 read release bank: 1, slice: 11
+time: 99 ns B queue:8 write wait counter: 0
+time: 99 ns B queue:8 process encode data: 8
+time: 99 ns B queue:8 write allocate bank: 0, slice: 11
+time: 100 ns B encode queue: 101
+time: 100 ns B decode queue: 101
+time: 100 ns B queue:2 read bank: 2 counter: 0
+time: 100 ns B queue:2 read release bank: 2, slice: 1
+time: 100 ns B queue:3 read bank: 2 counter: 1
+time: 100 ns B queue:4 read bank: 2 counter: 2
+time: 100 ns B queue:5 read bank: 2 counter: 3
+time: 100 ns B queue:8 write wait counter: 0
+time: 100 ns B queue:8 process encode data: 8
+time: 100 ns B queue:8 write allocate bank: 1, slice: 1
+time: 101 ns B encode queue: 102
+time: 101 ns B decode queue: 102
+time: 101 ns B queue:2 read bank: 3 counter: 3
+time: 101 ns B queue:3 read bank: 2 counter: 0
+time: 101 ns B queue:3 read release bank: 2, slice: 3
+time: 101 ns B queue:4 read bank: 2 counter: 1
+time: 101 ns B queue:5 read bank: 2 counter: 2
+time: 101 ns B queue:8 write wait counter: 0
+time: 101 ns B queue:8 process encode data: 8
+time: 101 ns B queue:8 write allocate bank: 1, slice: 3
+time: 102 ns B encode queue: 103
+time: 102 ns B decode queue: 103
+time: 102 ns B queue:2 read bank: 3 counter: 2
+time: 102 ns B queue:3 read bank: 3 counter: 3
+time: 102 ns B queue:4 read bank: 2 counter: 0
+time: 102 ns B queue:4 read release bank: 2, slice: 7
+time: 102 ns B queue:5 read bank: 2 counter: 1
+time: 102 ns B queue:8 write wait counter: 0
+time: 102 ns B queue:8 process encode data: 8
+time: 102 ns B queue:8 write allocate bank: 1, slice: 7
+time: 103 ns B encode queue: 104
+time: 103 ns B decode queue: 104
+time: 103 ns B queue:2 read bank: 3 counter: 1
+time: 103 ns B queue:3 read bank: 3 counter: 2
+time: 103 ns B queue:4 read bank: 3 counter: 3
+time: 103 ns B queue:5 read bank: 2 counter: 0
+time: 103 ns B queue:5 read release bank: 2, slice: 11
+time: 103 ns B queue:8 write wait counter: 0
+time: 103 ns B queue:8 process encode data: 8
+time: 103 ns B queue:8 write allocate bank: 1, slice: 11
+time: 104 ns B encode queue: 105
+time: 104 ns B decode queue: 105
+time: 104 ns B queue:2 read bank: 3 counter: 0
+time: 104 ns B queue:2 read release bank: 3, slice: 1
+time: 104 ns B queue:2 read decode erase: queue_id 2
+time: 104 ns B queue:3 read bank: 3 counter: 1
+time: 104 ns B queue:4 read bank: 3 counter: 2
+time: 104 ns B queue:5 read bank: 3 counter: 3
+time: 104 ns B queue:8 write wait counter: 0
+time: 104 ns B queue:8 process encode data: 8
+time: 104 ns B queue:8 write allocate bank: 2, slice: 1
+time: 105 ns B encode queue: 106
+time: 105 ns B decode queue: 106
+time: 105 ns B queue:3 read bank: 3 counter: 0
+time: 105 ns B queue:3 read release bank: 3, slice: 3
+time: 105 ns B queue:4 read bank: 3 counter: 1
+time: 105 ns B queue:5 read bank: 3 counter: 2
+time: 105 ns B queue:6 read bank: 0 counter: 3
+time: 105 ns B queue:9 write wait counter: 0
+time: 105 ns B queue:9 process encode data: 9
+time: 105 ns B queue:9 write allocate bank: 2, slice: 3
+time: 106 ns B encode queue: 107
+time: 106 ns B decode queue: 107
+time: 106 ns B queue:3 read bank: 0 counter: 3
+time: 106 ns B queue:4 read bank: 3 counter: 0
+time: 106 ns B queue:4 read release bank: 3, slice: 7
+time: 106 ns B queue:5 read bank: 3 counter: 1
+time: 106 ns B queue:6 read bank: 0 counter: 2
+time: 106 ns B queue:9 write wait counter: 0
+time: 106 ns B queue:9 process encode data: 9
+time: 106 ns B queue:9 write allocate bank: 2, slice: 7
+time: 107 ns B encode queue: 108
+time: 107 ns B decode queue: 108
+time: 107 ns B queue:3 read bank: 0 counter: 2
+time: 107 ns B queue:4 read bank: 0 counter: 3
+time: 107 ns B queue:5 read bank: 3 counter: 0
+time: 107 ns B queue:5 read release bank: 3, slice: 11
+time: 107 ns B queue:6 read bank: 0 counter: 1
+time: 107 ns B queue:9 write wait counter: 0
+time: 107 ns B queue:9 process encode data: 9
+time: 107 ns B queue:9 write allocate bank: 2, slice: 11
+time: 108 ns B encode queue: 109
+time: 108 ns B decode queue: 109
+time: 108 ns B queue:3 read bank: 0 counter: 1
+time: 108 ns B queue:4 read bank: 0 counter: 2
+time: 108 ns B queue:5 read bank: 0 counter: 3
+time: 108 ns B queue:6 read bank: 0 counter: 0
+time: 108 ns B queue:6 read release bank: 0, slice: 14
+time: 108 ns B queue:9 write wait counter: 0
+time: 108 ns B queue:9 process encode data: 9
+time: 108 ns B queue:9 write allocate bank: 3, slice: 1
+time: 109 ns B encode queue: 110
+time: 109 ns B decode queue: 110
+time: 109 ns B queue:3 read bank: 0 counter: 0
+time: 109 ns B queue:3 read release bank: 0, slice: 4
+time: 109 ns B queue:4 read bank: 0 counter: 1
+time: 109 ns B queue:5 read bank: 0 counter: 2
+time: 109 ns B queue:6 read bank: 1 counter: 3
+time: 109 ns B queue:9 write wait counter: 0
+time: 109 ns B queue:9 process encode data: 9
+time: 109 ns B queue:9 write allocate bank: 3, slice: 3
+time: 110 ns B encode queue: 111
+time: 110 ns B decode queue: 111
+time: 110 ns B queue:3 read bank: 1 counter: 3
+time: 110 ns B queue:4 read bank: 0 counter: 0
+time: 110 ns B queue:4 read release bank: 0, slice: 8
+time: 110 ns B queue:5 read bank: 0 counter: 1
+time: 110 ns B queue:6 read bank: 1 counter: 2
+time: 110 ns B queue:9 write wait counter: 0
+time: 110 ns B queue:9 process encode data: 9
+time: 110 ns B queue:9 write allocate bank: 3, slice: 7
+time: 111 ns B encode queue: 112
+time: 111 ns B decode queue: 112
+time: 111 ns B queue:3 read bank: 1 counter: 2
+time: 111 ns B queue:4 read bank: 1 counter: 3
+time: 111 ns B queue:5 read bank: 0 counter: 0
+time: 111 ns B queue:5 read release bank: 0, slice: 12
+time: 111 ns B queue:6 read bank: 1 counter: 1
+time: 111 ns B queue:9 write wait counter: 0
+time: 111 ns B queue:9 process encode data: 9
+time: 111 ns B queue:9 write allocate bank: 3, slice: 10
+time: 112 ns B encode queue: 113
+time: 112 ns B decode queue: 113
+time: 112 ns B queue:3 read bank: 1 counter: 1
+time: 112 ns B queue:4 read bank: 1 counter: 2
+time: 112 ns B queue:5 read bank: 1 counter: 3
+time: 112 ns B queue:6 read bank: 1 counter: 0
+time: 112 ns B queue:6 read release bank: 1, slice: 14
+time: 112 ns B queue:9 write wait counter: 0
+time: 112 ns B queue:9 process encode data: 9
+time: 112 ns B queue:9 write allocate bank: 0, slice: 4
+time: 113 ns B encode queue: 114
+time: 113 ns B decode queue: 114
+time: 113 ns B queue:3 read bank: 1 counter: 0
+time: 113 ns B queue:3 read release bank: 1, slice: 4
+time: 113 ns B queue:4 read bank: 1 counter: 1
+time: 113 ns B queue:5 read bank: 1 counter: 2
+time: 113 ns B queue:6 read bank: 2 counter: 3
+time: 113 ns B queue:9 write wait counter: 0
+time: 113 ns B queue:9 process encode data: 9
+time: 113 ns B queue:9 write allocate bank: 0, slice: 8
+time: 114 ns B encode queue: 115
+time: 114 ns B decode queue: 115
+time: 114 ns B queue:3 read bank: 2 counter: 3
+time: 114 ns B queue:4 read bank: 1 counter: 0
+time: 114 ns B queue:4 read release bank: 1, slice: 8
+time: 114 ns B queue:5 read bank: 1 counter: 1
+time: 114 ns B queue:6 read bank: 2 counter: 2
+time: 114 ns B queue:9 write wait counter: 0
+time: 114 ns B queue:9 process encode data: 9
+time: 114 ns B queue:9 write allocate bank: 0, slice: 12
+time: 115 ns B encode queue: 116
+time: 115 ns B decode queue: 116
+time: 115 ns B queue:3 read bank: 2 counter: 2
+time: 115 ns B queue:4 read bank: 2 counter: 3
+time: 115 ns B queue:5 read bank: 1 counter: 0
+time: 115 ns B queue:5 read release bank: 1, slice: 12
+time: 115 ns B queue:6 read bank: 2 counter: 1
+time: 115 ns B queue:9 write wait counter: 0
+time: 115 ns B queue:9 process encode data: 9
+time: 115 ns B queue:9 write allocate bank: 0, slice: 14
+time: 116 ns B encode queue: 117
+time: 116 ns B decode queue: 117
+time: 116 ns B queue:3 read bank: 2 counter: 1
+time: 116 ns B queue:4 read bank: 2 counter: 2
+time: 116 ns B queue:5 read bank: 2 counter: 3
+time: 116 ns B queue:6 read bank: 2 counter: 0
+time: 116 ns B queue:6 read release bank: 2, slice: 14
+time: 116 ns B queue:9 write wait counter: 0
+time: 116 ns B queue:9 process encode data: 9
+time: 116 ns B queue:9 write allocate bank: 1, slice: 4
+time: 117 ns B encode queue: 118
+time: 117 ns B decode queue: 118
+time: 117 ns B queue:3 read bank: 2 counter: 0
+time: 117 ns B queue:3 read release bank: 2, slice: 4
+time: 117 ns B queue:4 read bank: 2 counter: 1
+time: 117 ns B queue:5 read bank: 2 counter: 2
+time: 117 ns B queue:6 read bank: 3 counter: 3
+time: 117 ns B queue:9 write wait counter: 0
+time: 117 ns B queue:9 process encode data: 9
+time: 117 ns B queue:9 write allocate bank: 1, slice: 8
+time: 118 ns B encode queue: 119
+time: 118 ns B decode queue: 119
+time: 118 ns B queue:3 read bank: 3 counter: 3
+time: 118 ns B queue:4 read bank: 2 counter: 0
+time: 118 ns B queue:4 read release bank: 2, slice: 8
+time: 118 ns B queue:5 read bank: 2 counter: 1
+time: 118 ns B queue:6 read bank: 3 counter: 2
+time: 118 ns B queue:9 write wait counter: 0
+time: 118 ns B queue:9 process encode data: 9
+time: 118 ns B queue:9 write allocate bank: 1, slice: 12
+time: 119 ns B encode queue: 120
+time: 119 ns B decode queue: 120
+time: 119 ns B queue:3 read bank: 3 counter: 2
+time: 119 ns B queue:4 read bank: 3 counter: 3
+time: 119 ns B queue:5 read bank: 2 counter: 0
+time: 119 ns B queue:5 read release bank: 2, slice: 12
+time: 119 ns B queue:6 read bank: 3 counter: 1
+time: 119 ns B queue:9 write wait counter: 0
+time: 119 ns B queue:9 process encode data: 9
+time: 119 ns B queue:9 write allocate bank: 1, slice: 14
+time: 120 ns B encode queue: 121
+time: 120 ns B decode queue: 121
+time: 120 ns B queue:3 read bank: 3 counter: 1
+time: 120 ns B queue:4 read bank: 3 counter: 2
+time: 120 ns B queue:5 read bank: 3 counter: 3
+time: 120 ns B queue:6 read bank: 3 counter: 0
+time: 120 ns B queue:6 read release bank: 3, slice: 14
+time: 120 ns B queue:9 write wait counter: 0
+time: 120 ns B queue:9 process encode data: 9
+time: 120 ns B queue:9 write allocate bank: 2, slice: 4
+time: 121 ns B encode queue: 122
+time: 121 ns B decode queue: 122
+time: 121 ns B queue:3 read bank: 3 counter: 0
+time: 121 ns B queue:3 read release bank: 3, slice: 4
+time: 121 ns B queue:4 read bank: 3 counter: 1
+time: 121 ns B queue:5 read bank: 3 counter: 2
+time: 121 ns B queue:6 read bank: 0 counter: 3
+time: 121 ns B queue:10 write wait counter: 0
+time: 121 ns B queue:10 process encode data: 10
+time: 121 ns B queue:10 write allocate bank: 2, slice: 8
+time: 122 ns B encode queue: 123
+time: 122 ns B decode queue: 123
+time: 122 ns B queue:3 read bank: 0 counter: 3
+time: 122 ns B queue:4 read bank: 3 counter: 0
+time: 122 ns B queue:4 read release bank: 3, slice: 8
+time: 122 ns B queue:5 read bank: 3 counter: 1
+time: 122 ns B queue:6 read bank: 0 counter: 2
+time: 122 ns B queue:10 write wait counter: 0
+time: 122 ns B queue:10 process encode data: 10
+time: 122 ns B queue:10 write allocate bank: 2, slice: 12
+time: 123 ns B encode queue: 124
+time: 123 ns B decode queue: 124
+time: 123 ns B queue:3 read bank: 0 counter: 2
+time: 123 ns B queue:4 read bank: 0 counter: 3
+time: 123 ns B queue:5 read bank: 3 counter: 0
+time: 123 ns B queue:5 read release bank: 3, slice: 12
+time: 123 ns B queue:6 read bank: 0 counter: 1
+time: 123 ns B queue:10 write wait counter: 0
+time: 123 ns B queue:10 process encode data: 10
+time: 123 ns B queue:10 write allocate bank: 2, slice: 14
+time: 124 ns B encode queue: 125
+time: 124 ns B decode queue: 125
+time: 124 ns B queue:3 read bank: 0 counter: 1
+time: 124 ns B queue:4 read bank: 0 counter: 2
+time: 124 ns B queue:5 read bank: 0 counter: 3
+time: 124 ns B queue:6 read bank: 0 counter: 0
+time: 124 ns B queue:6 read release bank: 0, slice: 15
+time: 124 ns B queue:10 write wait counter: 0
+time: 124 ns B queue:10 process encode data: 10
+time: 124 ns B queue:10 write allocate bank: 3, slice: 4
+time: 125 ns B encode queue: 126
+time: 125 ns B decode queue: 126
+time: 125 ns B queue:3 read bank: 0 counter: 0
+time: 125 ns B queue:3 read release bank: 0, slice: 5
+time: 125 ns B queue:4 read bank: 0 counter: 1
+time: 125 ns B queue:5 read bank: 0 counter: 2
+time: 125 ns B queue:6 read bank: 1 counter: 3
+time: 125 ns B queue:10 write wait counter: 0
+time: 125 ns B queue:10 process encode data: 10
+time: 125 ns B queue:10 write allocate bank: 3, slice: 8
+time: 126 ns B encode queue: 127
+time: 126 ns B decode queue: 127
+time: 126 ns B queue:3 read bank: 1 counter: 3
+time: 126 ns B queue:4 read bank: 0 counter: 0
+time: 126 ns B queue:4 read release bank: 0, slice: 9
+time: 126 ns B queue:5 read bank: 0 counter: 1
+time: 126 ns B queue:6 read bank: 1 counter: 2
+time: 126 ns B queue:10 write wait counter: 0
+time: 126 ns B queue:10 process encode data: 10
+time: 126 ns B queue:10 write allocate bank: 3, slice: 11
+time: 127 ns B encode queue: 128
+time: 127 ns B decode queue: 128
+time: 127 ns B queue:3 read bank: 1 counter: 2
+time: 127 ns B queue:4 read bank: 1 counter: 3
+time: 127 ns B queue:5 read bank: 0 counter: 0
+time: 127 ns B queue:5 read release bank: 0, slice: 13
+time: 127 ns B queue:6 read bank: 1 counter: 1
+time: 127 ns B queue:10 write wait counter: 0
+time: 127 ns B queue:10 process encode data: 10
+time: 127 ns B queue:10 write allocate bank: 3, slice: 12
+time: 128 ns B encode queue: 129
+time: 128 ns B decode queue: 129
+time: 128 ns B queue:3 read bank: 1 counter: 1
+time: 128 ns B queue:4 read bank: 1 counter: 2
+time: 128 ns B queue:5 read bank: 1 counter: 3
+time: 128 ns B queue:6 read bank: 1 counter: 0
+time: 128 ns B queue:6 read release bank: 1, slice: 15
+time: 128 ns B queue:10 write wait counter: 0
+time: 128 ns B queue:10 process encode data: 10
+time: 128 ns B queue:10 write allocate bank: 0, slice: 5
+time: 129 ns B encode queue: 130
+time: 129 ns B decode queue: 130
+time: 129 ns B queue:3 read bank: 1 counter: 0
+time: 129 ns B queue:3 read release bank: 1, slice: 5
+time: 129 ns B queue:4 read bank: 1 counter: 1
+time: 129 ns B queue:5 read bank: 1 counter: 2
+time: 129 ns B queue:6 read bank: 2 counter: 3
+time: 129 ns B queue:10 write wait counter: 0
+time: 129 ns B queue:10 process encode data: 10
+time: 129 ns B queue:10 write allocate bank: 0, slice: 9
+time: 130 ns B encode queue: 131
+time: 130 ns B decode queue: 131
+time: 130 ns B queue:3 read bank: 2 counter: 3
+time: 130 ns B queue:4 read bank: 1 counter: 0
+time: 130 ns B queue:4 read release bank: 1, slice: 9
+time: 130 ns B queue:5 read bank: 1 counter: 1
+time: 130 ns B queue:6 read bank: 2 counter: 2
+time: 130 ns B queue:10 write wait counter: 0
+time: 130 ns B queue:10 process encode data: 10
+time: 130 ns B queue:10 write allocate bank: 0, slice: 13
+time: 131 ns B encode queue: 132
+time: 131 ns B decode queue: 132
+time: 131 ns B queue:3 read bank: 2 counter: 2
+time: 131 ns B queue:4 read bank: 2 counter: 3
+time: 131 ns B queue:5 read bank: 1 counter: 0
+time: 131 ns B queue:5 read release bank: 1, slice: 13
+time: 131 ns B queue:6 read bank: 2 counter: 1
+time: 131 ns B queue:10 write wait counter: 0
+time: 131 ns B queue:10 process encode data: 10
+time: 131 ns B queue:10 write allocate bank: 0, slice: 15
+time: 132 ns B encode queue: 133
+time: 132 ns B decode queue: 133
+time: 132 ns B queue:3 read bank: 2 counter: 1
+time: 132 ns B queue:4 read bank: 2 counter: 2
+time: 132 ns B queue:5 read bank: 2 counter: 3
+time: 132 ns B queue:6 read bank: 2 counter: 0
+time: 132 ns B queue:6 read release bank: 2, slice: 15
+time: 132 ns B queue:10 write wait counter: 0
+time: 132 ns B queue:10 process encode data: 10
+time: 132 ns B queue:10 write allocate bank: 1, slice: 5
+time: 133 ns B encode queue: 134
+time: 133 ns B decode queue: 134
+time: 133 ns B queue:3 read bank: 2 counter: 0
+time: 133 ns B queue:3 read release bank: 2, slice: 5
+time: 133 ns B queue:4 read bank: 2 counter: 1
+time: 133 ns B queue:5 read bank: 2 counter: 2
+time: 133 ns B queue:6 read bank: 3 counter: 3
+time: 133 ns B queue:10 write wait counter: 0
+time: 133 ns B queue:10 process encode data: 10
+time: 133 ns B queue:10 write allocate bank: 1, slice: 9
+time: 134 ns B encode queue: 135
+time: 134 ns B decode queue: 135
+time: 134 ns B queue:3 read bank: 3 counter: 3
+time: 134 ns B queue:4 read bank: 2 counter: 0
+time: 134 ns B queue:4 read release bank: 2, slice: 9
+time: 134 ns B queue:5 read bank: 2 counter: 1
+time: 134 ns B queue:6 read bank: 3 counter: 2
+time: 134 ns B queue:10 write wait counter: 0
+time: 134 ns B queue:10 process encode data: 10
+time: 134 ns B queue:10 write allocate bank: 1, slice: 13
+time: 135 ns B encode queue: 136
+time: 135 ns B decode queue: 136
+time: 135 ns B queue:3 read bank: 3 counter: 2
+time: 135 ns B queue:4 read bank: 3 counter: 3
+time: 135 ns B queue:5 read bank: 2 counter: 0
+time: 135 ns B queue:5 read release bank: 2, slice: 13
+time: 135 ns B queue:6 read bank: 3 counter: 1
+time: 135 ns B queue:10 write wait counter: 0
+time: 135 ns B queue:10 process encode data: 10
+time: 135 ns B queue:10 write allocate bank: 1, slice: 15
+time: 136 ns B encode queue: 137
+time: 136 ns B decode queue: 137
+time: 136 ns B queue:3 read bank: 3 counter: 1
+time: 136 ns B queue:4 read bank: 3 counter: 2
+time: 136 ns B queue:5 read bank: 3 counter: 3
+time: 136 ns B queue:6 read bank: 3 counter: 0
+time: 136 ns B queue:6 read release bank: 3, slice: 15
+time: 136 ns B queue:10 write wait counter: 0
+time: 136 ns B queue:10 process encode data: 10
+time: 136 ns B queue:10 write allocate bank: 2, slice: 5
+time: 137 ns B encode queue: 138
+time: 137 ns B decode queue: 138
+time: 137 ns B queue:3 read bank: 3 counter: 0
+time: 137 ns B queue:3 read release bank: 3, slice: 5
+time: 137 ns B queue:3 read decode erase: queue_id 3
+time: 137 ns B queue:4 read bank: 3 counter: 1
+time: 137 ns B queue:5 read bank: 3 counter: 2
+time: 137 ns B queue:6 read bank: 0 counter: 3
+time: 137 ns B queue:11 write wait counter: 0
+time: 137 ns B queue:11 process encode data: 11
+time: 137 ns B queue:11 write allocate bank: 2, slice: 9
+time: 138 ns B encode queue: 139
+time: 138 ns B decode queue: 139
+time: 138 ns B queue:4 read bank: 3 counter: 0
+time: 138 ns B queue:4 read release bank: 3, slice: 9
+time: 138 ns B queue:4 read decode erase: queue_id 4
+time: 138 ns B queue:5 read bank: 3 counter: 1
+time: 138 ns B queue:6 read bank: 0 counter: 2
+time: 138 ns B queue:7 read bank: 0 counter: 3
+time: 138 ns B queue:11 write wait counter: 0
+time: 138 ns B queue:11 process encode data: 11
+time: 138 ns B queue:11 write allocate bank: 2, slice: 13
+time: 139 ns B encode queue: 140
+time: 139 ns B decode queue: 140
+time: 139 ns B queue:5 read bank: 3 counter: 0
+time: 139 ns B queue:5 read release bank: 3, slice: 13
+time: 139 ns B queue:5 read decode erase: queue_id 5
+time: 139 ns B queue:6 read bank: 0 counter: 1
+time: 139 ns B queue:7 read bank: 0 counter: 2
+time: 139 ns B queue:8 read bank: 2 counter: 3
+time: 139 ns B queue:11 write wait counter: 0
+time: 139 ns B queue:11 process encode data: 11
+time: 139 ns B queue:11 write allocate bank: 2, slice: 15
+time: 140 ns B encode queue: 141
+time: 140 ns B decode queue: 141
+time: 140 ns B queue:6 read bank: 0 counter: 0
+time: 140 ns B queue:6 read release bank: 0, slice: 16
+time: 140 ns B queue:7 read bank: 0 counter: 1
+time: 140 ns B queue:8 read bank: 2 counter: 2
+time: 140 ns B queue:9 read bank: 2 counter: 3
+time: 140 ns B queue:11 write wait counter: 0
+time: 140 ns B queue:11 process encode data: 11
+time: 140 ns B queue:11 write allocate bank: 3, slice: 5
+time: 141 ns B encode queue: 142
+time: 141 ns B decode queue: 142
+time: 141 ns B queue:6 read bank: 1 counter: 3
+time: 141 ns B queue:7 read bank: 0 counter: 0
+time: 141 ns B queue:7 read release bank: 0, slice: 18
+time: 141 ns B queue:8 read bank: 2 counter: 1
+time: 141 ns B queue:9 read bank: 2 counter: 2
+time: 141 ns B queue:11 write wait counter: 0
+time: 141 ns B queue:11 process encode data: 11
+time: 141 ns B queue:11 write allocate bank: 3, slice: 9
+time: 142 ns B encode queue: 143
+time: 142 ns B decode queue: 143
+time: 142 ns B queue:6 read bank: 1 counter: 2
+time: 142 ns B queue:7 read bank: 1 counter: 3
+time: 142 ns B queue:8 read bank: 2 counter: 0
+time: 142 ns B queue:8 read release bank: 2, slice: 2
+time: 142 ns B queue:9 read bank: 2 counter: 1
+time: 142 ns B queue:11 write wait counter: 0
+time: 142 ns B queue:11 process encode data: 11
+time: 142 ns B queue:11 write allocate bank: 3, slice: 13
+time: 143 ns B encode queue: 144
+time: 143 ns B decode queue: 144
+time: 143 ns B queue:6 read bank: 1 counter: 1
+time: 143 ns B queue:7 read bank: 1 counter: 2
+time: 143 ns B queue:8 read bank: 2 counter: 3
+time: 143 ns B queue:9 read bank: 2 counter: 0
+time: 143 ns B queue:9 read release bank: 2, slice: 3
+time: 143 ns B queue:11 write wait counter: 0
+time: 143 ns B queue:11 process encode data: 11
+time: 143 ns B queue:11 write allocate bank: 0, slice: 16
+time: 144 ns B encode queue: 145
+time: 144 ns B decode queue: 145
+time: 144 ns B queue:6 read bank: 1 counter: 0
+time: 144 ns B queue:6 read release bank: 1, slice: 16
+time: 144 ns B queue:7 read bank: 1 counter: 1
+time: 144 ns B queue:8 read bank: 2 counter: 2
+time: 144 ns B queue:9 read bank: 2 counter: 3
+time: 144 ns B queue:11 write wait counter: 0
+time: 144 ns B queue:11 process encode data: 11
+time: 144 ns B queue:11 write allocate bank: 2, slice: 2
+time: 145 ns B encode queue: 146
+time: 145 ns B decode queue: 146
+time: 145 ns B queue:6 read bank: 2 counter: 3
+time: 145 ns B queue:7 read bank: 1 counter: 0
+time: 145 ns B queue:7 read release bank: 1, slice: 18
+time: 145 ns B queue:8 read bank: 2 counter: 1
+time: 145 ns B queue:9 read bank: 2 counter: 2
+time: 145 ns B queue:11 write wait counter: 0
+time: 145 ns B queue:11 process encode data: 11
+time: 145 ns B queue:11 write allocate bank: 3, slice: 14
+time: 146 ns B encode queue: 147
+time: 146 ns B decode queue: 147
+time: 146 ns B queue:6 read bank: 2 counter: 2
+time: 146 ns B queue:7 read bank: 2 counter: 3
+time: 146 ns B queue:8 read bank: 2 counter: 0
+time: 146 ns B queue:8 read release bank: 2, slice: 6
+time: 146 ns B queue:9 read bank: 2 counter: 1
+time: 146 ns B queue:11 write wait counter: 0
+time: 146 ns B queue:11 process encode data: 11
+time: 146 ns B queue:11 write allocate bank: 1, slice: 16
+time: 147 ns B encode queue: 148
+time: 147 ns B decode queue: 148
+time: 147 ns B queue:6 read bank: 2 counter: 1
+time: 147 ns B queue:7 read bank: 2 counter: 2
+time: 147 ns B queue:8 read bank: 1 counter: 3
+time: 147 ns B queue:9 read bank: 2 counter: 0
+time: 147 ns B queue:9 read release bank: 2, slice: 7
+time: 147 ns B queue:11 write wait counter: 0
+time: 147 ns B queue:11 process encode data: 11
+time: 147 ns B queue:11 write allocate bank: 0, slice: 18
+time: 148 ns B encode queue: 149
+time: 148 ns B decode queue: 149
+time: 148 ns B queue:6 read bank: 2 counter: 0
+time: 148 ns B queue:6 read release bank: 2, slice: 16
+time: 148 ns B queue:7 read bank: 2 counter: 1
+time: 148 ns B queue:8 read bank: 1 counter: 2
+time: 148 ns B queue:9 read bank: 2 counter: 3
+time: 148 ns B queue:11 write wait counter: 0
+time: 148 ns B queue:11 process encode data: 11
+time: 148 ns B queue:11 write allocate bank: 1, slice: 18
+time: 149 ns B encode queue: 150
+time: 149 ns B decode queue: 150
+time: 149 ns B queue:6 read bank: 3 counter: 3
+time: 149 ns B queue:7 read bank: 2 counter: 0
+time: 149 ns B queue:7 read release bank: 2, slice: 18
+time: 149 ns B queue:8 read bank: 1 counter: 1
+time: 149 ns B queue:9 read bank: 2 counter: 2
+time: 149 ns B queue:11 write wait counter: 0
+time: 149 ns B queue:11 process encode data: 11
+time: 149 ns B queue:11 write allocate bank: 3, slice: 15
+time: 150 ns B encode queue: 151
+time: 150 ns B decode queue: 151
+time: 150 ns B queue:6 read bank: 3 counter: 2
+time: 150 ns B queue:7 read bank: 3 counter: 3
+time: 150 ns B queue:8 read bank: 1 counter: 0
+time: 150 ns B queue:8 read release bank: 1, slice: 10
+time: 150 ns B queue:9 read bank: 2 counter: 1
+time: 150 ns B queue:11 write wait counter: 0
+time: 150 ns B queue:11 process encode data: 11
+time: 150 ns B queue:11 write allocate bank: 2, slice: 3
+time: 151 ns B encode queue: 152
+time: 151 ns B decode queue: 152
+time: 151 ns B queue:6 read bank: 3 counter: 1
+time: 151 ns B queue:7 read bank: 3 counter: 2
+time: 151 ns B queue:8 read bank: 3 counter: 3
+time: 151 ns B queue:9 read bank: 2 counter: 0
+time: 151 ns B queue:9 read release bank: 2, slice: 11
+time: 151 ns B queue:11 write wait counter: 0
+time: 151 ns B queue:11 process encode data: 11
+time: 151 ns B queue:11 write allocate bank: 1, slice: 10
+time: 152 ns B encode queue: 153
+time: 152 ns B decode queue: 153
+time: 152 ns B queue:6 read bank: 3 counter: 0
+time: 152 ns B queue:6 read release bank: 3, slice: 16
+time: 152 ns B queue:7 read bank: 3 counter: 1
+time: 152 ns B queue:8 read bank: 3 counter: 2
+time: 152 ns B queue:9 read bank: 3 counter: 3
+time: 152 ns B queue:11 write wait counter: 0
+time: 152 ns B queue:11 process encode data: 11
+time: 152 ns B queue:11 write allocate bank: 2, slice: 6
+time: 153 ns B encode queue: 154
+time: 153 ns B decode queue: 154
+time: 153 ns B queue:6 read bank: 0 counter: 3
+time: 153 ns B queue:7 read bank: 3 counter: 0
+time: 153 ns B queue:7 read release bank: 3, slice: 18
+time: 153 ns B queue:8 read bank: 3 counter: 1
+time: 153 ns B queue:9 read bank: 3 counter: 2
+time: 153 ns B queue:12 write wait counter: 0
+time: 153 ns B queue:12 process encode data: 12
+time: 153 ns B queue:12 write allocate bank: 2, slice: 7
+time: 154 ns B encode queue: 155
+time: 154 ns B decode queue: 155
+time: 154 ns B queue:6 read bank: 0 counter: 2
+time: 154 ns B queue:7 read bank: 1 counter: 3
+time: 154 ns B queue:8 read bank: 3 counter: 0
+time: 154 ns B queue:8 read release bank: 3, slice: 0
+time: 154 ns B queue:9 read bank: 3 counter: 1
+time: 154 ns B queue:12 write wait counter: 0
+time: 154 ns B queue:12 process encode data: 12
+time: 154 ns B queue:12 write allocate bank: 2, slice: 11
+time: 155 ns B encode queue: 156
+time: 155 ns B decode queue: 156
+time: 155 ns B queue:6 read bank: 0 counter: 1
+time: 155 ns B queue:7 read bank: 1 counter: 2
+time: 155 ns B queue:8 read bank: 3 counter: 3
+time: 155 ns B queue:9 read bank: 3 counter: 0
+time: 155 ns B queue:9 read release bank: 3, slice: 1
+time: 155 ns B queue:12 write wait counter: 0
+time: 155 ns B queue:12 process encode data: 12
+time: 155 ns B queue:12 write allocate bank: 2, slice: 16
+time: 156 ns B encode queue: 157
+time: 156 ns B decode queue: 157
+time: 156 ns B queue:6 read bank: 0 counter: 0
+time: 156 ns B queue:6 read release bank: 0, slice: 17
+time: 156 ns B queue:7 read bank: 1 counter: 1
+time: 156 ns B queue:8 read bank: 3 counter: 2
+time: 156 ns B queue:9 read bank: 3 counter: 3
+time: 156 ns B queue:12 write wait counter: 0
+time: 156 ns B queue:12 process encode data: 12
+time: 156 ns B queue:12 write allocate bank: 3, slice: 0
+time: 157 ns B encode queue: 158
+time: 157 ns B decode queue: 158
+time: 157 ns B queue:6 read bank: 1 counter: 3
+time: 157 ns B queue:7 read bank: 1 counter: 0
+time: 157 ns B queue:7 read release bank: 1, slice: 19
+time: 157 ns B queue:8 read bank: 3 counter: 1
+time: 157 ns B queue:9 read bank: 3 counter: 2
+time: 157 ns B queue:12 write wait counter: 0
+time: 157 ns B queue:12 process encode data: 12
+time: 157 ns B queue:12 write allocate bank: 3, slice: 1
+time: 158 ns B encode queue: 159
+time: 158 ns B decode queue: 159
+time: 158 ns B queue:6 read bank: 1 counter: 2
+time: 158 ns B queue:7 read bank: 2 counter: 3
+time: 158 ns B queue:8 read bank: 3 counter: 0
+time: 158 ns B queue:8 read release bank: 3, slice: 2
+time: 158 ns B queue:9 read bank: 3 counter: 1
+time: 158 ns B queue:12 write wait counter: 0
+time: 158 ns B queue:12 process encode data: 12
+time: 158 ns B queue:12 write allocate bank: 0, slice: 17
+time: 159 ns B encode queue: 160
+time: 159 ns B decode queue: 160
+time: 159 ns B queue:6 read bank: 1 counter: 1
+time: 159 ns B queue:7 read bank: 2 counter: 2
+time: 159 ns B queue:8 read bank: 3 counter: 3
+time: 159 ns B queue:9 read bank: 3 counter: 0
+time: 159 ns B queue:9 read release bank: 3, slice: 3
+time: 159 ns B queue:12 write wait counter: 0
+time: 159 ns B queue:12 process encode data: 12
+time: 159 ns B queue:12 write allocate bank: 1, slice: 19
+time: 160 ns B encode queue: 161
+time: 160 ns B decode queue: 161
+time: 160 ns B queue:6 read bank: 1 counter: 0
+time: 160 ns B queue:6 read release bank: 1, slice: 17
+time: 160 ns B queue:7 read bank: 2 counter: 1
+time: 160 ns B queue:8 read bank: 3 counter: 2
+time: 160 ns B queue:9 read bank: 3 counter: 3
+time: 160 ns B queue:12 write wait counter: 0
+time: 160 ns B queue:12 process encode data: 12
+time: 160 ns B queue:12 write allocate bank: 3, slice: 2
+time: 161 ns B encode queue: 162
+time: 161 ns B decode queue: 162
+time: 161 ns B queue:6 read bank: 2 counter: 3
+time: 161 ns B queue:7 read bank: 2 counter: 0
+time: 161 ns B queue:7 read release bank: 2, slice: 19
+time: 161 ns B queue:8 read bank: 3 counter: 1
+time: 161 ns B queue:9 read bank: 3 counter: 2
+time: 161 ns B queue:12 write wait counter: 0
+time: 161 ns B queue:12 process encode data: 12
+time: 161 ns B queue:12 write allocate bank: 3, slice: 3
+time: 162 ns B encode queue: 163
+time: 162 ns B decode queue: 163
+time: 162 ns B queue:6 read bank: 2 counter: 2
+time: 162 ns B queue:7 read bank: 3 counter: 3
+time: 162 ns B queue:8 read bank: 3 counter: 0
+time: 162 ns B queue:8 read release bank: 3, slice: 6
+time: 162 ns B queue:9 read bank: 3 counter: 1
+time: 162 ns B queue:12 write wait counter: 0
+time: 162 ns B queue:12 process encode data: 12
+time: 162 ns B queue:12 write allocate bank: 2, slice: 18
+time: 163 ns B encode queue: 164
+time: 163 ns B decode queue: 164
+time: 163 ns B queue:6 read bank: 2 counter: 1
+time: 163 ns B queue:7 read bank: 3 counter: 2
+time: 163 ns B queue:8 read bank: 2 counter: 3
+time: 163 ns B queue:9 read bank: 3 counter: 0
+time: 163 ns B queue:9 read release bank: 3, slice: 7
+time: 163 ns B queue:12 write wait counter: 0
+time: 163 ns B queue:12 process encode data: 12
+time: 163 ns B queue:12 write allocate bank: 1, slice: 17
+time: 164 ns B encode queue: 165
+time: 164 ns B decode queue: 165
+time: 164 ns B queue:6 read bank: 2 counter: 0
+time: 164 ns B queue:6 read release bank: 2, slice: 17
+time: 164 ns B queue:7 read bank: 3 counter: 1
+time: 164 ns B queue:8 read bank: 2 counter: 2
+time: 164 ns B queue:9 read bank: 3 counter: 3
+time: 164 ns B queue:12 write wait counter: 0
+time: 164 ns B queue:12 process encode data: 12
+time: 164 ns B queue:12 write allocate bank: 3, slice: 6
+time: 165 ns B encode queue: 166
+time: 165 ns B decode queue: 166
+time: 165 ns B queue:6 read bank: 3 counter: 3
+time: 165 ns B queue:7 read bank: 3 counter: 0
+time: 165 ns B queue:7 read release bank: 3, slice: 19
+time: 165 ns B queue:8 read bank: 2 counter: 1
+time: 165 ns B queue:9 read bank: 3 counter: 2
+time: 165 ns B queue:12 write wait counter: 0
+time: 165 ns B queue:12 process encode data: 12
+time: 165 ns B queue:12 write allocate bank: 2, slice: 17
+time: 166 ns B encode queue: 167
+time: 166 ns B decode queue: 167
+time: 166 ns B queue:6 read bank: 3 counter: 2
+time: 166 ns B queue:7 read bank: 0 counter: 3
+time: 166 ns B queue:8 read bank: 2 counter: 0
+time: 166 ns B queue:8 read release bank: 2, slice: 10
+time: 166 ns B queue:9 read bank: 3 counter: 1
+time: 166 ns B queue:12 write wait counter: 0
+time: 166 ns B queue:12 process encode data: 12
+time: 166 ns B queue:12 write allocate bank: 3, slice: 7
+time: 167 ns B encode queue: 168
+time: 167 ns B decode queue: 168
+time: 167 ns B queue:6 read bank: 3 counter: 1
+time: 167 ns B queue:7 read bank: 0 counter: 2
+time: 167 ns B queue:8 read bank: 0 counter: 3
+time: 167 ns B queue:9 read bank: 3 counter: 0
+time: 167 ns B queue:9 read release bank: 3, slice: 10
+time: 167 ns B queue:12 write wait counter: 0
+time: 167 ns B queue:12 process encode data: 12
+time: 167 ns B queue:12 write allocate bank: 2, slice: 10
+time: 168 ns B encode queue: 169
+time: 168 ns B decode queue: 169
+time: 168 ns B queue:6 read bank: 3 counter: 0
+time: 168 ns B queue:6 read release bank: 3, slice: 17
+time: 168 ns B queue:6 read decode erase: queue_id 6
+time: 168 ns B queue:7 read bank: 0 counter: 1
+time: 168 ns B queue:8 read bank: 0 counter: 2
+time: 168 ns B queue:9 read bank: 0 counter: 3
+time: 168 ns B queue:12 write wait counter: 0
+time: 168 ns B queue:12 process encode data: 12
+time: 168 ns B queue:12 write allocate bank: 2, slice: 19
+time: 169 ns B encode queue: 170
+time: 169 ns B decode queue: 170
+time: 169 ns B queue:7 read bank: 0 counter: 0
+time: 169 ns B queue:7 read release bank: 0, slice: 0
+time: 169 ns B queue:8 read bank: 0 counter: 1
+time: 169 ns B queue:9 read bank: 0 counter: 2
+time: 169 ns B queue:10 read bank: 2 counter: 3
+time: 169 ns B queue:13 write wait counter: 0
+time: 169 ns B queue:13 process encode data: 13
+time: 169 ns B queue:13 write allocate bank: 3, slice: 10
+time: 170 ns B encode queue: 171
+time: 170 ns B decode queue: 171
+time: 170 ns B queue:7 read bank: 0 counter: 3
+time: 170 ns B queue:8 read bank: 0 counter: 0
+time: 170 ns B queue:8 read release bank: 0, slice: 1
+time: 170 ns B queue:9 read bank: 0 counter: 1
+time: 170 ns B queue:10 read bank: 2 counter: 2
+time: 170 ns B queue:13 write wait counter: 0
+time: 170 ns B queue:13 process encode data: 13
+time: 170 ns B queue:13 write allocate bank: 3, slice: 16
+time: 171 ns B encode queue: 172
+time: 171 ns B decode queue: 172
+time: 171 ns B queue:7 read bank: 0 counter: 2
+time: 171 ns B queue:8 read bank: 0 counter: 3
+time: 171 ns B queue:9 read bank: 0 counter: 0
+time: 171 ns B queue:9 read release bank: 0, slice: 4
+time: 171 ns B queue:10 read bank: 2 counter: 1
+time: 171 ns B queue:13 write wait counter: 0
+time: 171 ns B queue:13 process encode data: 13
+time: 171 ns B queue:13 write allocate bank: 3, slice: 17
+time: 172 ns B encode queue: 173
+time: 172 ns B decode queue: 173
+time: 172 ns B queue:7 read bank: 0 counter: 1
+time: 172 ns B queue:8 read bank: 0 counter: 2
+time: 172 ns B queue:9 read bank: 0 counter: 3
+time: 172 ns B queue:10 read bank: 2 counter: 0
+time: 172 ns B queue:10 read release bank: 2, slice: 8
+time: 172 ns B queue:13 write wait counter: 0
+time: 172 ns B queue:13 process encode data: 13
+time: 172 ns B queue:13 write allocate bank: 0, slice: 0
+time: 173 ns B encode queue: 174
+time: 173 ns B decode queue: 174
+time: 173 ns B queue:7 read bank: 0 counter: 0
+time: 173 ns B queue:7 read release bank: 0, slice: 2
+time: 173 ns B queue:8 read bank: 0 counter: 1
+time: 173 ns B queue:9 read bank: 0 counter: 2
+time: 173 ns B queue:10 read bank: 2 counter: 3
+time: 173 ns B queue:13 write wait counter: 0
+time: 173 ns B queue:13 process encode data: 13
+time: 173 ns B queue:13 write allocate bank: 3, slice: 18
+time: 174 ns B encode queue: 175
+time: 174 ns B decode queue: 175
+time: 174 ns B queue:7 read bank: 0 counter: 3
+time: 174 ns B queue:8 read bank: 0 counter: 0
+time: 174 ns B queue:8 read release bank: 0, slice: 3
+time: 174 ns B queue:9 read bank: 0 counter: 1
+time: 174 ns B queue:10 read bank: 2 counter: 2
+time: 174 ns B queue:13 write wait counter: 0
+time: 174 ns B queue:13 process encode data: 13
+time: 174 ns B queue:13 write allocate bank: 2, slice: 8
+time: 175 ns B encode queue: 176
+time: 175 ns B decode queue: 176
+time: 175 ns B queue:7 read bank: 0 counter: 2
+time: 175 ns B queue:8 read bank: 0 counter: 3
+time: 175 ns B queue:9 read bank: 0 counter: 0
+time: 175 ns B queue:9 read release bank: 0, slice: 8
+time: 175 ns B queue:10 read bank: 2 counter: 1
+time: 175 ns B queue:13 write wait counter: 0
+time: 175 ns B queue:13 process encode data: 13
+time: 175 ns B queue:13 write allocate bank: 3, slice: 19
+time: 176 ns B encode queue: 177
+time: 176 ns B decode queue: 177
+time: 176 ns B queue:7 read bank: 0 counter: 1
+time: 176 ns B queue:8 read bank: 0 counter: 2
+time: 176 ns B queue:9 read bank: 0 counter: 3
+time: 176 ns B queue:10 read bank: 2 counter: 0
+time: 176 ns B queue:10 read release bank: 2, slice: 12
+time: 176 ns B queue:13 write wait counter: 0
+time: 176 ns B queue:13 process encode data: 13
+time: 176 ns B queue:13 write allocate bank: 0, slice: 1
+time: 177 ns B encode queue: 178
+time: 177 ns B decode queue: 178
+time: 177 ns B queue:7 read bank: 0 counter: 0
+time: 177 ns B queue:7 read release bank: 0, slice: 6
+time: 177 ns B queue:8 read bank: 0 counter: 1
+time: 177 ns B queue:9 read bank: 0 counter: 2
+time: 177 ns B queue:10 read bank: 2 counter: 3
+time: 177 ns B queue:13 write wait counter: 0
+time: 177 ns B queue:13 process encode data: 13
+time: 177 ns B queue:13 write allocate bank: 2, slice: 12
+time: 178 ns B encode queue: 179
+time: 178 ns B decode queue: 179
+time: 178 ns B queue:7 read bank: 0 counter: 3
+time: 178 ns B queue:8 read bank: 0 counter: 0
+time: 178 ns B queue:8 read release bank: 0, slice: 7
+time: 178 ns B queue:9 read bank: 0 counter: 1
+time: 178 ns B queue:10 read bank: 2 counter: 2
+time: 178 ns B queue:13 write wait counter: 0
+time: 178 ns B queue:13 process encode data: 13
+time: 178 ns B queue:13 write allocate bank: 1, slice: 20
+time: 179 ns B encode queue: 180
+time: 179 ns B decode queue: 180
+time: 179 ns B queue:7 read bank: 0 counter: 2
+time: 179 ns B queue:8 read bank: 0 counter: 3
+time: 179 ns B queue:9 read bank: 0 counter: 0
+time: 179 ns B queue:9 read release bank: 0, slice: 12
+time: 179 ns B queue:10 read bank: 2 counter: 1
+time: 179 ns B queue:13 write wait counter: 0
+time: 179 ns B queue:13 process encode data: 13
+time: 179 ns B queue:13 write allocate bank: 2, slice: 20
+time: 180 ns B encode queue: 181
+time: 180 ns B decode queue: 181
+time: 180 ns B queue:7 read bank: 0 counter: 1
+time: 180 ns B queue:8 read bank: 0 counter: 2
+time: 180 ns B queue:9 read bank: 0 counter: 3
+time: 180 ns B queue:10 read bank: 2 counter: 0
+time: 180 ns B queue:10 read release bank: 2, slice: 14
+time: 180 ns B queue:13 write wait counter: 0
+time: 180 ns B queue:13 process encode data: 13
+time: 180 ns B queue:13 write allocate bank: 0, slice: 2
+time: 181 ns B encode queue: 182
+time: 181 ns B decode queue: 182
+time: 181 ns B queue:7 read bank: 0 counter: 0
+time: 181 ns B queue:7 read release bank: 0, slice: 10
+time: 181 ns B queue:8 read bank: 0 counter: 1
+time: 181 ns B queue:9 read bank: 0 counter: 2
+time: 181 ns B queue:10 read bank: 3 counter: 3
+time: 181 ns B queue:13 write wait counter: 0
+time: 181 ns B queue:13 process encode data: 13
+time: 181 ns B queue:13 write allocate bank: 2, slice: 14
+time: 182 ns B encode queue: 183
+time: 182 ns B decode queue: 183
+time: 182 ns B queue:7 read bank: 1 counter: 3
+time: 182 ns B queue:8 read bank: 0 counter: 0
+time: 182 ns B queue:8 read release bank: 0, slice: 11
+time: 182 ns B queue:9 read bank: 0 counter: 1
+time: 182 ns B queue:10 read bank: 3 counter: 2
+time: 182 ns B queue:13 write wait counter: 0
+time: 182 ns B queue:13 process encode data: 13
+time: 182 ns B queue:13 write allocate bank: 3, slice: 20
+time: 183 ns B encode queue: 184
+time: 183 ns B decode queue: 184
+time: 183 ns B queue:7 read bank: 1 counter: 2
+time: 183 ns B queue:8 read bank: 1 counter: 3
+time: 183 ns B queue:9 read bank: 0 counter: 0
+time: 183 ns B queue:9 read release bank: 0, slice: 14
+time: 183 ns B queue:10 read bank: 3 counter: 1
+time: 183 ns B queue:13 write wait counter: 0
+time: 183 ns B queue:13 process encode data: 13
+time: 183 ns B queue:13 write allocate bank: 1, slice: 21
+time: 184 ns B encode queue: 185
+time: 184 ns B decode queue: 185
+time: 184 ns B queue:7 read bank: 1 counter: 1
+time: 184 ns B queue:8 read bank: 1 counter: 2
+time: 184 ns B queue:9 read bank: 1 counter: 3
+time: 184 ns B queue:10 read bank: 3 counter: 0
+time: 184 ns B queue:10 read release bank: 3, slice: 4
+time: 184 ns B queue:13 write wait counter: 0
+time: 184 ns B queue:13 process encode data: 13
+time: 184 ns B queue:13 write allocate bank: 0, slice: 3
+time: 185 ns B encode queue: 186
+time: 185 ns B decode queue: 186
+time: 185 ns B queue:7 read bank: 1 counter: 0
+time: 185 ns B queue:7 read release bank: 1, slice: 0
+time: 185 ns B queue:8 read bank: 1 counter: 1
+time: 185 ns B queue:9 read bank: 1 counter: 2
+time: 185 ns B queue:10 read bank: 3 counter: 3
+time: 185 ns B queue:14 write wait counter: 0
+time: 185 ns B queue:14 process encode data: 14
+time: 185 ns B queue:14 write allocate bank: 0, slice: 4
+time: 186 ns B encode queue: 187
+time: 186 ns B decode queue: 187
+time: 186 ns B queue:7 read bank: 1 counter: 3
+time: 186 ns B queue:8 read bank: 1 counter: 0
+time: 186 ns B queue:8 read release bank: 1, slice: 1
+time: 186 ns B queue:9 read bank: 1 counter: 1
+time: 186 ns B queue:10 read bank: 3 counter: 2
+time: 186 ns B queue:14 write wait counter: 0
+time: 186 ns B queue:14 process encode data: 14
+time: 186 ns B queue:14 write allocate bank: 0, slice: 6
+time: 187 ns B encode queue: 188
+time: 187 ns B decode queue: 188
+time: 187 ns B queue:7 read bank: 1 counter: 2
+time: 187 ns B queue:8 read bank: 1 counter: 3
+time: 187 ns B queue:9 read bank: 1 counter: 0
+time: 187 ns B queue:9 read release bank: 1, slice: 4
+time: 187 ns B queue:10 read bank: 3 counter: 1
+time: 187 ns B queue:14 write wait counter: 0
+time: 187 ns B queue:14 process encode data: 14
+time: 187 ns B queue:14 write allocate bank: 0, slice: 7
+time: 188 ns B encode queue: 189
+time: 188 ns B decode queue: 189
+time: 188 ns B queue:7 read bank: 1 counter: 1
+time: 188 ns B queue:8 read bank: 1 counter: 2
+time: 188 ns B queue:9 read bank: 1 counter: 3
+time: 188 ns B queue:10 read bank: 3 counter: 0
+time: 188 ns B queue:10 read release bank: 3, slice: 8
+time: 188 ns B queue:14 write wait counter: 0
+time: 188 ns B queue:14 process encode data: 14
+time: 188 ns B queue:14 write allocate bank: 0, slice: 8
+time: 189 ns B encode queue: 190
+time: 189 ns B decode queue: 190
+time: 189 ns B queue:7 read bank: 1 counter: 0
+time: 189 ns B queue:7 read release bank: 1, slice: 2
+time: 189 ns B queue:8 read bank: 1 counter: 1
+time: 189 ns B queue:9 read bank: 1 counter: 2
+time: 189 ns B queue:10 read bank: 3 counter: 3
+time: 189 ns B queue:14 write wait counter: 0
+time: 189 ns B queue:14 process encode data: 14
+time: 189 ns B queue:14 write allocate bank: 0, slice: 10
+time: 190 ns B encode queue: 191
+time: 190 ns B decode queue: 191
+time: 190 ns B queue:7 read bank: 1 counter: 3
+time: 190 ns B queue:8 read bank: 1 counter: 0
+time: 190 ns B queue:8 read release bank: 1, slice: 3
+time: 190 ns B queue:9 read bank: 1 counter: 1
+time: 190 ns B queue:10 read bank: 3 counter: 2
+time: 190 ns B queue:14 write wait counter: 0
+time: 190 ns B queue:14 process encode data: 14
+time: 190 ns B queue:14 write allocate bank: 0, slice: 11
+time: 191 ns B encode queue: 192
+time: 191 ns B decode queue: 192
+time: 191 ns B queue:7 read bank: 1 counter: 2
+time: 191 ns B queue:8 read bank: 1 counter: 3
+time: 191 ns B queue:9 read bank: 1 counter: 0
+time: 191 ns B queue:9 read release bank: 1, slice: 8
+time: 191 ns B queue:10 read bank: 3 counter: 1
+time: 191 ns B queue:14 write wait counter: 0
+time: 191 ns B queue:14 process encode data: 14
+time: 191 ns B queue:14 write allocate bank: 0, slice: 12
+time: 192 ns B encode queue: 193
+time: 192 ns B decode queue: 193
+time: 192 ns B queue:7 read bank: 1 counter: 1
+time: 192 ns B queue:8 read bank: 1 counter: 2
+time: 192 ns B queue:9 read bank: 1 counter: 3
+time: 192 ns B queue:10 read bank: 3 counter: 0
+time: 192 ns B queue:10 read release bank: 3, slice: 11
+time: 192 ns B queue:14 write wait counter: 0
+time: 192 ns B queue:14 process encode data: 14
+time: 192 ns B queue:14 write allocate bank: 1, slice: 0
+time: 193 ns B encode queue: 194
+time: 193 ns B decode queue: 194
+time: 193 ns B queue:7 read bank: 1 counter: 0
+time: 193 ns B queue:7 read release bank: 1, slice: 6
+time: 193 ns B queue:8 read bank: 1 counter: 1
+time: 193 ns B queue:9 read bank: 1 counter: 2
+time: 193 ns B queue:10 read bank: 3 counter: 3
+time: 193 ns B queue:14 write wait counter: 0
+time: 193 ns B queue:14 process encode data: 14
+time: 193 ns B queue:14 write allocate bank: 3, slice: 4
+time: 194 ns B encode queue: 195
+time: 194 ns B decode queue: 195
+time: 194 ns B queue:7 read bank: 0 counter: 3
+time: 194 ns B queue:8 read bank: 1 counter: 0
+time: 194 ns B queue:8 read release bank: 1, slice: 7
+time: 194 ns B queue:9 read bank: 1 counter: 1
+time: 194 ns B queue:10 read bank: 3 counter: 2
+time: 194 ns B queue:14 write wait counter: 0
+time: 194 ns B queue:14 process encode data: 14
+time: 194 ns B queue:14 write allocate bank: 0, slice: 14
+time: 195 ns B encode queue: 196
+time: 195 ns B decode queue: 196
+time: 195 ns B queue:7 read bank: 0 counter: 2
+time: 195 ns B queue:8 read bank: 1 counter: 3
+time: 195 ns B queue:9 read bank: 1 counter: 0
+time: 195 ns B queue:9 read release bank: 1, slice: 12
+time: 195 ns B queue:10 read bank: 3 counter: 1
+time: 195 ns B queue:14 write wait counter: 0
+time: 195 ns B queue:14 process encode data: 14
+time: 195 ns B queue:14 write allocate bank: 3, slice: 8
+time: 196 ns B encode queue: 197
+time: 196 ns B decode queue: 197
+time: 196 ns B queue:7 read bank: 0 counter: 1
+time: 196 ns B queue:8 read bank: 1 counter: 2
+time: 196 ns B queue:9 read bank: 1 counter: 3
+time: 196 ns B queue:10 read bank: 3 counter: 0
+time: 196 ns B queue:10 read release bank: 3, slice: 12
+time: 196 ns B queue:14 write wait counter: 0
+time: 196 ns B queue:14 process encode data: 14
+time: 196 ns B queue:14 write allocate bank: 1, slice: 1
+time: 197 ns B encode queue: 198
+time: 197 ns B decode queue: 198
+time: 197 ns B queue:7 read bank: 0 counter: 0
+time: 197 ns B queue:7 read release bank: 0, slice: 19
+time: 197 ns B queue:8 read bank: 1 counter: 1
+time: 197 ns B queue:9 read bank: 1 counter: 2
+time: 197 ns B queue:10 read bank: 0 counter: 3
+time: 197 ns B queue:14 write wait counter: 0
+time: 197 ns B queue:14 process encode data: 14
+time: 197 ns B queue:14 write allocate bank: 1, slice: 2
+time: 198 ns B encode queue: 199
+time: 198 ns B decode queue: 199
+time: 198 ns B queue:7 read bank: 2 counter: 3
+time: 198 ns B queue:8 read bank: 1 counter: 0
+time: 198 ns B queue:8 read release bank: 1, slice: 11
+time: 198 ns B queue:9 read bank: 1 counter: 1
+time: 198 ns B queue:10 read bank: 0 counter: 2
+time: 198 ns B queue:14 write wait counter: 0
+time: 198 ns B queue:14 process encode data: 14
+time: 198 ns B queue:14 write allocate bank: 0, slice: 19
+time: 199 ns B encode queue: 200
+time: 199 ns B decode queue: 200
+time: 199 ns B queue:7 read bank: 2 counter: 2
+time: 199 ns B queue:8 read bank: 2 counter: 3
+time: 199 ns B queue:9 read bank: 1 counter: 0
+time: 199 ns B queue:9 read release bank: 1, slice: 14
+time: 199 ns B queue:10 read bank: 0 counter: 1
+time: 199 ns B queue:14 write wait counter: 0
+time: 199 ns B queue:14 process encode data: 14
+time: 199 ns B queue:14 write allocate bank: 3, slice: 11
+time: 200 ns B encode queue: 201
+time: 200 ns B decode queue: 201
+time: 200 ns B queue:7 read bank: 2 counter: 1
+time: 200 ns B queue:8 read bank: 2 counter: 2
+time: 200 ns B queue:9 read bank: 2 counter: 3
+time: 200 ns B queue:10 read bank: 0 counter: 0
+time: 200 ns B queue:10 read release bank: 0, slice: 5
+time: 200 ns B queue:14 write wait counter: 0
+time: 200 ns B queue:14 process encode data: 14
+time: 200 ns B queue:14 write allocate bank: 1, slice: 3
+time: 201 ns B encode queue: 202
+time: 201 ns B decode queue: 202
+time: 201 ns B queue:7 read bank: 2 counter: 0
+time: 201 ns B queue:7 read release bank: 2, slice: 0
+time: 201 ns B queue:7 read decode erase: queue_id 7
+time: 201 ns B queue:8 read bank: 2 counter: 1
+time: 201 ns B queue:9 read bank: 2 counter: 2
+time: 201 ns B queue:10 read bank: 0 counter: 3
+time: 201 ns B queue:15 write wait counter: 0
+time: 201 ns B queue:15 process encode data: 15
+time: 201 ns B queue:15 write allocate bank: 1, slice: 4
+time: 202 ns B encode queue: 203
+time: 202 ns B decode queue: 203
+time: 202 ns B queue:8 read bank: 2 counter: 0
+time: 202 ns B queue:8 read release bank: 2, slice: 1
+time: 202 ns B queue:8 read decode erase: queue_id 8
+time: 202 ns B queue:9 read bank: 2 counter: 1
+time: 202 ns B queue:10 read bank: 0 counter: 2
+time: 202 ns B queue:11 read bank: 2 counter: 3
+time: 202 ns B queue:15 write wait counter: 0
+time: 202 ns B queue:15 process encode data: 15
+time: 202 ns B queue:15 write allocate bank: 1, slice: 6
+time: 203 ns B encode queue: 204
+time: 203 ns B decode queue: 204
+time: 203 ns B queue:9 read bank: 2 counter: 0
+time: 203 ns B queue:9 read release bank: 2, slice: 4
+time: 203 ns B queue:9 read decode erase: queue_id 9
+time: 203 ns B queue:10 read bank: 0 counter: 1
+time: 203 ns B queue:11 read bank: 2 counter: 2
+time: 203 ns B queue:12 read bank: 2 counter: 3
+time: 203 ns B queue:15 write wait counter: 0
+time: 203 ns B queue:15 process encode data: 15
+time: 203 ns B queue:15 write allocate bank: 1, slice: 7
+time: 204 ns B encode queue: 205
+time: 204 ns B decode queue: 205
+time: 204 ns B queue:10 read bank: 0 counter: 0
+time: 204 ns B queue:10 read release bank: 0, slice: 9
+time: 204 ns B queue:11 read bank: 2 counter: 1
+time: 204 ns B queue:12 read bank: 2 counter: 2
+time: 204 ns B queue:13 read bank: 3 counter: 3
+time: 204 ns B queue:15 write wait counter: 0
+time: 204 ns B queue:15 process encode data: 15
+time: 204 ns B queue:15 write allocate bank: 1, slice: 8
+time: 205 ns B encode queue: 206
+time: 205 ns B decode queue: 206
+time: 205 ns B queue:10 read bank: 0 counter: 3
+time: 205 ns B queue:11 read bank: 2 counter: 0
+time: 205 ns B queue:11 read release bank: 2, slice: 9
+time: 205 ns B queue:12 read bank: 2 counter: 1
+time: 205 ns B queue:13 read bank: 3 counter: 2
+time: 205 ns B queue:15 write wait counter: 0
+time: 205 ns B queue:15 process encode data: 15
+time: 205 ns B queue:15 write allocate bank: 0, slice: 5
+time: 206 ns B encode queue: 207
+time: 206 ns B decode queue: 207
+time: 206 ns B queue:10 read bank: 0 counter: 2
+time: 206 ns B queue:11 read bank: 2 counter: 3
+time: 206 ns B queue:12 read bank: 2 counter: 0
+time: 206 ns B queue:12 read release bank: 2, slice: 7
+time: 206 ns B queue:13 read bank: 3 counter: 1
+time: 206 ns B queue:15 write wait counter: 0
+time: 206 ns B queue:15 process encode data: 15
+time: 206 ns B queue:15 write allocate bank: 0, slice: 9
+time: 207 ns B encode queue: 208
+time: 207 ns B decode queue: 208
+time: 207 ns B queue:10 read bank: 0 counter: 1
+time: 207 ns B queue:11 read bank: 2 counter: 2
+time: 207 ns B queue:12 read bank: 2 counter: 3
+time: 207 ns B queue:13 read bank: 3 counter: 0
+time: 207 ns B queue:13 read release bank: 3, slice: 10
+time: 207 ns B queue:15 write wait counter: 0
+time: 207 ns B queue:15 process encode data: 15
+time: 207 ns B queue:15 write allocate bank: 2, slice: 0
+time: 208 ns B encode queue: 209
+time: 208 ns B decode queue: 209
+time: 208 ns B queue:10 read bank: 0 counter: 0
+time: 208 ns B queue:10 read release bank: 0, slice: 13
+time: 208 ns B queue:11 read bank: 2 counter: 1
+time: 208 ns B queue:12 read bank: 2 counter: 2
+time: 208 ns B queue:13 read bank: 3 counter: 3
+time: 208 ns B queue:15 write wait counter: 0
+time: 208 ns B queue:15 process encode data: 15
+time: 208 ns B queue:15 write allocate bank: 2, slice: 1
+time: 209 ns B encode queue: 210
+time: 209 ns B decode queue: 210
+time: 209 ns B queue:10 read bank: 0 counter: 3
+time: 209 ns B queue:11 read bank: 2 counter: 0
+time: 209 ns B queue:11 read release bank: 2, slice: 13
+time: 209 ns B queue:12 read bank: 2 counter: 1
+time: 209 ns B queue:13 read bank: 3 counter: 2
+time: 209 ns B queue:15 write wait counter: 0
+time: 209 ns B queue:15 process encode data: 15
+time: 209 ns B queue:15 write allocate bank: 0, slice: 13
+time: 210 ns B encode queue: 211
+time: 210 ns B decode queue: 211
+time: 210 ns B queue:10 read bank: 0 counter: 2
+time: 210 ns B queue:11 read bank: 2 counter: 3
+time: 210 ns B queue:12 read bank: 2 counter: 0
+time: 210 ns B queue:12 read release bank: 2, slice: 11
+time: 210 ns B queue:13 read bank: 3 counter: 1
+time: 210 ns B queue:15 write wait counter: 0
+time: 210 ns B queue:15 process encode data: 15
+time: 210 ns B queue:15 write allocate bank: 1, slice: 11
+time: 211 ns B encode queue: 212
+time: 211 ns B decode queue: 212
+time: 211 ns B queue:10 read bank: 0 counter: 1
+time: 211 ns B queue:11 read bank: 2 counter: 2
+time: 211 ns B queue:12 read bank: 2 counter: 3
+time: 211 ns B queue:13 read bank: 3 counter: 0
+time: 211 ns B queue:13 read release bank: 3, slice: 16
+time: 211 ns B queue:15 write wait counter: 0
+time: 211 ns B queue:15 process encode data: 15
+time: 211 ns B queue:15 write allocate bank: 2, slice: 4
+time: 212 ns B encode queue: 213
+time: 212 ns B decode queue: 213
+time: 212 ns B queue:10 read bank: 0 counter: 0
+time: 212 ns B queue:10 read release bank: 0, slice: 15
+time: 212 ns B queue:11 read bank: 2 counter: 1
+time: 212 ns B queue:12 read bank: 2 counter: 2
+time: 212 ns B queue:13 read bank: 3 counter: 3
+time: 212 ns B queue:15 write wait counter: 0
+time: 212 ns B queue:15 process encode data: 15
+time: 212 ns B queue:15 write allocate bank: 2, slice: 7
+time: 213 ns B encode queue: 214
+time: 213 ns B decode queue: 214
+time: 213 ns B queue:10 read bank: 1 counter: 3
+time: 213 ns B queue:11 read bank: 2 counter: 0
+time: 213 ns B queue:11 read release bank: 2, slice: 15
+time: 213 ns B queue:12 read bank: 2 counter: 1
+time: 213 ns B queue:13 read bank: 3 counter: 2
+time: 213 ns B queue:15 write wait counter: 0
+time: 213 ns B queue:15 process encode data: 15
+time: 213 ns B queue:15 write allocate bank: 3, slice: 10
+time: 214 ns B encode queue: 215
+time: 214 ns B decode queue: 215
+time: 214 ns B queue:10 read bank: 1 counter: 2
+time: 214 ns B queue:11 read bank: 3 counter: 3
+time: 214 ns B queue:12 read bank: 2 counter: 0
+time: 214 ns B queue:12 read release bank: 2, slice: 16
+time: 214 ns B queue:13 read bank: 3 counter: 1
+time: 214 ns B queue:15 write wait counter: 0
+time: 214 ns B queue:15 process encode data: 15
+time: 214 ns B queue:15 write allocate bank: 0, slice: 15
+time: 215 ns B encode queue: 216
+time: 215 ns B decode queue: 216
+time: 215 ns B queue:10 read bank: 1 counter: 1
+time: 215 ns B queue:11 read bank: 3 counter: 2
+time: 215 ns B queue:12 read bank: 3 counter: 3
+time: 215 ns B queue:13 read bank: 3 counter: 0
+time: 215 ns B queue:13 read release bank: 3, slice: 17
+time: 215 ns B queue:15 write wait counter: 0
+time: 215 ns B queue:15 process encode data: 15
+time: 215 ns B queue:15 write allocate bank: 2, slice: 9
+time: 216 ns B encode queue: 217
+time: 216 ns B decode queue: 217
+time: 216 ns B queue:10 read bank: 1 counter: 0
+time: 216 ns B queue:10 read release bank: 1, slice: 5
+time: 216 ns B queue:11 read bank: 3 counter: 1
+time: 216 ns B queue:12 read bank: 3 counter: 2
+time: 216 ns B queue:13 read bank: 0 counter: 3
+time: 216 ns B queue:15 write wait counter: 0
+time: 216 ns B queue:15 process encode data: 15
+time: 216 ns B queue:15 write allocate bank: 2, slice: 11
+time: 217 ns B encode queue: 218
+time: 217 ns B decode queue: 218
+time: 217 ns B queue:10 read bank: 1 counter: 3
+time: 217 ns B queue:11 read bank: 3 counter: 0
+time: 217 ns B queue:11 read release bank: 3, slice: 5
+time: 217 ns B queue:12 read bank: 3 counter: 1
+time: 217 ns B queue:13 read bank: 0 counter: 2
+time: 217 ns B queue:16 write wait counter: 0
+time: 217 ns B queue:16 process encode data: 16
+time: 217 ns B queue:16 write allocate bank: 2, slice: 13
+time: 218 ns B encode queue: 219
+time: 218 ns B decode queue: 219
+time: 218 ns B queue:10 read bank: 1 counter: 2
+time: 218 ns B queue:11 read bank: 3 counter: 3
+time: 218 ns B queue:12 read bank: 3 counter: 0
+time: 218 ns B queue:12 read release bank: 3, slice: 0
+time: 218 ns B queue:13 read bank: 0 counter: 1
+time: 218 ns B queue:16 write wait counter: 0
+time: 218 ns B queue:16 process encode data: 16
+time: 218 ns B queue:16 write allocate bank: 1, slice: 5
+time: 219 ns B encode queue: 220
+time: 219 ns B decode queue: 220
+time: 219 ns B queue:10 read bank: 1 counter: 1
+time: 219 ns B queue:11 read bank: 3 counter: 2
+time: 219 ns B queue:12 read bank: 3 counter: 3
+time: 219 ns B queue:13 read bank: 0 counter: 0
+time: 219 ns B queue:13 read release bank: 0, slice: 0
+time: 219 ns B queue:16 write wait counter: 0
+time: 219 ns B queue:16 process encode data: 16
+time: 219 ns B queue:16 write allocate bank: 3, slice: 0
+time: 220 ns B encode queue: 221
+time: 220 ns B decode queue: 221
+time: 220 ns B queue:10 read bank: 1 counter: 0
+time: 220 ns B queue:10 read release bank: 1, slice: 9
+time: 220 ns B queue:11 read bank: 3 counter: 1
+time: 220 ns B queue:12 read bank: 3 counter: 2
+time: 220 ns B queue:13 read bank: 3 counter: 3
+time: 220 ns B queue:16 write wait counter: 0
+time: 220 ns B queue:16 process encode data: 16
+time: 220 ns B queue:16 write allocate bank: 3, slice: 5
+time: 221 ns B encode queue: 222
+time: 221 ns B decode queue: 222
+time: 221 ns B queue:10 read bank: 1 counter: 3
+time: 221 ns B queue:11 read bank: 3 counter: 0
+time: 221 ns B queue:11 read release bank: 3, slice: 9
+time: 221 ns B queue:12 read bank: 3 counter: 1
+time: 221 ns B queue:13 read bank: 3 counter: 2
+time: 221 ns B queue:16 write wait counter: 0
+time: 221 ns B queue:16 process encode data: 16
+time: 221 ns B queue:16 write allocate bank: 0, slice: 0
+time: 222 ns B encode queue: 223
+time: 222 ns B decode queue: 223
+time: 222 ns B queue:10 read bank: 1 counter: 2
+time: 222 ns B queue:11 read bank: 3 counter: 3
+time: 222 ns B queue:12 read bank: 3 counter: 0
+time: 222 ns B queue:12 read release bank: 3, slice: 1
+time: 222 ns B queue:13 read bank: 3 counter: 1
+time: 222 ns B queue:16 write wait counter: 0
+time: 222 ns B queue:16 process encode data: 16
+time: 222 ns B queue:16 write allocate bank: 1, slice: 9
+time: 223 ns B encode queue: 224
+time: 223 ns B decode queue: 224
+time: 223 ns B queue:10 read bank: 1 counter: 1
+time: 223 ns B queue:11 read bank: 3 counter: 2
+time: 223 ns B queue:12 read bank: 0 counter: 3
+time: 223 ns B queue:13 read bank: 3 counter: 0
+time: 223 ns B queue:13 read release bank: 3, slice: 18
+time: 223 ns B queue:16 write wait counter: 0
+time: 223 ns B queue:16 process encode data: 16
+time: 223 ns B queue:16 write allocate bank: 2, slice: 15
+time: 224 ns B encode queue: 225
+time: 224 ns B decode queue: 225
+time: 224 ns B queue:10 read bank: 1 counter: 0
+time: 224 ns B queue:10 read release bank: 1, slice: 13
+time: 224 ns B queue:11 read bank: 3 counter: 1
+time: 224 ns B queue:12 read bank: 0 counter: 2
+time: 224 ns B queue:13 read bank: 2 counter: 3
+time: 224 ns B queue:16 write wait counter: 0
+time: 224 ns B queue:16 process encode data: 16
+time: 224 ns B queue:16 write allocate bank: 3, slice: 1
+time: 225 ns B encode queue: 226
+time: 225 ns B decode queue: 226
+time: 225 ns B queue:10 read bank: 1 counter: 3
+time: 225 ns B queue:11 read bank: 3 counter: 0
+time: 225 ns B queue:11 read release bank: 3, slice: 13
+time: 225 ns B queue:12 read bank: 0 counter: 1
+time: 225 ns B queue:13 read bank: 2 counter: 2
+time: 225 ns B queue:16 write wait counter: 0
+time: 225 ns B queue:16 process encode data: 16
+time: 225 ns B queue:16 write allocate bank: 1, slice: 12
+time: 226 ns B encode queue: 227
+time: 226 ns B decode queue: 227
+time: 226 ns B queue:10 read bank: 1 counter: 2
+time: 226 ns B queue:11 read bank: 0 counter: 3
+time: 226 ns B queue:12 read bank: 0 counter: 0
+time: 226 ns B queue:12 read release bank: 0, slice: 17
+time: 226 ns B queue:13 read bank: 2 counter: 1
+time: 226 ns B queue:16 write wait counter: 0
+time: 226 ns B queue:16 process encode data: 16
+time: 226 ns B queue:16 write allocate bank: 3, slice: 9
+time: 227 ns B encode queue: 228
+time: 227 ns B decode queue: 228
+time: 227 ns B queue:10 read bank: 1 counter: 1
+time: 227 ns B queue:11 read bank: 0 counter: 2
+time: 227 ns B queue:12 read bank: 1 counter: 3
+time: 227 ns B queue:13 read bank: 2 counter: 0
+time: 227 ns B queue:13 read release bank: 2, slice: 8
+time: 227 ns B queue:16 write wait counter: 0
+time: 227 ns B queue:16 process encode data: 16
+time: 227 ns B queue:16 write allocate bank: 3, slice: 12
+time: 228 ns B encode queue: 229
+time: 228 ns B decode queue: 229
+time: 228 ns B queue:10 read bank: 1 counter: 0
+time: 228 ns B queue:10 read release bank: 1, slice: 15
+time: 228 ns B queue:11 read bank: 0 counter: 1
+time: 228 ns B queue:12 read bank: 1 counter: 2
+time: 228 ns B queue:13 read bank: 3 counter: 3
+time: 228 ns B queue:16 write wait counter: 0
+time: 228 ns B queue:16 process encode data: 16
+time: 228 ns B queue:16 write allocate bank: 3, slice: 13
+time: 229 ns B encode queue: 230
+time: 229 ns B decode queue: 230
+time: 229 ns B queue:10 read bank: 2 counter: 3
+time: 229 ns B queue:11 read bank: 0 counter: 0
+time: 229 ns B queue:11 read release bank: 0, slice: 16
+time: 229 ns B queue:12 read bank: 1 counter: 1
+time: 229 ns B queue:13 read bank: 3 counter: 2
+time: 229 ns B queue:16 write wait counter: 0
+time: 229 ns B queue:16 process encode data: 16
+time: 229 ns B queue:16 write allocate bank: 3, slice: 16
+time: 230 ns B encode queue: 231
+time: 230 ns B decode queue: 231
+time: 230 ns B queue:10 read bank: 2 counter: 2
+time: 230 ns B queue:11 read bank: 2 counter: 3
+time: 230 ns B queue:12 read bank: 1 counter: 0
+time: 230 ns B queue:12 read release bank: 1, slice: 19
+time: 230 ns B queue:13 read bank: 3 counter: 1
+time: 230 ns B queue:16 write wait counter: 0
+time: 230 ns B queue:16 process encode data: 16
+time: 230 ns B queue:16 write allocate bank: 0, slice: 16
+time: 231 ns B encode queue: 232
+time: 231 ns B decode queue: 232
+time: 231 ns B queue:10 read bank: 2 counter: 1
+time: 231 ns B queue:11 read bank: 2 counter: 2
+time: 231 ns B queue:12 read bank: 3 counter: 3
+time: 231 ns B queue:13 read bank: 3 counter: 0
+time: 231 ns B queue:13 read release bank: 3, slice: 19
+time: 231 ns B queue:16 write wait counter: 0
+time: 231 ns B queue:16 process encode data: 16
+time: 231 ns B queue:16 write allocate bank: 1, slice: 13
+time: 232 ns B encode queue: 233
+time: 232 ns B decode queue: 233
+time: 232 ns B queue:10 read bank: 2 counter: 0
+time: 232 ns B queue:10 read release bank: 2, slice: 5
+time: 232 ns B queue:10 read decode erase: queue_id 10
+time: 232 ns B queue:11 read bank: 2 counter: 1
+time: 232 ns B queue:12 read bank: 3 counter: 2
+time: 232 ns B queue:13 read bank: 0 counter: 3
+time: 232 ns B queue:16 write wait counter: 0
+time: 232 ns B queue:16 process encode data: 16
+time: 232 ns B queue:16 write allocate bank: 3, slice: 17
+time: 233 ns B encode queue: 234
+time: 233 ns B decode queue: 234
+time: 233 ns B queue:11 read bank: 2 counter: 0
+time: 233 ns B queue:11 read release bank: 2, slice: 2
+time: 233 ns B queue:12 read bank: 3 counter: 1
+time: 233 ns B queue:13 read bank: 0 counter: 2
+time: 233 ns B queue:14 read bank: 0 counter: 3
+time: 233 ns B queue:17 write wait counter: 0
+time: 233 ns B queue:17 process encode data: 17
+time: 233 ns B queue:17 write allocate bank: 0, slice: 17
+time: 234 ns B encode queue: 235
+time: 234 ns B decode queue: 235
+time: 234 ns B queue:11 read bank: 3 counter: 3
+time: 234 ns B queue:12 read bank: 3 counter: 0
+time: 234 ns B queue:12 read release bank: 3, slice: 2
+time: 234 ns B queue:13 read bank: 0 counter: 1
+time: 234 ns B queue:14 read bank: 0 counter: 2
+time: 234 ns B queue:17 write wait counter: 0
+time: 234 ns B queue:17 process encode data: 17
+time: 234 ns B queue:17 write allocate bank: 2, slice: 2
+time: 235 ns B encode queue: 236
+time: 235 ns B decode queue: 236
+time: 235 ns B queue:11 read bank: 3 counter: 2
+time: 235 ns B queue:12 read bank: 3 counter: 3
+time: 235 ns B queue:13 read bank: 0 counter: 0
+time: 235 ns B queue:13 read release bank: 0, slice: 1
+time: 235 ns B queue:14 read bank: 0 counter: 1
+time: 235 ns B queue:17 write wait counter: 0
+time: 235 ns B queue:17 process encode data: 17
+time: 235 ns B queue:17 write allocate bank: 2, slice: 5
+time: 236 ns B encode queue: 237
+time: 236 ns B decode queue: 237
+time: 236 ns B queue:11 read bank: 3 counter: 1
+time: 236 ns B queue:12 read bank: 3 counter: 2
+time: 236 ns B queue:13 read bank: 2 counter: 3
+time: 236 ns B queue:14 read bank: 0 counter: 0
+time: 236 ns B queue:14 read release bank: 0, slice: 4
+time: 236 ns B queue:17 write wait counter: 0
+time: 236 ns B queue:17 process encode data: 17
+time: 236 ns B queue:17 write allocate bank: 3, slice: 2
+time: 237 ns B encode queue: 238
+time: 237 ns B decode queue: 238
+time: 237 ns B queue:11 read bank: 3 counter: 0
+time: 237 ns B queue:11 read release bank: 3, slice: 14
+time: 237 ns B queue:12 read bank: 3 counter: 1
+time: 237 ns B queue:13 read bank: 2 counter: 2
+time: 237 ns B queue:14 read bank: 0 counter: 3
+time: 237 ns B queue:17 write wait counter: 0
+time: 237 ns B queue:17 process encode data: 17
+time: 237 ns B queue:17 write allocate bank: 0, slice: 1
+time: 238 ns B encode queue: 239
+time: 238 ns B decode queue: 239
+time: 238 ns B queue:11 read bank: 1 counter: 3
+time: 238 ns B queue:12 read bank: 3 counter: 0
+time: 238 ns B queue:12 read release bank: 3, slice: 3
+time: 238 ns B queue:13 read bank: 2 counter: 1
+time: 238 ns B queue:14 read bank: 0 counter: 2
+time: 238 ns B queue:17 write wait counter: 0
+time: 238 ns B queue:17 process encode data: 17
+time: 238 ns B queue:17 write allocate bank: 0, slice: 4
+time: 239 ns B encode queue: 240
+time: 239 ns B decode queue: 240
+time: 239 ns B queue:11 read bank: 1 counter: 2
+time: 239 ns B queue:12 read bank: 2 counter: 3
+time: 239 ns B queue:13 read bank: 2 counter: 0
+time: 239 ns B queue:13 read release bank: 2, slice: 12
+time: 239 ns B queue:14 read bank: 0 counter: 1
+time: 239 ns B queue:17 write wait counter: 0
+time: 239 ns B queue:17 process encode data: 17
+time: 239 ns B queue:17 write allocate bank: 3, slice: 3
+time: 240 ns B encode queue: 241
+time: 240 ns B decode queue: 241
+time: 240 ns B queue:11 read bank: 1 counter: 1
+time: 240 ns B queue:12 read bank: 2 counter: 2
+time: 240 ns B queue:13 read bank: 1 counter: 3
+time: 240 ns B queue:14 read bank: 0 counter: 0
+time: 240 ns B queue:14 read release bank: 0, slice: 6
+time: 240 ns B queue:17 write wait counter: 0
+time: 240 ns B queue:17 process encode data: 17
+time: 240 ns B queue:17 write allocate bank: 2, slice: 8
+time: 241 ns B encode queue: 242
+time: 241 ns B decode queue: 242
+time: 241 ns B queue:11 read bank: 1 counter: 0
+time: 241 ns B queue:11 read release bank: 1, slice: 16
+time: 241 ns B queue:12 read bank: 2 counter: 1
+time: 241 ns B queue:13 read bank: 1 counter: 2
+time: 241 ns B queue:14 read bank: 0 counter: 3
+time: 241 ns B queue:17 write wait counter: 0
+time: 241 ns B queue:17 process encode data: 17
+time: 241 ns B queue:17 write allocate bank: 3, slice: 14
+time: 242 ns B encode queue: 243
+time: 242 ns B decode queue: 243
+time: 242 ns B queue:11 read bank: 0 counter: 3
+time: 242 ns B queue:12 read bank: 2 counter: 0
+time: 242 ns B queue:12 read release bank: 2, slice: 18
+time: 242 ns B queue:13 read bank: 1 counter: 1
+time: 242 ns B queue:14 read bank: 0 counter: 2
+time: 242 ns B queue:17 write wait counter: 0
+time: 242 ns B queue:17 process encode data: 17
+time: 242 ns B queue:17 write allocate bank: 1, slice: 14
+time: 243 ns B encode queue: 244
+time: 243 ns B decode queue: 244
+time: 243 ns B queue:11 read bank: 0 counter: 2
+time: 243 ns B queue:12 read bank: 1 counter: 3
+time: 243 ns B queue:13 read bank: 1 counter: 0
+time: 243 ns B queue:13 read release bank: 1, slice: 20
+time: 243 ns B queue:14 read bank: 0 counter: 1
+time: 243 ns B queue:17 write wait counter: 0
+time: 243 ns B queue:17 process encode data: 17
+time: 243 ns B queue:17 write allocate bank: 2, slice: 12
+time: 244 ns B encode queue: 245
+time: 244 ns B decode queue: 245
+time: 244 ns B queue:11 read bank: 0 counter: 1
+time: 244 ns B queue:12 read bank: 1 counter: 2
+time: 244 ns B queue:13 read bank: 2 counter: 3
+time: 244 ns B queue:14 read bank: 0 counter: 0
+time: 244 ns B queue:14 read release bank: 0, slice: 7
+time: 244 ns B queue:17 write wait counter: 0
+time: 244 ns B queue:17 process encode data: 17
+time: 244 ns B queue:17 write allocate bank: 1, slice: 15
+time: 245 ns B encode queue: 246
+time: 245 ns B decode queue: 246
+time: 245 ns B queue:11 read bank: 0 counter: 0
+time: 245 ns B queue:11 read release bank: 0, slice: 18
+time: 245 ns B queue:12 read bank: 1 counter: 1
+time: 245 ns B queue:13 read bank: 2 counter: 2
+time: 245 ns B queue:14 read bank: 0 counter: 3
+time: 245 ns B queue:17 write wait counter: 0
+time: 245 ns B queue:17 process encode data: 17
+time: 245 ns B queue:17 write allocate bank: 1, slice: 16
+time: 246 ns B encode queue: 247
+time: 246 ns B decode queue: 247
+time: 246 ns B queue:11 read bank: 1 counter: 3
+time: 246 ns B queue:12 read bank: 1 counter: 0
+time: 246 ns B queue:12 read release bank: 1, slice: 17
+time: 246 ns B queue:13 read bank: 2 counter: 1
+time: 246 ns B queue:14 read bank: 0 counter: 2
+time: 246 ns B queue:17 write wait counter: 0
+time: 246 ns B queue:17 process encode data: 17
+time: 246 ns B queue:17 write allocate bank: 0, slice: 6
+time: 247 ns B encode queue: 248
+time: 247 ns B decode queue: 248
+time: 247 ns B queue:11 read bank: 1 counter: 2
+time: 247 ns B queue:12 read bank: 3 counter: 3
+time: 247 ns B queue:13 read bank: 2 counter: 0
+time: 247 ns B queue:13 read release bank: 2, slice: 20
+time: 247 ns B queue:14 read bank: 0 counter: 1
+time: 247 ns B queue:17 write wait counter: 0
+time: 247 ns B queue:17 process encode data: 17
+time: 247 ns B queue:17 write allocate bank: 0, slice: 7
+time: 248 ns B encode queue: 249
+time: 248 ns B decode queue: 249
+time: 248 ns B queue:11 read bank: 1 counter: 1
+time: 248 ns B queue:12 read bank: 3 counter: 2
+time: 248 ns B queue:13 read bank: 0 counter: 3
+time: 248 ns B queue:14 read bank: 0 counter: 0
+time: 248 ns B queue:14 read release bank: 0, slice: 8
+time: 248 ns B queue:17 write wait counter: 0
+time: 248 ns B queue:17 process encode data: 17
+time: 248 ns B queue:17 write allocate bank: 2, slice: 16
+time: 249 ns B encode queue: 250
+time: 249 ns B decode queue: 250
+time: 249 ns B queue:11 read bank: 1 counter: 0
+time: 249 ns B queue:11 read release bank: 1, slice: 18
+time: 249 ns B queue:12 read bank: 3 counter: 1
+time: 249 ns B queue:13 read bank: 0 counter: 2
+time: 249 ns B queue:14 read bank: 0 counter: 3
+time: 249 ns B queue:18 write wait counter: 0
+time: 249 ns B queue:18 process encode data: 18
+time: 249 ns B queue:18 write allocate bank: 0, slice: 8
+time: 250 ns B encode queue: 251
+time: 250 ns B decode queue: 251
+time: 250 ns B queue:11 read bank: 3 counter: 3
+time: 250 ns B queue:12 read bank: 3 counter: 0
+time: 250 ns B queue:12 read release bank: 3, slice: 6
+time: 250 ns B queue:13 read bank: 0 counter: 1
+time: 250 ns B queue:14 read bank: 0 counter: 2
+time: 250 ns B queue:18 write wait counter: 0
+time: 250 ns B queue:18 process encode data: 18
+time: 250 ns B queue:18 write allocate bank: 1, slice: 17
+time: 251 ns B encode queue: 252
+time: 251 ns B decode queue: 252
+time: 251 ns B queue:11 read bank: 3 counter: 2
+time: 251 ns B queue:12 read bank: 2 counter: 3
+time: 251 ns B queue:13 read bank: 0 counter: 0
+time: 251 ns B queue:13 read release bank: 0, slice: 2
+time: 251 ns B queue:14 read bank: 0 counter: 1
+time: 251 ns B queue:18 write wait counter: 0
+time: 251 ns B queue:18 process encode data: 18
+time: 251 ns B queue:18 write allocate bank: 3, slice: 6
+time: 252 ns B encode queue: 253
+time: 252 ns B decode queue: 253
+time: 252 ns B queue:11 read bank: 3 counter: 1
+time: 252 ns B queue:12 read bank: 2 counter: 2
+time: 252 ns B queue:13 read bank: 2 counter: 3
+time: 252 ns B queue:14 read bank: 0 counter: 0
+time: 252 ns B queue:14 read release bank: 0, slice: 10
+time: 252 ns B queue:18 write wait counter: 0
+time: 252 ns B queue:18 process encode data: 18
+time: 252 ns B queue:18 write allocate bank: 1, slice: 18
+time: 253 ns B encode queue: 254
+time: 253 ns B decode queue: 254
+time: 253 ns B queue:11 read bank: 3 counter: 0
+time: 253 ns B queue:11 read release bank: 3, slice: 15
+time: 253 ns B queue:12 read bank: 2 counter: 1
+time: 253 ns B queue:13 read bank: 2 counter: 2
+time: 253 ns B queue:14 read bank: 0 counter: 3
+time: 253 ns B queue:18 write wait counter: 0
+time: 253 ns B queue:18 process encode data: 18
+time: 253 ns B queue:18 write allocate bank: 0, slice: 2
+time: 254 ns B encode queue: 255
+time: 254 ns B decode queue: 255
+time: 254 ns B queue:11 read bank: 2 counter: 3
+time: 254 ns B queue:12 read bank: 2 counter: 0
+time: 254 ns B queue:12 read release bank: 2, slice: 17
+time: 254 ns B queue:13 read bank: 2 counter: 1
+time: 254 ns B queue:14 read bank: 0 counter: 2
+time: 254 ns B queue:18 write wait counter: 0
+time: 254 ns B queue:18 process encode data: 18
+time: 254 ns B queue:18 write allocate bank: 0, slice: 10
+time: 255 ns B encode queue: 256
+time: 255 ns B decode queue: 256
+time: 255 ns B queue:11 read bank: 2 counter: 2
+time: 255 ns B queue:12 read bank: 3 counter: 3
+time: 255 ns B queue:13 read bank: 2 counter: 0
+time: 255 ns B queue:13 read release bank: 2, slice: 14
+time: 255 ns B queue:14 read bank: 0 counter: 1
+time: 255 ns B queue:18 write wait counter: 0
+time: 255 ns B queue:18 process encode data: 18
+time: 255 ns B queue:18 write allocate bank: 3, slice: 15
+time: 256 ns B encode queue: 257
+time: 256 ns B decode queue: 257
+time: 256 ns B queue:11 read bank: 2 counter: 1
+time: 256 ns B queue:12 read bank: 3 counter: 2
+time: 256 ns B queue:13 read bank: 3 counter: 3
+time: 256 ns B queue:14 read bank: 0 counter: 0
+time: 256 ns B queue:14 read release bank: 0, slice: 11
+time: 256 ns B queue:18 write wait counter: 0
+time: 256 ns B queue:18 process encode data: 18
+time: 256 ns B queue:18 write allocate bank: 2, slice: 14
+time: 257 ns B encode queue: 258
+time: 257 ns B decode queue: 258
+time: 257 ns B queue:11 read bank: 2 counter: 0
+time: 257 ns B queue:11 read release bank: 2, slice: 3
+time: 257 ns B queue:12 read bank: 3 counter: 1
+time: 257 ns B queue:13 read bank: 3 counter: 2
+time: 257 ns B queue:14 read bank: 0 counter: 3
+time: 257 ns B queue:18 write wait counter: 0
+time: 257 ns B queue:18 process encode data: 18
+time: 257 ns B queue:18 write allocate bank: 0, slice: 11
+time: 258 ns B encode queue: 259
+time: 258 ns B decode queue: 259
+time: 258 ns B queue:11 read bank: 1 counter: 3
+time: 258 ns B queue:12 read bank: 3 counter: 0
+time: 258 ns B queue:12 read release bank: 3, slice: 7
+time: 258 ns B queue:13 read bank: 3 counter: 1
+time: 258 ns B queue:14 read bank: 0 counter: 2
+time: 258 ns B queue:18 write wait counter: 0
+time: 258 ns B queue:18 process encode data: 18
+time: 258 ns B queue:18 write allocate bank: 2, slice: 3
+time: 259 ns B encode queue: 260
+time: 259 ns B decode queue: 260
+time: 259 ns B queue:11 read bank: 1 counter: 2
+time: 259 ns B queue:12 read bank: 2 counter: 3
+time: 259 ns B queue:13 read bank: 3 counter: 0
+time: 259 ns B queue:13 read release bank: 3, slice: 20
+time: 259 ns B queue:14 read bank: 0 counter: 1
+time: 259 ns B queue:18 write wait counter: 0
+time: 259 ns B queue:18 process encode data: 18
+time: 259 ns B queue:18 write allocate bank: 2, slice: 17
+time: 260 ns B encode queue: 261
+time: 260 ns B decode queue: 261
+time: 260 ns B queue:11 read bank: 1 counter: 1
+time: 260 ns B queue:12 read bank: 2 counter: 2
+time: 260 ns B queue:13 read bank: 1 counter: 3
+time: 260 ns B queue:14 read bank: 0 counter: 0
+time: 260 ns B queue:14 read release bank: 0, slice: 12
+time: 260 ns B queue:18 write wait counter: 0
+time: 260 ns B queue:18 process encode data: 18
+time: 260 ns B queue:18 write allocate bank: 3, slice: 7
+time: 261 ns B encode queue: 262
+time: 261 ns B decode queue: 262
+time: 261 ns B queue:11 read bank: 1 counter: 0
+time: 261 ns B queue:11 read release bank: 1, slice: 10
+time: 261 ns B queue:12 read bank: 2 counter: 1
+time: 261 ns B queue:13 read bank: 1 counter: 2
+time: 261 ns B queue:14 read bank: 1 counter: 3
+time: 261 ns B queue:18 write wait counter: 0
+time: 261 ns B queue:18 process encode data: 18
+time: 261 ns B queue:18 write allocate bank: 0, slice: 12
+time: 262 ns B encode queue: 263
+time: 262 ns B decode queue: 263
+time: 262 ns B queue:11 read bank: 2 counter: 3
+time: 262 ns B queue:12 read bank: 2 counter: 0
+time: 262 ns B queue:12 read release bank: 2, slice: 10
+time: 262 ns B queue:13 read bank: 1 counter: 1
+time: 262 ns B queue:14 read bank: 1 counter: 2
+time: 262 ns B queue:18 write wait counter: 0
+time: 262 ns B queue:18 process encode data: 18
+time: 262 ns B queue:18 write allocate bank: 3, slice: 18
+time: 263 ns B encode queue: 264
+time: 263 ns B decode queue: 264
+time: 263 ns B queue:11 read bank: 2 counter: 2
+time: 263 ns B queue:12 read bank: 2 counter: 3
+time: 263 ns B queue:13 read bank: 1 counter: 0
+time: 263 ns B queue:13 read release bank: 1, slice: 21
+time: 263 ns B queue:14 read bank: 1 counter: 1
+time: 263 ns B queue:18 write wait counter: 0
+time: 263 ns B queue:18 process encode data: 18
+time: 263 ns B queue:18 write allocate bank: 2, slice: 10
+time: 264 ns B encode queue: 265
+time: 264 ns B decode queue: 265
+time: 264 ns B queue:11 read bank: 2 counter: 1
+time: 264 ns B queue:12 read bank: 2 counter: 2
+time: 264 ns B queue:13 read bank: 0 counter: 3
+time: 264 ns B queue:14 read bank: 1 counter: 0
+time: 264 ns B queue:14 read release bank: 1, slice: 0
+time: 264 ns B queue:18 write wait counter: 0
+time: 264 ns B queue:18 process encode data: 18
+time: 264 ns B queue:18 write allocate bank: 0, slice: 18
+time: 265 ns B encode queue: 266
+time: 265 ns B decode queue: 266
+time: 265 ns B queue:11 read bank: 2 counter: 0
+time: 265 ns B queue:11 read release bank: 2, slice: 6
+time: 265 ns B queue:11 read decode erase: queue_id 11
+time: 265 ns B queue:12 read bank: 2 counter: 1
+time: 265 ns B queue:13 read bank: 0 counter: 2
+time: 265 ns B queue:14 read bank: 3 counter: 3
+time: 265 ns B queue:19 write wait counter: 0
+time: 265 ns B queue:19 process encode data: 19
+time: 265 ns B queue:19 write allocate bank: 1, slice: 0
+time: 266 ns B encode queue: 267
+time: 266 ns B decode queue: 267
+time: 266 ns B queue:12 read bank: 2 counter: 0
+time: 266 ns B queue:12 read release bank: 2, slice: 19
+time: 266 ns B queue:12 read decode erase: queue_id 12
+time: 266 ns B queue:13 read bank: 0 counter: 1
+time: 266 ns B queue:14 read bank: 3 counter: 2
+time: 266 ns B queue:15 read bank: 1 counter: 3
+time: 266 ns B queue:19 write wait counter: 0
+time: 266 ns B queue:19 process encode data: 19
+time: 266 ns B queue:19 write allocate bank: 1, slice: 10
+time: 267 ns B encode queue: 268
+time: 267 ns B decode queue: 268
+time: 267 ns B queue:13 read bank: 0 counter: 0
+time: 267 ns B queue:13 read release bank: 0, slice: 3
+time: 267 ns B queue:13 read decode erase: queue_id 13
+time: 267 ns B queue:14 read bank: 3 counter: 1
+time: 267 ns B queue:15 read bank: 1 counter: 2
+time: 267 ns B queue:16 read bank: 2 counter: 3
+time: 267 ns B queue:19 write wait counter: 0
+time: 267 ns B queue:19 process encode data: 19
+time: 267 ns B queue:19 write allocate bank: 2, slice: 6
+time: 268 ns B encode queue: 269
+time: 268 ns B decode queue: 269
+time: 268 ns B queue:14 read bank: 3 counter: 0
+time: 268 ns B queue:14 read release bank: 3, slice: 4
+time: 268 ns B queue:15 read bank: 1 counter: 1
+time: 268 ns B queue:16 read bank: 2 counter: 2
+time: 268 ns B queue:17 read bank: 0 counter: 3
+time: 268 ns B queue:19 write wait counter: 0
+time: 268 ns B queue:19 process encode data: 19
+time: 268 ns B queue:19 write allocate bank: 2, slice: 18
+time: 269 ns B encode queue: 270
+time: 269 ns B decode queue: 270
+time: 269 ns B queue:14 read bank: 0 counter: 3
+time: 269 ns B queue:15 read bank: 1 counter: 0
+time: 269 ns B queue:15 read release bank: 1, slice: 4
+time: 269 ns B queue:16 read bank: 2 counter: 1
+time: 269 ns B queue:17 read bank: 0 counter: 2
+time: 269 ns B queue:19 write wait counter: 0
+time: 269 ns B queue:19 process encode data: 19
+time: 269 ns B queue:19 write allocate bank: 3, slice: 4
+time: 270 ns B encode queue: 271
+time: 270 ns B decode queue: 271
+time: 270 ns B queue:14 read bank: 0 counter: 2
+time: 270 ns B queue:15 read bank: 1 counter: 3
+time: 270 ns B queue:16 read bank: 2 counter: 0
+time: 270 ns B queue:16 read release bank: 2, slice: 13
+time: 270 ns B queue:17 read bank: 0 counter: 1
+time: 270 ns B queue:19 write wait counter: 0
+time: 270 ns B queue:19 process encode data: 19
+time: 270 ns B queue:19 write allocate bank: 1, slice: 4
+time: 271 ns B encode queue: 272
+time: 271 ns B decode queue: 272
+time: 271 ns B queue:14 read bank: 0 counter: 1
+time: 271 ns B queue:15 read bank: 1 counter: 2
+time: 271 ns B queue:16 read bank: 1 counter: 3
+time: 271 ns B queue:17 read bank: 0 counter: 0
+time: 271 ns B queue:17 read release bank: 0, slice: 17
+time: 271 ns B queue:19 write wait counter: 0
+time: 271 ns B queue:19 process encode data: 19
+time: 271 ns B queue:19 write allocate bank: 2, slice: 13
+time: 272 ns B encode queue: 273
+time: 272 ns B decode queue: 273
+time: 272 ns B queue:14 read bank: 0 counter: 0
+time: 272 ns B queue:14 read release bank: 0, slice: 14
+time: 272 ns B queue:15 read bank: 1 counter: 1
+time: 272 ns B queue:16 read bank: 1 counter: 2
+time: 272 ns B queue:17 read bank: 2 counter: 3
+time: 272 ns B queue:19 write wait counter: 0
+time: 272 ns B queue:19 process encode data: 19
+time: 272 ns B queue:19 write allocate bank: 1, slice: 19
+time: 273 ns B encode queue: 274
+time: 273 ns B decode queue: 274
+time: 273 ns B queue:14 read bank: 3 counter: 3
+time: 273 ns B queue:15 read bank: 1 counter: 0
+time: 273 ns B queue:15 read release bank: 1, slice: 6
+time: 273 ns B queue:16 read bank: 1 counter: 1
+time: 273 ns B queue:17 read bank: 2 counter: 2
+time: 273 ns B queue:19 write wait counter: 0
+time: 273 ns B queue:19 process encode data: 19
+time: 273 ns B queue:19 write allocate bank: 0, slice: 3
+time: 274 ns B encode queue: 275
+time: 274 ns B decode queue: 275
+time: 274 ns B queue:14 read bank: 3 counter: 2
+time: 274 ns B queue:15 read bank: 1 counter: 3
+time: 274 ns B queue:16 read bank: 1 counter: 0
+time: 274 ns B queue:16 read release bank: 1, slice: 5
+time: 274 ns B queue:17 read bank: 2 counter: 1
+time: 274 ns B queue:19 write wait counter: 0
+time: 274 ns B queue:19 process encode data: 19
+time: 274 ns B queue:19 write allocate bank: 0, slice: 14
+time: 275 ns B encode queue: 276
+time: 275 ns B decode queue: 276
+time: 275 ns B queue:14 read bank: 3 counter: 1
+time: 275 ns B queue:15 read bank: 1 counter: 2
+time: 275 ns B queue:16 read bank: 3 counter: 3
+time: 275 ns B queue:17 read bank: 2 counter: 0
+time: 275 ns B queue:17 read release bank: 2, slice: 2
+time: 275 ns B queue:19 write wait counter: 0
+time: 275 ns B queue:19 process encode data: 19
+time: 275 ns B queue:19 write allocate bank: 1, slice: 5
+time: 276 ns B encode queue: 277
+time: 276 ns B decode queue: 277
+time: 276 ns B queue:14 read bank: 3 counter: 0
+time: 276 ns B queue:14 read release bank: 3, slice: 8
+time: 276 ns B queue:15 read bank: 1 counter: 1
+time: 276 ns B queue:16 read bank: 3 counter: 2
+time: 276 ns B queue:17 read bank: 2 counter: 3
+time: 276 ns B queue:19 write wait counter: 0
+time: 276 ns B queue:19 process encode data: 19
+time: 276 ns B queue:19 write allocate bank: 2, slice: 2
+time: 277 ns B encode queue: 278
+time: 277 ns B decode queue: 278
+time: 277 ns B queue:14 read bank: 1 counter: 3
+time: 277 ns B queue:15 read bank: 1 counter: 0
+time: 277 ns B queue:15 read release bank: 1, slice: 7
+time: 277 ns B queue:16 read bank: 3 counter: 1
+time: 277 ns B queue:17 read bank: 2 counter: 2
+time: 277 ns B queue:19 write wait counter: 0
+time: 277 ns B queue:19 process encode data: 19
+time: 277 ns B queue:19 write allocate bank: 3, slice: 8
+time: 278 ns B encode queue: 279
+time: 278 ns B decode queue: 279
+time: 278 ns B queue:14 read bank: 1 counter: 2
+time: 278 ns B queue:15 read bank: 1 counter: 3
+time: 278 ns B queue:16 read bank: 3 counter: 0
+time: 278 ns B queue:16 read release bank: 3, slice: 0
+time: 278 ns B queue:17 read bank: 2 counter: 1
+time: 278 ns B queue:19 write wait counter: 0
+time: 278 ns B queue:19 process encode data: 19
+time: 278 ns B queue:19 write allocate bank: 1, slice: 6
+time: 279 ns B encode queue: 280
+time: 279 ns B decode queue: 280
+time: 279 ns B queue:14 read bank: 1 counter: 1
+time: 279 ns B queue:15 read bank: 1 counter: 2
+time: 279 ns B queue:16 read bank: 3 counter: 3
+time: 279 ns B queue:17 read bank: 2 counter: 0
+time: 279 ns B queue:17 read release bank: 2, slice: 5
+time: 279 ns B queue:19 write wait counter: 0
+time: 279 ns B queue:19 process encode data: 19
+time: 279 ns B queue:19 write allocate bank: 3, slice: 0
+time: 280 ns B encode queue: 281
+time: 280 ns B decode queue: 281
+time: 280 ns B queue:14 read bank: 1 counter: 0
+time: 280 ns B queue:14 read release bank: 1, slice: 1
+time: 280 ns B queue:15 read bank: 1 counter: 1
+time: 280 ns B queue:16 read bank: 3 counter: 2
+time: 280 ns B queue:17 read bank: 3 counter: 3
+time: 280 ns B queue:19 write wait counter: 0
+time: 280 ns B queue:19 process encode data: 19
+time: 280 ns B queue:19 write allocate bank: 2, slice: 5
+time: 281 ns B encode queue: 282
+time: 281 ns B decode queue: 282
+time: 281 ns B queue:14 read bank: 1 counter: 3
+time: 281 ns B queue:15 read bank: 1 counter: 0
+time: 281 ns B queue:15 read release bank: 1, slice: 8
+time: 281 ns B queue:16 read bank: 3 counter: 1
+time: 281 ns B queue:17 read bank: 3 counter: 2
+time: 281 ns B queue:20 write wait counter: 0
+time: 281 ns B queue:20 process encode data: 20
+time: 281 ns B queue:20 write allocate bank: 0, slice: 17
+time: 282 ns B encode queue: 283
+time: 282 ns B decode queue: 283
+time: 282 ns B queue:14 read bank: 1 counter: 2
+time: 282 ns B queue:15 read bank: 0 counter: 3
+time: 282 ns B queue:16 read bank: 3 counter: 0
+time: 282 ns B queue:16 read release bank: 3, slice: 5
+time: 282 ns B queue:17 read bank: 3 counter: 1
+time: 282 ns B queue:20 write wait counter: 0
+time: 282 ns B queue:20 process encode data: 20
+time: 282 ns B queue:20 write allocate bank: 1, slice: 1
+time: 283 ns B encode queue: 284
+time: 283 ns B decode queue: 284
+time: 283 ns B queue:14 read bank: 1 counter: 1
+time: 283 ns B queue:15 read bank: 0 counter: 2
+time: 283 ns B queue:16 read bank: 0 counter: 3
+time: 283 ns B queue:17 read bank: 3 counter: 0
+time: 283 ns B queue:17 read release bank: 3, slice: 2
+time: 283 ns B queue:20 write wait counter: 0
+time: 283 ns B queue:20 process encode data: 20
+time: 283 ns B queue:20 write allocate bank: 1, slice: 7
+time: 284 ns B encode queue: 285
+time: 284 ns B decode queue: 285
+time: 284 ns B queue:14 read bank: 1 counter: 0
+time: 284 ns B queue:14 read release bank: 1, slice: 2
+time: 284 ns B queue:15 read bank: 0 counter: 1
+time: 284 ns B queue:16 read bank: 0 counter: 2
+time: 284 ns B queue:17 read bank: 0 counter: 3
+time: 284 ns B queue:20 write wait counter: 0
+time: 284 ns B queue:20 process encode data: 20
+time: 284 ns B queue:20 write allocate bank: 3, slice: 2
+time: 285 ns B encode queue: 286
+time: 285 ns B decode queue: 286
+time: 285 ns B queue:14 read bank: 0 counter: 3
+time: 285 ns B queue:15 read bank: 0 counter: 0
+time: 285 ns B queue:15 read release bank: 0, slice: 5
+time: 285 ns B queue:16 read bank: 0 counter: 1
+time: 285 ns B queue:17 read bank: 0 counter: 2
+time: 285 ns B queue:20 write wait counter: 0
+time: 285 ns B queue:20 process encode data: 20
+time: 285 ns B queue:20 write allocate bank: 1, slice: 2
+time: 286 ns B encode queue: 287
+time: 286 ns B decode queue: 287
+time: 286 ns B queue:14 read bank: 0 counter: 2
+time: 286 ns B queue:15 read bank: 0 counter: 3
+time: 286 ns B queue:16 read bank: 0 counter: 0
+time: 286 ns B queue:16 read release bank: 0, slice: 0
+time: 286 ns B queue:17 read bank: 0 counter: 1
+time: 286 ns B queue:20 write wait counter: 0
+time: 286 ns B queue:20 process encode data: 20
+time: 286 ns B queue:20 write allocate bank: 3, slice: 5
+time: 287 ns B encode queue: 288
+time: 287 ns B decode queue: 288
+time: 287 ns B queue:14 read bank: 0 counter: 1
+time: 287 ns B queue:15 read bank: 0 counter: 2
+time: 287 ns B queue:16 read bank: 1 counter: 3
+time: 287 ns B queue:17 read bank: 0 counter: 0
+time: 287 ns B queue:17 read release bank: 0, slice: 1
+time: 287 ns B queue:20 write wait counter: 0
+time: 287 ns B queue:20 process encode data: 20
+time: 287 ns B queue:20 write allocate bank: 1, slice: 8
+time: 288 ns B encode queue: 289
+time: 288 ns B decode queue: 289
+time: 288 ns B queue:14 read bank: 0 counter: 0
+time: 288 ns B queue:14 read release bank: 0, slice: 19
+time: 288 ns B queue:15 read bank: 0 counter: 1
+time: 288 ns B queue:16 read bank: 1 counter: 2
+time: 288 ns B queue:17 read bank: 0 counter: 3
+time: 288 ns B queue:20 write wait counter: 0
+time: 288 ns B queue:20 process encode data: 20
+time: 288 ns B queue:20 write allocate bank: 2, slice: 19
+time: 289 ns B encode queue: 290
+time: 289 ns B decode queue: 290
+time: 289 ns B queue:14 read bank: 3 counter: 3
+time: 289 ns B queue:15 read bank: 0 counter: 0
+time: 289 ns B queue:15 read release bank: 0, slice: 9
+time: 289 ns B queue:16 read bank: 1 counter: 1
+time: 289 ns B queue:17 read bank: 0 counter: 2
+time: 289 ns B queue:20 write wait counter: 0
+time: 289 ns B queue:20 process encode data: 20
+time: 289 ns B queue:20 write allocate bank: 3, slice: 19
+time: 290 ns B encode queue: 291
+time: 290 ns B decode queue: 291
+time: 290 ns B queue:14 read bank: 3 counter: 2
+time: 290 ns B queue:15 read bank: 2 counter: 3
+time: 290 ns B queue:16 read bank: 1 counter: 0
+time: 290 ns B queue:16 read release bank: 1, slice: 9
+time: 290 ns B queue:17 read bank: 0 counter: 1
+time: 290 ns B queue:20 write wait counter: 0
+time: 290 ns B queue:20 process encode data: 20
+time: 290 ns B queue:20 write allocate bank: 0, slice: 0
+time: 291 ns B encode queue: 292
+time: 291 ns B decode queue: 292
+time: 291 ns B queue:14 read bank: 3 counter: 1
+time: 291 ns B queue:15 read bank: 2 counter: 2
+time: 291 ns B queue:16 read bank: 2 counter: 3
+time: 291 ns B queue:17 read bank: 0 counter: 0
+time: 291 ns B queue:17 read release bank: 0, slice: 4
+time: 291 ns B queue:20 write wait counter: 0
+time: 291 ns B queue:20 process encode data: 20
+time: 291 ns B queue:20 write allocate bank: 1, slice: 9
+time: 292 ns B encode queue: 293
+time: 292 ns B decode queue: 293
+time: 292 ns B queue:14 read bank: 3 counter: 0
+time: 292 ns B queue:14 read release bank: 3, slice: 11
+time: 292 ns B queue:15 read bank: 2 counter: 1
+time: 292 ns B queue:16 read bank: 2 counter: 2
+time: 292 ns B queue:17 read bank: 3 counter: 3
+time: 292 ns B queue:20 write wait counter: 0
+time: 292 ns B queue:20 process encode data: 20
+time: 292 ns B queue:20 write allocate bank: 0, slice: 1
+time: 293 ns B encode queue: 294
+time: 293 ns B decode queue: 294
+time: 293 ns B queue:14 read bank: 1 counter: 3
+time: 293 ns B queue:15 read bank: 2 counter: 0
+time: 293 ns B queue:15 read release bank: 2, slice: 0
+time: 293 ns B queue:16 read bank: 2 counter: 1
+time: 293 ns B queue:17 read bank: 3 counter: 2
+time: 293 ns B queue:20 write wait counter: 0
+time: 293 ns B queue:20 process encode data: 20
+time: 293 ns B queue:20 write allocate bank: 0, slice: 4
+time: 294 ns B encode queue: 295
+time: 294 ns B decode queue: 295
+time: 294 ns B queue:14 read bank: 1 counter: 2
+time: 294 ns B queue:15 read bank: 2 counter: 3
+time: 294 ns B queue:16 read bank: 2 counter: 0
+time: 294 ns B queue:16 read release bank: 2, slice: 15
+time: 294 ns B queue:17 read bank: 3 counter: 1
+time: 294 ns B queue:20 write wait counter: 0
+time: 294 ns B queue:20 process encode data: 20
+time: 294 ns B queue:20 write allocate bank: 0, slice: 5
+time: 295 ns B encode queue: 296
+time: 295 ns B decode queue: 296
+time: 295 ns B queue:14 read bank: 1 counter: 1
+time: 295 ns B queue:15 read bank: 2 counter: 2
+time: 295 ns B queue:16 read bank: 3 counter: 3
+time: 295 ns B queue:17 read bank: 3 counter: 0
+time: 295 ns B queue:17 read release bank: 3, slice: 3
+time: 295 ns B queue:20 write wait counter: 0
+time: 295 ns B queue:20 process encode data: 20
+time: 295 ns B queue:20 write allocate bank: 0, slice: 9
+time: 296 ns B encode queue: 297
+time: 296 ns B decode queue: 297
+time: 296 ns B queue:14 read bank: 1 counter: 0
+time: 296 ns B queue:14 read release bank: 1, slice: 3
+time: 296 ns B queue:14 read decode erase: queue_id 14
+time: 296 ns B queue:15 read bank: 2 counter: 1
+time: 296 ns B queue:16 read bank: 3 counter: 2
+time: 296 ns B queue:17 read bank: 2 counter: 3
+time: 296 ns B queue:20 write wait counter: 0
+time: 296 ns B queue:20 process encode data: 20
+time: 296 ns B queue:20 write allocate bank: 2, slice: 0
+time: 297 ns B encode queue: 298
+time: 297 ns B decode queue: 298
+time: 297 ns B queue:15 read bank: 2 counter: 0
+time: 297 ns B queue:15 read release bank: 2, slice: 1
+time: 297 ns B queue:16 read bank: 3 counter: 1
+time: 297 ns B queue:17 read bank: 2 counter: 2
+time: 297 ns B queue:18 read bank: 0 counter: 3
+time: 297 ns B queue:21 write wait counter: 0
+time: 297 ns B queue:21 process encode data: 21
+time: 297 ns B queue:21 write allocate bank: 3, slice: 3
+time: 298 ns B encode queue: 299
+time: 298 ns B decode queue: 299
+time: 298 ns B queue:15 read bank: 0 counter: 3
+time: 298 ns B queue:16 read bank: 3 counter: 0
+time: 298 ns B queue:16 read release bank: 3, slice: 1
+time: 298 ns B queue:17 read bank: 2 counter: 1
+time: 298 ns B queue:18 read bank: 0 counter: 2
+time: 298 ns B queue:21 write wait counter: 0
+time: 298 ns B queue:21 process encode data: 21
+time: 298 ns B queue:21 write allocate bank: 2, slice: 1
+time: 299 ns B encode queue: 300
+time: 299 ns B decode queue: 300
+time: 299 ns B queue:15 read bank: 0 counter: 2
+time: 299 ns B queue:16 read bank: 1 counter: 3
+time: 299 ns B queue:17 read bank: 2 counter: 0
+time: 299 ns B queue:17 read release bank: 2, slice: 8
+time: 299 ns B queue:18 read bank: 0 counter: 1
+time: 299 ns B queue:21 write wait counter: 0
+time: 299 ns B queue:21 process encode data: 21
+time: 299 ns B queue:21 write allocate bank: 3, slice: 1
