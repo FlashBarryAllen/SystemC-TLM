@@ -92,7 +92,7 @@ struct queue_info {
 class B : public sc_module {
 	public:
 		SC_HAS_PROCESS(B);
-		B(sc_module_name name) : sc_module(name), bank_num(4), slice_num(128), decode_link_num(4), delay(4) {
+		B(sc_module_name name) : sc_module(name), bank_num(4), slice_num(128), decode_link_num(5), delay(4), write_cnt(1), write_slice_num(16) {
 			rx.register_nb_transport_fw(this, &B::rcv_from);
 			SC_METHOD(process);
 			sensitive << m_clk.pos();
@@ -120,6 +120,9 @@ class B : public sc_module {
 		void process();
 		tlm_sync_enum rcv_from(tlm_generic_payload& pl, tlm_phase& phase, sc_time& delay);
 
+		void encode_list();
+		void decode_list();
+
 	public:
 		int decode_link_num;
 		int read_bank_id;
@@ -137,11 +140,23 @@ class B : public sc_module {
 		std::map<int, queue_info>	queue_map;
 		std::list<int> decode_que_head;
 		std::vector<int> read_bank_id_vec;
+
+		int write_cnt;
+		int write_slice_num;
+
+		int last_bank_id = -1;
+		int last_slice_id = -1;
 };
 
+void B::encode_list() {
+}
+
+void B::decode_list() {
+}
+
 void B::process() {
-	if (!decode_que.empty()) {
-		if (decode_que_head.size() < decode_link_num) {
+	if (!decode_que.empty() && (decode_que.size() > decode_link_num)) {
+		while (decode_que_head.size() < decode_link_num) {
 			int queue_id = decode_que.front();
 			decode_que_head.push_back(queue_id);
 			decode_que.pop_front();
@@ -203,54 +218,66 @@ void B::process() {
 
 	if (!encode_que.empty()) {
 		int queue_id = encode_que.front();
-		std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " process encode data: " << queue_id << std::endl;
-		int last_bank_id = -1;
-		int last_slice_id = -1;
-		
-		for (int num = 0; num < 16; num++) {
-			// 挑选bank_id,优先级为bank_deep_vec较大的bank_id，且不在读的bank
-			int bank_id = 0;
-			int max_deep = 0;
-			for (int i = bank_id; i < bank_num; i++) {
-				if (read_bank_id_vec[i] == 1) {
-					continue;
-				}
+		if (write_cnt > 0) {
+			write_cnt--;
+			std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " write wait counter: " << write_cnt << std::endl;
+			if (write_cnt == 0) {
+				write_cnt = 1;
 
-				if (bank_deep_vec[i] > max_deep) {
-					max_deep = bank_deep_vec[i];
-					bank_id = i;
-				}
-			}
+				std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " process encode data: " << queue_id << std::endl;
 
-			for (int j = 0; j < slice_num; j++) {
-				if (encode_vec[bank_id][j].valid == 0) {
-					encode_vec[bank_id][j].valid = 1;
-					encode_vec[bank_id][j].bank_id = bank_id;
-					encode_vec[bank_id][j].slice_id = j;
-					encode_vec[bank_id][j].next_bank_id = -1;
-					encode_vec[bank_id][j].next_slice_id = -1;
-					encode_vec[bank_id][j].queue_id = queue_id;
-
-					if (last_bank_id == -1 && last_slice_id == -1) {
-						queue_map[queue_id] = {bank_id, j, delay};
+				// 挑选bank_id,优先级为bank_deep_vec较大的bank_id，且不在读的bank
+				int bank_id = 0;
+				int max_deep = 0;
+				for (int i = bank_id; i < bank_num; i++) {
+					if (read_bank_id_vec[i] == 1) {
+						continue;
 					}
 
-					if ((last_bank_id != -1) && (last_slice_id != -1)) {
-						encode_vec[last_bank_id][last_slice_id].next_bank_id = bank_id;
-						encode_vec[last_bank_id][last_slice_id].next_slice_id = j;
+					if (bank_deep_vec[i] > max_deep) {
+						max_deep = bank_deep_vec[i];
+						bank_id = i;
 					}
-					last_bank_id = bank_id;
-					last_slice_id = j;
-					
-					bank_deep_vec[bank_id]--;
-					max_deep = bank_deep_vec[bank_id];
-					std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " write allocate bank: " << bank_id << ", slice: " << j << std::endl;
-					break;
+				}
+
+				for (int j = 0; j < slice_num; j++) {
+					if (encode_vec[bank_id][j].valid == 0) {
+						encode_vec[bank_id][j].valid = 1;
+						encode_vec[bank_id][j].bank_id = bank_id;
+						encode_vec[bank_id][j].slice_id = j;
+						encode_vec[bank_id][j].next_bank_id = -1;
+						encode_vec[bank_id][j].next_slice_id = -1;
+						encode_vec[bank_id][j].queue_id = queue_id;
+
+						if (last_bank_id == -1 && last_slice_id == -1) {
+							queue_map[queue_id] = {bank_id, j, delay};
+						}
+
+						if ((last_bank_id != -1) && (last_slice_id != -1)) {
+							encode_vec[last_bank_id][last_slice_id].next_bank_id = bank_id;
+							encode_vec[last_bank_id][last_slice_id].next_slice_id = j;
+						}
+						last_bank_id = bank_id;
+						last_slice_id = j;
+						
+						bank_deep_vec[bank_id]--;
+						max_deep = bank_deep_vec[bank_id];
+						std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " write allocate bank: " << bank_id << ", slice: " << j << std::endl;
+						break;
+					}
+				}
+
+				write_slice_num--;
+				if (write_slice_num == 0) {
+					write_slice_num = 16;
+					encode_que.pop_front();
+					decode_que.push_back(queue_id);
+					last_bank_id = -1;
+					last_slice_id = -1;
 				}
 			}
 		}
-
-		encode_que.pop_front();
+		
 	}
 
 	for (int i = 0; i < bank_num; i++) {
@@ -266,7 +293,6 @@ tlm_sync_enum B::rcv_from(tlm_generic_payload& pl, tlm_phase& phase, sc_time& de
 		std::cout << "time: " << sc_time_stamp() << " B encode queue: " << queue_id << std::endl;
 		encode_que.push_back(queue_id);
 	} else if (addr == 0x2000) {
-		decode_que.push_back(queue_id);
 		std::cout << "time: " << sc_time_stamp() << " B decode queue: " << queue_id << std::endl;
 	}
 	return TLM_COMPLETED;
