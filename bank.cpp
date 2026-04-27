@@ -71,7 +71,9 @@ void A::process() {
 struct bank {
 	int bank_id;
 	int slice_num;
-	int read;
+	int read_conflict_flag;
+	int read_conflict_cnt;
+	int read_cnt;
 };
 
 struct slice {
@@ -93,7 +95,7 @@ struct queue_info {
 class B : public sc_module {
 	public:
 		SC_HAS_PROCESS(B);
-		B(sc_module_name name) : sc_module(name), bank_num(4), slice_num(128), decode_link_num(5), delay(4), write_cnt(1), write_slice_num(8) {
+		B(sc_module_name name) : sc_module(name), bank_num(2), slice_num(128), decode_link_num(4), delay(4), write_cnt(1), write_slice_num(16) {
 			rx.register_nb_transport_fw(this, &B::rcv_from);
 			SC_METHOD(process);
 			sensitive << m_clk.pos();
@@ -101,9 +103,17 @@ class B : public sc_module {
 			encode_vec.resize(bank_num);
 			bank_deep_vec.resize(bank_num);
 			read_bank_id_vec.resize(bank_num, 0);
+			bank_conflict_vec.resize(bank_num);
+
 			for(int i = 0; i < bank_num; i++) {
 				encode_vec[i].resize(slice_num);
 				bank_deep_vec[i] = slice_num;
+				bank_conflict_vec[i].bank_id = i;
+				bank_conflict_vec[i].slice_num = slice_num;
+				bank_conflict_vec[i].read_conflict_flag = 0;
+				bank_conflict_vec[i].read_conflict_cnt = 0;
+				bank_conflict_vec[i].read_cnt = 0;
+
 				for (int j = 0; j < slice_num; j++) {
 					encode_vec[i][j].valid = 0;
 					encode_vec[i][j].bank_id = -1;
@@ -141,6 +151,7 @@ class B : public sc_module {
 		std::map<int, queue_info>	queue_map;
 		std::list<int> decode_que_head;
 		std::vector<int> read_bank_id_vec;
+		std::vector<bank> bank_conflict_vec;
 
 		int write_cnt;
 		int write_slice_num;
@@ -198,10 +209,12 @@ void B::process() {
 		int bank_id = bank_slice.bank_id;
 		int slice_id = bank_slice.slice_id;
 		read_bank_id = bank_id;
+		bank_conflict_vec[read_bank_id].read_cnt++;
 
 		if (read_bank_id_vec[read_bank_id] == 1) {
 			std::cout << "time: " << sc_time_stamp() << " B queue:" << queue_id << " read conflict on bank: " << read_bank_id << std::endl;
 			++it;
+			bank_conflict_vec[read_bank_id].read_conflict_cnt++;
 			bank_slice.counter = 1;
 			continue;
 		}
@@ -328,6 +341,12 @@ class TOP : public sc_module {
 			a.m_clk(m_clk);
 			b.m_clk(m_clk);
 			a.tx.bind(b.rx);
+		}
+		~TOP() {
+			for (int i = 0; i < b.bank_num; i++) {
+				std::cout << "bank: " << b.bank_conflict_vec[i].bank_id << " read conflict cnt: " <<
+					b.bank_conflict_vec[i].read_conflict_cnt << ", read cnt: " << b.bank_conflict_vec[i].read_cnt << std::endl;				
+			}
 		}
 
 	public:
