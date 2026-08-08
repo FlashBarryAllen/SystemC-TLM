@@ -39,7 +39,8 @@ link_directories("${CMAKE_SOURCE_DIR}/libs/tinyxml2/")
 #set(CMAKE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS} -fsanitize=address")
 
 add_executable(${PROJECT_NAME} 
-    ${CMAKE_SOURCE_DIR}/main.cpp
+    #${CMAKE_SOURCE_DIR}/main.cpp
+    ${CMAKE_SOURCE_DIR}/sc_fifo_test.cpp
     ${CMAKE_SOURCE_DIR}/test/test.cpp
     ${CMAKE_SOURCE_DIR}/test/peq_test.cpp
     ${CMAKE_SOURCE_DIR}/test/pcie_scan.cpp
